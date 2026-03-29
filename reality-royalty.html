@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reality Royalty Award | The ARTAS — American Reality Television Awards</title>
+<meta name="description" content="The Reality Royalty Award is The ARTAS equivalent of 'Best Actor' — honoring the most impactful stars in unscripted television since 2013.">
+<meta property="og:title" content="Reality Royalty Award — American Reality Television Awards">
+<meta property="og:description" content="Honoring the most impactful reality TV stars since 2013. The ARTAS lets the public decide who reigns supreme each year.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #08080A;
+  --bg-surface: #0E0E12;
+  --bg-card: #141418;
+  --bg-card-hover: #1A1A20;
+  --rose: #C1897A;
+  --rose-light: #D4A498;
+  --rose-pale: #E0BEB6;
+  --rose-dim: #8B6259;
+  --rose-glow: rgba(193, 137, 122, 0.15);
+  --gold: #D4A853;
+  --gold-light: #E8C97A;
+  --gold-dim: #8B7340;
+  --gold-glow: rgba(212, 168, 83, 0.15);
+  --text-primary: #F2F2F2;
+  --text-secondary: #B0B0B8;
+  --text-muted: #6E6E78;
+  --border: #1F1F26;
+  --border-light: #2A2A34;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { font-family: var(--font-body); color: var(--text-primary); background: var(--bg-primary); line-height: 1.6; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--rose); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--rose-light); }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 clamp(1.5rem, 4vw, 3rem); height: 72px; display: flex; align-items: center; justify-content: space-between; transition: background var(--transition-smooth), box-shadow var(--transition-smooth); }
+.nav.scrolled { background: rgba(8,8,10,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(193,137,122,0.12); }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo img { height: 38px; width: auto; }
+.nav-logo span { font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: clamp(1.2rem, 2.5vw, 2.2rem); list-style: none; }
+.nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); padding: 4px 0; position: relative; transition: color var(--transition-fast); text-decoration: none; }
+.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--rose); transition: width var(--transition-smooth); }
+.nav-links a:hover { color: var(--rose); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--rose); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta { font-size: 0.68rem !important; font-weight: 600 !important; color: var(--bg-primary) !important; background: var(--rose); padding: 8px 18px !important; border-radius: 2px; transition: background var(--transition-fast), transform var(--transition-fast) !important; }
+.nav-cta:hover { background: var(--rose-light) !important; color: var(--bg-primary) !important; transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: all 0.3s; }
+
+/* PAGE HERO */
+.page-hero { position: relative; min-height: 72vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 1.5rem 90px; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero-bg::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(193,137,122,0.1) 0%, transparent 55%), radial-gradient(ellipse at 50% 100%, rgba(212,168,83,0.06) 0%, transparent 50%); z-index: 0; }
+.page-hero-bg::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='0.6' fill='%238B6259' opacity='0.4'/%3E%3C/svg%3E"); z-index: 0; }
+.hero-crown { position: absolute; top: 0; left: 50%; width: 1px; height: 50%; background: linear-gradient(to bottom, transparent, rgba(193,137,122,0.2), transparent); transform: translateX(-50%); }
+.page-hero-particles { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.sparkle { position: absolute; width: 3px; height: 3px; background: var(--gold); border-radius: 50%; animation: sparkle-float linear infinite; opacity: 0; }
+@keyframes sparkle-float { 0% { opacity: 0; transform: translateY(100vh) scale(0); } 10% { opacity: 0.8; } 90% { opacity: 0.8; } 100% { opacity: 0; transform: translateY(-10vh) scale(1); } }
+.page-hero-content { position: relative; z-index: 2; max-width: 800px; }
+.page-hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 24px; border: 1px solid rgba(193,137,122,0.3); border-radius: 2px; margin-bottom: 1.5rem; background: rgba(193,137,122,0.06); animation: badge-pulse 3s ease-in-out infinite; }
+@keyframes badge-pulse { 0%, 100% { box-shadow: 0 0 0 rgba(193,137,122,0); } 50% { box-shadow: 0 0 24px rgba(193,137,122,0.15); } }
+.page-hero-badge span { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose-light); }
+.page-hero-crown-icon { font-size: 1.1rem; }
+.page-hero-title { font-family: var(--font-display); font-size: clamp(2.8rem, 2rem + 3.5vw, 5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 1.25rem; color: var(--text-primary); }
+.page-hero-title em { font-style: italic; color: var(--rose); }
+.hero-divider { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); margin: 1.5rem auto; }
+.page-hero-subtitle { font-size: clamp(0.9rem, 0.8rem + 0.5vw, 1.05rem); color: var(--text-secondary); font-weight: 300; max-width: 580px; margin: 0 auto; line-height: 1.8; }
+
+/* SECTIONS */
+.section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem); }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.section-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.75rem; display: block; }
+.section-label.gold { color: var(--gold); }
+.section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 1rem + 3vw, 3rem); font-weight: 700; line-height: 1.1; }
+.section-title em { font-style: italic; color: var(--rose); }
+.section-title em.gold { color: var(--gold); }
+.section-divider { width: 60px; height: 1px; background: var(--rose-dim); margin: 1rem auto 0; }
+.section-subtitle { font-size: 0.95rem; color: var(--text-secondary); font-weight: 300; max-width: 620px; margin: 1rem auto 0; line-height: 1.8; }
+
+/* ABOUT AWARD */
+.about-award { background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.about-award-inner { max-width: 860px; margin: 0 auto; }
+.award-quote-block { position: relative; padding: 3rem 3.5rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; border-left: 3px solid var(--gold); }
+.award-quote-block::before { content: '\201C'; font-family: var(--font-display); font-size: 10rem; line-height: 0; color: var(--gold); opacity: 0.08; position: absolute; top: 5rem; left: 1.5rem; pointer-events: none; }
+.award-quote-text { font-family: var(--font-display); font-size: clamp(1rem, 0.85rem + 0.8vw, 1.3rem); font-style: italic; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.25rem; }
+.award-quote-text strong { color: var(--text-primary); font-style: normal; font-weight: 600; }
+.award-since { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: rgba(212,168,83,0.08); border: 1px solid rgba(212,168,83,0.2); border-radius: 2px; }
+.award-since span { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); }
+
+/* PRESTIGE TIMELINE */
+.timeline-section { background: var(--bg-primary); }
+.prestige-timeline { max-width: 1000px; margin: 0 auto; position: relative; }
+.prestige-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--gold-dim) 5%, var(--gold-dim) 95%, transparent); transform: translateX(-50%); pointer-events: none; }
+
+.prestige-item { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 0; margin-bottom: 3rem; align-items: start; }
+.prestige-item:last-child { margin-bottom: 0; }
+
+/* Left card */
+.prestige-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem 2rem; position: relative; transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth); }
+.prestige-card:hover { border-color: var(--rose-dim); box-shadow: 0 8px 40px rgba(193,137,122,0.08); }
+.prestige-card.gold-card { border-color: var(--border); }
+.prestige-card.gold-card:hover { border-color: var(--gold-dim); box-shadow: 0 8px 40px rgba(212,168,83,0.08); }
+.prestige-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--rose-dim), transparent); border-radius: 4px 4px 0 0; }
+.prestige-card.gold-card::before { background: linear-gradient(90deg, var(--gold-dim), transparent); }
+.prestige-card.right-card::before { background: linear-gradient(270deg, var(--rose-dim), transparent); }
+.prestige-card.right-card.gold-card::before { background: linear-gradient(270deg, var(--gold-dim), transparent); }
+
+.prestige-empty { /* nothing */ }
+
+/* Year node */
+.prestige-node { display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 1.5rem; }
+.prestige-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--gold); border: 2px solid var(--bg-primary); box-shadow: 0 0 0 3px rgba(212,168,83,0.25); flex-shrink: 0; }
+.prestige-year-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); margin-top: 4px; }
+
+.prestige-annual { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; display: block; }
+.prestige-name { font-family: var(--font-display); font-size: clamp(1.1rem, 0.9rem + 0.6vw, 1.4rem); font-weight: 700; color: var(--gold); line-height: 1.15; margin-bottom: 0.3rem; }
+.prestige-crown-label { display: inline-flex; align-items: center; gap: 5px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose-light); background: rgba(193,137,122,0.1); border: 1px solid rgba(193,137,122,0.2); border-radius: 2px; padding: 3px 8px; margin-bottom: 0.5rem; }
+.prestige-show { font-size: 0.82rem; color: var(--rose); font-weight: 500; letter-spacing: 0.02em; margin-bottom: 0.6rem; }
+.prestige-note { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6; font-style: italic; }
+
+/* Dual winner layout */
+.prestige-dual { display: flex; flex-direction: column; gap: 0.75rem; }
+.prestige-dual-item { padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+.prestige-dual-item:last-child { padding-bottom: 0; border-bottom: none; }
+
+/* SPECIAL — solo centered entry */
+.prestige-item.solo { display: flex; justify-content: center; margin-bottom: 3rem; position: relative; }
+.prestige-item.solo .prestige-solo-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 1.75rem 2.5rem; max-width: 420px; width: 100%; text-align: center; position: relative; }
+.prestige-item.solo .prestige-solo-card::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); border-radius: 4px 4px 0 0; }
+.prestige-item.solo .prestige-solo-node { position: absolute; left: 50%; top: 1.75rem; transform: translateX(-50%); width: 14px; height: 14px; border-radius: 50%; background: var(--gold); border: 2px solid var(--bg-primary); box-shadow: 0 0 0 3px rgba(212,168,83,0.25); }
+
+/* 12TH ANNUAL PREVIEW */
+.reveal-section { background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.reveal-box { max-width: 680px; margin: 0 auto; text-align: center; padding: 3rem 2rem; }
+.reveal-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+.reveal-year-badge { display: inline-flex; align-items: center; gap: 10px; padding: 10px 28px; border: 1px solid rgba(193,137,122,0.3); border-radius: 2px; margin-bottom: 1.5rem; background: rgba(193,137,122,0.06); animation: badge-pulse 3s ease-in-out infinite; }
+.reveal-year-badge span { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose-light); }
+.reveal-title { font-family: var(--font-display); font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); font-weight: 700; line-height: 1.15; margin-bottom: 1rem; }
+.reveal-title em { font-style: italic; color: var(--rose); }
+.reveal-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; }
+.reveal-follow { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border: 1px solid var(--rose-dim); border-radius: 2px; color: var(--rose-light); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; transition: all var(--transition-fast); }
+.reveal-follow:hover { background: var(--rose-glow); border-color: var(--rose); color: var(--rose-light); }
+
+/* SOCIAL FOLLOW */
+.social-follow { background: var(--bg-primary); text-align: center; }
+.social-follow-inner { max-width: 600px; margin: 0 auto; }
+.social-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 2rem; }
+.social-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--border-light); border-radius: 50px; color: var(--text-secondary); font-family: var(--font-body); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; transition: all var(--transition-fast); text-decoration: none; }
+.social-pill:hover { border-color: var(--rose); color: var(--rose); background: var(--rose-glow); transform: translateY(-2px); }
+
+/* FOOTER */
+.footer { padding: 2.5rem clamp(1.5rem, 4vw, 3rem); border-top: 1px solid var(--border); background: var(--bg-surface); }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand img { height: 26px; opacity: 0.5; }
+.footer-brand span { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; }
+.footer-links { display: flex; gap: 1.8rem; list-style: none; }
+.footer-links a { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; transition: color var(--transition-fast); }
+.footer-links a:hover { color: var(--rose); }
+.footer-copy { width: 100%; text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: 1rem; font-size: 0.68rem; color: var(--text-muted); line-height: 1.7; }
+.footer-copy .producers { color: var(--text-secondary); font-weight: 500; }
+.social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
+.social-links a { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid var(--border-light); border-radius: 50%; color: var(--text-muted); transition: all var(--transition-fast); }
+.social-links a:hover { border-color: var(--rose); color: var(--rose); transform: translateY(-2px); }
+.social-links svg { width: 15px; height: 15px; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* MOBILE OVERLAY */
+.mobile-overlay { position: fixed; inset: 0; z-index: 99; background: rgba(8,8,10,0.98); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.mobile-overlay.open { opacity: 1; pointer-events: all; }
+.mobile-overlay a { font-family: var(--font-display); font-size: 1.4rem; color: var(--text-primary); }
+.mobile-overlay a:hover { color: var(--rose); }
+.mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .prestige-timeline::before { left: 28px; transform: none; }
+  .prestige-item { display: block; padding-left: 64px; position: relative; }
+  .prestige-node { position: absolute; left: 16px; top: 1.5rem; flex-direction: row; writing-mode: unset; }
+  .prestige-year-label { writing-mode: unset; transform: none; font-size: 0.55rem; margin-top: 0; }
+  .prestige-empty { display: none; }
+  .prestige-card { margin-bottom: 1rem; }
+  .prestige-item.solo { display: block; padding-left: 64px; }
+  .prestige-item.solo .prestige-solo-node { left: 16px; transform: none; }
+  .prestige-item.solo .prestige-solo-card { max-width: 100%; text-align: left; }
+  .award-quote-block { padding: 1.75rem 1.5rem; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .social-pill span { display: none; }
+  .social-pill { padding: 10px; border-radius: 50%; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/12th-logo-A-transparent.png" alt="ARTAS">
+    <span>ARTAS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="winners.html">12th Annual Winners</a></li>
+    <li><a href="nominees.html">Nominees</a></li>
+    <li><a href="past-winners.html">Past Winners</a></li>
+    <li><a href="awards-show.html">Awards Show</a></li>
+    <li><a href="submit.html">Submit Your Show</a></li>
+    <li><a href="the-buzz.html">The Buzz</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="gallery.html" class="nav-cta">Gallery</a></li>
+  </ul>
+  <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="winners.html" onclick="closeMobile()">12th Annual Winners</a>
+  <a href="nominees.html" onclick="closeMobile()">Nominees</a>
+  <a href="past-winners.html" onclick="closeMobile()">Past Winners</a>
+  <a href="awards-show.html" onclick="closeMobile()">Awards Show</a>
+  <a href="submit.html" onclick="closeMobile()">Submit Your Show</a>
+  <a href="the-buzz.html" onclick="closeMobile()">The Buzz</a>
+  <a href="about.html" onclick="closeMobile()">About Us</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <div class="hero-crown"></div>
+  </div>
+  <div class="page-hero-particles" id="particles"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-badge">
+      <span class="page-hero-crown-icon">&#9813;</span>
+      <span>The ARTAS Prestige Award</span>
+    </div>
+    <h1 class="page-hero-title">Reality <em>Royalty</em><br>Award</h1>
+    <div class="hero-divider"></div>
+    <p class="page-hero-subtitle">The ARTAS equivalent of &ldquo;Best Actor&rdquo; &mdash; honoring the most impactful stars in unscripted television since 2013.</p>
+  </div>
+</section>
+
+<!-- ABOUT THE AWARD -->
+<section class="section about-award">
+  <div class="about-award-inner">
+    <div class="section-header reveal">
+      <span class="section-label gold">The Award</span>
+      <h2 class="section-title">What Is the <em class="gold">Royalty</em> Award?</h2>
+      <div class="section-divider" style="background: var(--gold-dim);"></div>
+    </div>
+    <div class="award-quote-block reveal">
+      <p class="award-quote-text">
+        Whereas scripted shows award &ldquo;Best Actor,&rdquo; <strong>the Reality Royalty Award recognizes someone who had a great impact on unscripted television.</strong> Since 2013, The ARTAS have let the public decide who reigns supreme each year &mdash; the Queen, the King, or both. The honoree is chosen entirely by public vote, making this the most democratic prestige award in television.
+      </p>
+      <div class="award-since">
+        <span>&#9733;&ensp;Awarded Annually Since 2013</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESTIGE TIMELINE -->
+<section class="section timeline-section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-label">Hall of Prestige</span>
+      <h2 class="section-title">The <em>Royalty</em> Timeline</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Every crowned Queen and King since the inaugural award.</p>
+    </div>
+
+    <div class="prestige-timeline">
+
+      <!-- 1st Annual 2013 -->
+      <div class="prestige-item reveal">
+        <div class="prestige-card">
+          <div class="prestige-dual">
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9813; Queen</span>
+              <div class="prestige-name">Khloé Kardashian</div>
+              <div class="prestige-show">Keeping Up with the Kardashians</div>
+              <p class="prestige-note">The fan favorite Kardashian sister brought heart and humor to the world&rsquo;s most-watched family.</p>
+            </div>
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9812; King</span>
+              <div class="prestige-name">Si Robertson</div>
+              <div class="prestige-show">Duck Dynasty</div>
+              <p class="prestige-note">The lovable Uncle Si became a cultural phenomenon and one of cable TV&rsquo;s most beloved personalities.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prestige-node">
+          <div class="prestige-dot"></div>
+          <span class="prestige-year-label">1st Annual &bull; 2013</span>
+        </div>
+        <div class="prestige-empty"></div>
+      </div>
+
+      <!-- 2nd Annual 2014 -->
+      <div class="prestige-item reveal">
+        <div class="prestige-empty"></div>
+        <div class="prestige-node">
+          <div class="prestige-dot"></div>
+          <span class="prestige-year-label">2nd Annual &bull; 2014</span>
+        </div>
+        <div class="prestige-card right-card">
+          <div class="prestige-dual">
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9813; Queen</span>
+              <div class="prestige-name">Lisa Vanderpump</div>
+              <div class="prestige-show">Real Housewives of Beverly Hills</div>
+              <p class="prestige-note">The empress of Beverly Hills made swans and rosé synonymous with unscripted royalty.</p>
+            </div>
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9812; King</span>
+              <div class="prestige-name">Blake Shelton</div>
+              <div class="prestige-show">The Voice</div>
+              <p class="prestige-note">Blake&rsquo;s first Royalty win, a testament to his magnetic presence and coaching genius.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3rd Annual 2015 -->
+      <div class="prestige-item reveal">
+        <div class="prestige-card">
+          <div class="prestige-dual">
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9813; Queen</span>
+              <div class="prestige-name">Leah Remini</div>
+              <div class="prestige-show">Scientology and the Aftermath</div>
+              <p class="prestige-note">A fearless investigative documentary performance that changed the conversation in unscripted TV.</p>
+            </div>
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9812; King</span>
+              <div class="prestige-name">Blake Shelton</div>
+              <div class="prestige-show">The Voice</div>
+              <p class="prestige-note">A back-to-back Royalty win — Blake became the first repeat King in ARTAS history.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prestige-node">
+          <div class="prestige-dot"></div>
+          <span class="prestige-year-label">3rd Annual &bull; 2015</span>
+        </div>
+        <div class="prestige-empty"></div>
+      </div>
+
+      <!-- 4th Annual 2016 -->
+      <div class="prestige-item reveal">
+        <div class="prestige-empty"></div>
+        <div class="prestige-node">
+          <div class="prestige-dot"></div>
+          <span class="prestige-year-label">4th Annual &bull; 2016</span>
+        </div>
+        <div class="prestige-card right-card">
+          <div class="prestige-dual">
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9813; Queen</span>
+              <div class="prestige-name">Vicki Gunvalson</div>
+              <div class="prestige-show">Real Housewives of Orange County</div>
+              <p class="prestige-note">The OG of the OC, Vicki&rsquo;s passionate presence defined a generation of Housewives television.</p>
+            </div>
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9812; King</span>
+              <div class="prestige-name">Todd Chrisley</div>
+              <div class="prestige-show">Chrisley Knows Best</div>
+              <p class="prestige-note">Todd&rsquo;s razor-sharp wit and larger-than-life personality made his family show appointment viewing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5th Annual 2018 — SOLO -->
+      <div class="prestige-item solo reveal">
+        <div class="prestige-solo-node"></div>
+        <div class="prestige-solo-card">
+          <span class="prestige-annual">5th Annual &bull; 2018</span>
+          <div class="prestige-name">Snoop Dogg</div>
+          <div class="prestige-show">Martha &amp; Snoop&rsquo;s Potluck Dinner Party</div>
+          <p class="prestige-note">An unexpected pairing that became television gold — Snoop&rsquo;s irreplaceable charm earned him the undisputed Royalty crown.</p>
+        </div>
+      </div>
+
+      <!-- 6th Annual 2019 — SOLO -->
+      <div class="prestige-item solo reveal">
+        <div class="prestige-solo-node"></div>
+        <div class="prestige-solo-card">
+          <span class="prestige-annual">6th Annual &bull; 2019</span>
+          <div class="prestige-name">Tamar Braxton</div>
+          <div class="prestige-show">Celebrity Big Brother</div>
+          <p class="prestige-note">Tamar brought raw authenticity and unforgettable moments to the Celebrity Big Brother house, winning the public&rsquo;s heart outright.</p>
+        </div>
+      </div>
+
+      <!-- 7th Annual 2020 -->
+      <div class="prestige-item reveal">
+        <div class="prestige-card">
+          <div class="prestige-dual">
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9813; Queen</span>
+              <div class="prestige-name">Jennifer Lopez</div>
+              <div class="prestige-show">World of Dance</div>
+              <p class="prestige-note">J.Lo elevated the dance competition format with star power, precision judging, and unmatched stage presence.</p>
+            </div>
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9812; King</span>
+              <div class="prestige-name">Derek Hough</div>
+              <div class="prestige-show">Dancing With The Stars</div>
+              <p class="prestige-note">The most decorated professional on DWTS history, Derek&rsquo;s artistry and mentorship made him a unanimous King.</p>
+            </div>
+          </div>
+        </div>
+        <div class="prestige-node">
+          <div class="prestige-dot"></div>
+          <span class="prestige-year-label">7th Annual &bull; 2020</span>
+        </div>
+        <div class="prestige-empty"></div>
+      </div>
+
+      <!-- 8th Annual 2021 — SOLO -->
+      <div class="prestige-item solo reveal">
+        <div class="prestige-solo-node"></div>
+        <div class="prestige-solo-card">
+          <span class="prestige-annual">8th Annual &bull; 2021</span>
+          <div class="prestige-name">Dr. Sandra Lee</div>
+          <div class="prestige-show">Dr. Pimple Popper</div>
+          <p class="prestige-note">Dr. Lee&rsquo;s compassionate bedside manner and fascinating cases made her the most unexpectedly essential star on unscripted television.</p>
+        </div>
+      </div>
+
+      <!-- 9th Annual 2022 — SOLO -->
+      <div class="prestige-item solo reveal">
+        <div class="prestige-solo-node"></div>
+        <div class="prestige-solo-card">
+          <span class="prestige-annual">9th Annual &bull; 2022</span>
+          <div class="prestige-name">Darcey &amp; Stacey Silva</div>
+          <div class="prestige-show">Darcey &amp; Stacey (TLC)</div>
+          <p class="prestige-note">The Silva twins commanded the screen with their dynamic bond, globetrotting drama, and signature style — a unanimous public choice.</p>
+        </div>
+      </div>
+
+      <!-- 10th Annual 2023 — SOLO -->
+      <div class="prestige-item solo reveal">
+        <div class="prestige-solo-node"></div>
+        <div class="prestige-solo-card">
+          <span class="prestige-annual">10th Annual &bull; 2023</span>
+          <div class="prestige-name">Selena Gomez</div>
+          <div class="prestige-show">Selena + Chef</div>
+          <p class="prestige-note">Selena&rsquo;s warmth, vulnerability, and genuine love for learning made Selena + Chef one of the most joyful shows in recent memory.</p>
+        </div>
+      </div>
+
+      <!-- 11th Annual 2024 -->
+      <div class="prestige-item reveal">
+        <div class="prestige-empty"></div>
+        <div class="prestige-node">
+          <div class="prestige-dot" style="background: var(--rose); box-shadow: 0 0 0 3px rgba(193,137,122,0.25);"></div>
+          <span class="prestige-year-label">11th Annual &bull; 2024</span>
+        </div>
+        <div class="prestige-card right-card gold-card">
+          <div class="prestige-dual">
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9813; Queen</span>
+              <div class="prestige-name">Melody Rogers</div>
+              <div class="prestige-show">Love &amp; Marriage: Huntsville</div>
+              <p class="prestige-note">Melody&rsquo;s grace under fire and unwavering authenticity made her the most talked-about star of the year.</p>
+            </div>
+            <div class="prestige-dual-item">
+              <span class="prestige-crown-label">&#9812; King</span>
+              <div class="prestige-name">Pauly D</div>
+              <div class="prestige-show">Jersey Shore Family Vacation</div>
+              <p class="prestige-note">A decade-plus on reality TV and Pauly D remains its most energetic, beloved presence. The public has never stopped voting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 12TH ANNUAL REVEAL -->
+<section class="section reveal-section">
+  <div class="reveal-box reveal">
+    <span class="reveal-icon">&#9813;</span>
+    <div class="reveal-year-badge">
+      <span>&#9733;&ensp;Coming April 2026</span>
+    </div>
+    <h2 class="reveal-title">The 12th Annual <em>Reality Royalty</em></h2>
+    <p class="reveal-text">The 12th Annual Reality Royalty will be announced in April 2026. Who will claim the crown this year? Follow along as The ARTAS lets the public decide who reigns supreme in unscripted television.</p>
+    <a href="https://twitter.com/realityawardstv" target="_blank" class="reveal-follow">Follow @RealityAwardsTV for the Reveal</a>
+  </div>
+</section>
+
+<!-- SOCIAL FOLLOW -->
+<section class="section social-follow">
+  <div class="social-follow-inner reveal">
+    <span class="section-label">Follow Along</span>
+    <h2 class="section-title">Follow The <em>ARTAS</em></h2>
+    <div style="width: 60px; height: 1px; background: var(--rose-dim); margin: 1rem auto 0;"></div>
+    <p class="section-subtitle" style="margin-top: 1rem;">Winners announced throughout April. Follow us so you don&rsquo;t miss a single reveal.</p>
+    <div class="social-pills">
+      <a href="https://www.instagram.com/realityawardstv/" target="_blank" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.tiktok.com/@realityawardstv" target="_blank" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.28 8.28 0 0 0 4.84 1.55V6.85a4.85 4.85 0 0 1-1.08-.16z"/></svg>
+        <span>TikTok</span>
+      </a>
+      <a href="https://twitter.com/realityawardstv" target="_blank" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>X / Twitter</span>
+      </a>
+      <a href="https://www.facebook.com/RealityTVAwards/" target="_blank" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.youtube.com/realityawardstv" target="_blank" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon points="9.545,15.568 15.818,12 9.545,8.432" fill="#fff"/></svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/12th-logo-A-transparent.png" alt="ARTAS">
+      <span>American Reality Television Awards</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="nominees.html">Nominees</a></li>
+      <li><a href="past-winners.html">Past Winners</a></li>
+      <li><a href="awards-show.html">Awards Show</a></li>
+      <li><a href="submit.html">Submit</a></li>
+      <li><a href="the-buzz.html">The Buzz</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+    <div class="footer-copy">
+      <div class="social-links" style="margin-bottom: 1rem;">
+        <a href="https://www.instagram.com/realityawardstv/" aria-label="Instagram" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.tiktok.com/@realityawardstv" aria-label="TikTok" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.28 8.28 0 0 0 4.84 1.55V6.85a4.85 4.85 0 0 1-1.08-.16z"/></svg></a>
+        <a href="https://twitter.com/realityawardstv" aria-label="X" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.facebook.com/RealityTVAwards/" aria-label="Facebook" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.youtube.com/realityawardstv" aria-label="YouTube" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon points="9.545,15.568 15.818,12 9.545,8.432" fill="#fff"/></svg></a>
+      </div>
+      <p>&copy; 2026 American Reality Television Awards (The ARTAS&reg;). All rights reserved.</p>
+      <p class="producers">Executive Producers: Kristen Moss &amp; Andrew Ward</p>
+      <p style="margin-top: 6px; font-size: 0.7rem;">@RealityAwardsTV &middot; #TheARTAS</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+mobileToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+function closeMobile() { mobileMenu.classList.remove('open'); }
+
+(function() {
+  const c = document.getElementById('particles');
+  for (let i = 0; i < 22; i++) {
+    const s = document.createElement('div'); s.className = 'sparkle';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.animationDuration = (7 + Math.random() * 10) + 's';
+    s.style.animationDelay = Math.random() * 10 + 's';
+    s.style.width = s.style.height = (1.5 + Math.random() * 2.5) + 'px';
+    s.style.background = Math.random() > 0.5 ? 'var(--gold)' : 'var(--rose)';
+    c.appendChild(s);
+  }
+})();
+
+(function() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+})();
+</script>
+</body>
+</html>

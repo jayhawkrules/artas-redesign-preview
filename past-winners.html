@@ -109,6 +109,17 @@ a:hover { color: var(--rose-light); }
 .hero-stat-value { font-family: var(--font-display); font-size: clamp(1.8rem, 1.5rem + 1vw, 2.5rem); font-weight: 700; color: var(--gold); line-height: 1; }
 .hero-stat-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.4rem; }
 
+/* ─── SEARCH BAR ─── */
+.search-wrapper { max-width: 500px; margin: 0 auto 2rem; position: relative; }
+.search-input { width: 100%; padding: 14px 20px 14px 48px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; color: var(--text-primary); font-family: var(--font-body); font-size: 0.9rem; outline: none; transition: border-color 0.3s; }
+.search-input:focus { border-color: var(--rose); }
+.search-input::placeholder { color: var(--text-muted); }
+.search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+.search-count { text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; }
+.search-bar-outer { max-width: 1200px; margin: 0 auto; padding: 2rem clamp(1.5rem, 4vw, 3rem) 0; }
+.no-results-msg { text-align: center; padding: 4rem 2rem; color: var(--text-muted); font-size: 0.95rem; display: none; }
+.no-results-msg strong { display: block; font-family: var(--font-display); font-size: 1.4rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+
 /* ─── YEAR NAV (sticky) ─── */
 .year-nav-wrapper { position: sticky; top: 72px; z-index: 90; background: rgba(8,8,10,0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: box-shadow var(--transition-smooth); }
 .year-nav-wrapper.elevated { box-shadow: 0 4px 30px rgba(0,0,0,0.6); }
@@ -300,9 +311,11 @@ a:hover { color: var(--rose-light); }
     <span>ARTAS</span>
   </a>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="winners.html">12th Annual Winners</a></li>
     <li><a href="nominees.html">Nominees</a></li>
     <li><a href="past-winners.html" class="active">Past Winners</a></li>
-      <li><a href="awards-show.html">Awards Show</a></li>
+    <li><a href="awards-show.html">Awards Show</a></li>
     <li><a href="submit.html">Submit Your Show</a></li>
     <li><a href="the-buzz.html">The Buzz</a></li>
     <li><a href="about.html">About Us</a></li>
@@ -312,7 +325,9 @@ a:hover { color: var(--rose-light); }
 </nav>
 
 <div class="mobile-overlay" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+<button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="winners.html">12th Annual Winners</a>
   <a href="nominees.html">Nominees</a>
   <a href="past-winners.html">Past Winners</a>
   <a href="awards-show.html">Awards Show</a>
@@ -404,6 +419,25 @@ a:hover { color: var(--rose-light); }
     </a>
   </nav>
 </div>
+
+<!-- SEARCH BAR -->
+<div class="search-bar-outer">
+  <div class="search-wrapper">
+    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input
+      type="search"
+      id="winnersSearch"
+      class="search-input"
+      placeholder="Search by show, winner, or category…"
+      aria-label="Search winners"
+    />
+    <p class="search-count" id="winnersSearchCount" aria-live="polite"></p>
+  </div>
+</div>
+<p class="no-results-msg" id="winnersNoResults">
+  <strong>No results found</strong>
+  Try a different search term
+</p>
 
 <!-- ══════════════════════════════════════════════
      11TH ANNUAL — 2024
@@ -1009,6 +1043,7 @@ a:hover { color: var(--rose-light); }
     </div>
     <ul class="footer-links">
       <li><a href="index.html">Home</a></li>
+      <li><a href="winners.html">Winners</a></li>
       <li><a href="nominees.html">Nominees</a></li>
       <li><a href="past-winners.html">Past Winners</a></li>
       <li><a href="awards-show.html">Awards Show</a></li>
@@ -1121,6 +1156,53 @@ window.addEventListener('scroll', () => {
     s.style.background = Math.random() > 0.5 ? 'var(--rose)' : 'var(--gold)';
     c.appendChild(s);
   }
+})();
+
+// ── Winners search
+(function() {
+  const input = document.getElementById('winnersSearch');
+  const countEl = document.getElementById('winnersSearchCount');
+  const noResults = document.getElementById('winnersNoResults');
+  const allCards = document.querySelectorAll('.winner-card');
+  const allSections = document.querySelectorAll('.winners-section');
+
+  if (!input) return;
+
+  const totalCards = allCards.length;
+
+  input.addEventListener('input', function() {
+    const term = this.value.trim().toLowerCase();
+
+    if (!term) {
+      // Show everything
+      allCards.forEach(c => { c.style.display = ''; });
+      allSections.forEach(s => { s.style.display = ''; });
+      countEl.textContent = '';
+      noResults.style.display = 'none';
+      return;
+    }
+
+    let visibleCount = 0;
+
+    allCards.forEach(card => {
+      const category = (card.querySelector('.winner-category')?.textContent || '').toLowerCase();
+      const name = (card.querySelector('.winner-name')?.textContent || '').toLowerCase();
+      const show = (card.querySelector('.winner-show')?.textContent || '').toLowerCase();
+      const matches = category.includes(term) || name.includes(term) || show.includes(term);
+      card.style.display = matches ? '' : 'none';
+      if (matches) visibleCount++;
+    });
+
+    // Hide sections where all cards are hidden
+    allSections.forEach(section => {
+      const cards = section.querySelectorAll('.winner-card');
+      const anyVisible = Array.from(cards).some(c => c.style.display !== 'none');
+      section.style.display = anyVisible ? '' : 'none';
+    });
+
+    countEl.textContent = visibleCount + ' result' + (visibleCount !== 1 ? 's' : '') + ' found';
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  });
 })();
 
 // ── IntersectionObserver reveal with staggered card delays

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academy of Reality Television | The ARTAS</title>
+<meta name="description" content="The Academy of Reality Television — a complimentary membership program for current reality TV professionals and on-screen talent.">
+<meta property="og:title" content="Academy of Reality Television — The ARTAS">
+<meta property="og:description" content="Free membership for network and production staff, freelancers, agents, managers, and on-screen talent in the reality TV industry.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #08080A;
+  --bg-surface: #0E0E12;
+  --bg-card: #141418;
+  --bg-card-hover: #1A1A20;
+  --rose: #C1897A;
+  --rose-light: #D4A498;
+  --rose-pale: #E0BEB6;
+  --rose-dim: #8B6259;
+  --rose-glow: rgba(193, 137, 122, 0.15);
+  --gold: #D4A853;
+  --gold-light: #E8C97A;
+  --gold-dim: #8B7340;
+  --gold-glow: rgba(212, 168, 83, 0.15);
+  --text-primary: #F2F2F2;
+  --text-secondary: #B0B0B8;
+  --text-muted: #6E6E78;
+  --border: #1F1F26;
+  --border-light: #2A2A34;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { font-family: var(--font-body); color: var(--text-primary); background: var(--bg-primary); line-height: 1.6; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--rose); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--rose-light); }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 clamp(1.5rem, 4vw, 3rem); height: 72px; display: flex; align-items: center; justify-content: space-between; transition: background var(--transition-smooth), box-shadow var(--transition-smooth); }
+.nav.scrolled { background: rgba(8,8,10,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(193,137,122,0.12); }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo img { height: 38px; width: auto; }
+.nav-logo span { font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: clamp(1.2rem, 2.5vw, 2.2rem); list-style: none; }
+.nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); padding: 4px 0; position: relative; transition: color var(--transition-fast); text-decoration: none; }
+.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--rose); transition: width var(--transition-smooth); }
+.nav-links a:hover { color: var(--rose); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--rose); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta { font-size: 0.68rem !important; font-weight: 600 !important; color: var(--bg-primary) !important; background: var(--rose); padding: 8px 18px !important; border-radius: 2px; transition: background var(--transition-fast), transform var(--transition-fast) !important; }
+.nav-cta:hover { background: var(--rose-light) !important; color: var(--bg-primary) !important; transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: all 0.3s; }
+
+/* PAGE HERO */
+.page-hero { position: relative; min-height: 68vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 1.5rem 90px; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero-bg::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(212,168,83,0.08) 0%, transparent 50%), radial-gradient(ellipse at 30% 80%, rgba(193,137,122,0.05) 0%, transparent 40%); }
+.page-hero-bg::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30 L60 30 M30 0 L30 60' stroke='%231F1F26' stroke-width='0.5'/%3E%3C/svg%3E"); opacity: 0.3; }
+.hero-line { position: absolute; top: 0; left: 50%; width: 1px; height: 55%; background: linear-gradient(to bottom, transparent, rgba(212,168,83,0.18), transparent); transform: translateX(-50%); }
+.page-hero-particles { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.sparkle { position: absolute; width: 3px; height: 3px; background: var(--gold); border-radius: 50%; animation: sparkle-float linear infinite; opacity: 0; }
+@keyframes sparkle-float { 0% { opacity: 0; transform: translateY(100vh) scale(0); } 10% { opacity: 0.8; } 90% { opacity: 0.8; } 100% { opacity: 0; transform: translateY(-10vh) scale(1); } }
+.page-hero-content { position: relative; z-index: 2; max-width: 820px; }
+.page-hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 24px; border: 1px solid rgba(212,168,83,0.28); border-radius: 2px; margin-bottom: 1.5rem; background: rgba(212,168,83,0.06); animation: badge-pulse 3s ease-in-out infinite; }
+@keyframes badge-pulse { 0%, 100% { box-shadow: 0 0 0 rgba(212,168,83,0); } 50% { box-shadow: 0 0 22px rgba(212,168,83,0.12); } }
+.page-hero-badge span { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); }
+.page-hero-title { font-family: var(--font-display); font-size: clamp(2.5rem, 1.8rem + 3.5vw, 4.8rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 1.25rem; color: var(--text-primary); }
+.page-hero-title em { font-style: italic; color: var(--gold); }
+.hero-divider { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); margin: 1.5rem auto; }
+.page-hero-subtitle { font-size: clamp(0.9rem, 0.8rem + 0.5vw, 1.05rem); color: var(--text-secondary); font-weight: 300; max-width: 560px; margin: 0 auto 2rem; line-height: 1.8; }
+.page-hero-free-badge { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: rgba(193,137,122,0.1); border: 1px solid rgba(193,137,122,0.3); border-radius: 2px; }
+.page-hero-free-badge span { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; color: var(--rose-light); }
+
+/* SECTIONS */
+.section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem); }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.section-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.75rem; display: block; }
+.section-label.gold { color: var(--gold); }
+.section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 1rem + 3vw, 3rem); font-weight: 700; line-height: 1.1; }
+.section-title em { font-style: italic; color: var(--rose); }
+.section-title em.gold { color: var(--gold); }
+.section-divider { width: 60px; height: 1px; background: var(--rose-dim); margin: 1rem auto 0; }
+.section-subtitle { font-size: 0.95rem; color: var(--text-secondary); font-weight: 300; max-width: 620px; margin: 1rem auto 0; line-height: 1.8; }
+
+/* WHAT IS THE ACADEMY */
+.what-section { background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.what-inner { max-width: 900px; margin: 0 auto; }
+.what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; }
+.what-text p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.1rem; }
+.what-text p:first-of-type::first-letter { font-family: var(--font-display); font-size: 3.2em; float: left; line-height: 0.8; margin-right: 0.12em; color: var(--gold); }
+.what-text h3 { font-family: var(--font-display); font-size: clamp(1.2rem, 0.9rem + 1vw, 1.6rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; color: var(--text-primary); }
+.what-stat-stack { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.what-stat { background: var(--bg-card); padding: 1.5rem 1.75rem; display: flex; align-items: center; gap: 1.25rem; transition: background var(--transition-fast); }
+.what-stat:hover { background: var(--bg-card-hover); }
+.what-stat-icon { font-size: 1.4rem; flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(212,168,83,0.08); border: 1px solid rgba(212,168,83,0.15); border-radius: 3px; }
+.what-stat-text strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+.what-stat-text span { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
+
+/* WHO CAN JOIN */
+.who-section { background: var(--bg-primary); }
+.who-inner { max-width: 900px; margin: 0 auto; }
+.eligibility-box { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: clamp(2rem, 4vw, 3rem); position: relative; overflow: hidden; }
+.eligibility-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.eligibility-title { font-family: var(--font-display); font-size: clamp(1.1rem, 0.9rem + 0.8vw, 1.35rem); font-weight: 700; margin-bottom: 0.6rem; }
+.eligibility-subtitle { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7; }
+.eligibility-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.eligibility-item { display: flex; align-items: flex-start; gap: 12px; padding: 1rem 1.25rem; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 3px; transition: border-color var(--transition-smooth), background var(--transition-smooth); }
+.eligibility-item:hover { border-color: var(--rose-dim); background: var(--bg-card); }
+.eligibility-check { width: 20px; height: 20px; border-radius: 50%; background: rgba(193,137,122,0.12); border: 1px solid rgba(193,137,122,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.eligibility-check::after { content: '✓'; font-size: 0.65rem; color: var(--rose); font-weight: 700; }
+.eligibility-item span { font-size: 0.83rem; color: var(--text-secondary); line-height: 1.5; }
+.eligibility-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: rgba(212,168,83,0.05); border: 1px solid rgba(212,168,83,0.18); border-radius: 3px; display: flex; align-items: flex-start; gap: 10px; }
+.eligibility-note-icon { color: var(--gold); font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+.eligibility-note p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.65; }
+.eligibility-note p strong { color: var(--gold-light); font-weight: 600; }
+
+/* MEMBER BENEFITS */
+.benefits-section { background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.benefits-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.benefit-card { background: var(--bg-card); padding: 2.25rem 2rem; display: flex; flex-direction: column; gap: 0.9rem; transition: background var(--transition-smooth); }
+.benefit-card:hover { background: var(--bg-card-hover); }
+.benefit-icon-wrap { width: 52px; height: 52px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+.benefit-icon-wrap.rose { background: rgba(193,137,122,0.1); border: 1px solid rgba(193,137,122,0.2); }
+.benefit-icon-wrap.gold { background: rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.2); }
+.benefit-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--text-primary); line-height: 1.2; }
+.benefit-desc { font-size: 0.83rem; color: var(--text-secondary); line-height: 1.7; }
+
+/* HOW TO APPLY / EMBED */
+.apply-section { background: var(--bg-primary); }
+.apply-inner { max-width: 900px; margin: 0 auto; }
+.apply-embed-wrap { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; overflow: hidden; position: relative; }
+.apply-embed-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--rose-dim), transparent); z-index: 1; }
+.apply-embed-wrap iframe { display: block; width: 100%; border: none; min-height: 820px; }
+.apply-embed-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: var(--bg-card); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+
+/* CONTACT */
+.contact-section { background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.contact-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+.contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 2.5rem; }
+.contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 2rem 1.75rem; text-align: left; transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth); }
+.contact-card:hover { border-color: var(--rose-dim); box-shadow: 0 6px 30px rgba(193,137,122,0.07); }
+.contact-card-icon { font-size: 1.4rem; margin-bottom: 0.9rem; display: block; }
+.contact-card-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; display: block; }
+.contact-card-main { font-family: var(--font-display); font-size: clamp(0.95rem, 0.8rem + 0.5vw, 1.15rem); font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem; }
+.contact-card-sub { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6; }
+.contact-card-highlight { color: var(--gold); font-weight: 600; font-size: 1.1em; }
+
+/* SOCIAL FOLLOW */
+.social-follow { background: var(--bg-primary); text-align: center; }
+.social-follow-inner { max-width: 600px; margin: 0 auto; }
+.social-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 2rem; }
+.social-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--border-light); border-radius: 50px; color: var(--text-secondary); font-family: var(--font-body); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; transition: all var(--transition-fast); text-decoration: none; }
+.social-pill:hover { border-color: var(--rose); color: var(--rose); background: var(--rose-glow); transform: translateY(-2px); }
+
+/* FOOTER */
+.footer { padding: 2.5rem clamp(1.5rem, 4vw, 3rem); border-top: 1px solid var(--border); background: var(--bg-surface); }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand img { height: 26px; opacity: 0.5; }
+.footer-brand span { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; }
+.footer-links { display: flex; gap: 1.8rem; list-style: none; }
+.footer-links a { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; transition: color var(--transition-fast); }
+.footer-links a:hover { color: var(--rose); }
+.footer-copy { width: 100%; text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: 1rem; font-size: 0.68rem; color: var(--text-muted); line-height: 1.7; }
+.footer-copy .producers { color: var(--text-secondary); font-weight: 500; }
+.social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
+.social-links a { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid var(--border-light); border-radius: 50%; color: var(--text-muted); transition: all var(--transition-fast); }
+.social-links a:hover { border-color: var(--rose); color: var(--rose); transform: translateY(-2px); }
+.social-links svg { width: 15px; height: 15px; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* MOBILE OVERLAY */
+.mobile-overlay { position: fixed; inset: 0; z-index: 99; background: rgba(8,8,10,0.98); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.mobile-overlay.open { opacity: 1; pointer-events: all; }
+.mobile-overlay a { font-family: var(--font-display); font-size: 1.4rem; color: var(--text-primary); }
+.mobile-overlay a:hover { color: var(--rose); }
+.mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .what-grid { grid-template-columns: 1fr; }
+  .contact-cards { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .social-pill span { display: none; }
+  .social-pill { padding: 10px; border-radius: 50%; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .eligibility-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/12th-logo-A-transparent.png" alt="ARTAS">
+    <span>ARTAS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="winners.html">12th Annual Winners</a></li>
+    <li><a href="nominees.html">Nominees</a></li>
+    <li><a href="past-winners.html">Past Winners</a></li>
+    <li><a href="awards-show.html">Awards Show</a></li>
+    <li><a href="submit.html">Submit Your Show</a></li>
+    <li><a href="the-buzz.html">The Buzz</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="gallery.html" class="nav-cta">Gallery</a></li>
+  </ul>
+  <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="winners.html" onclick="closeMobile()">12th Annual Winners</a>
+  <a href="nominees.html" onclick="closeMobile()">Nominees</a>
+  <a href="past-winners.html" onclick="closeMobile()">Past Winners</a>
+  <a href="awards-show.html" onclick="closeMobile()">Awards Show</a>
+  <a href="submit.html" onclick="closeMobile()">Submit Your Show</a>
+  <a href="the-buzz.html" onclick="closeMobile()">The Buzz</a>
+  <a href="about.html" onclick="closeMobile()">About Us</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <div class="hero-line"></div>
+  </div>
+  <div class="page-hero-particles" id="particles"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-badge">
+      <span>&#9733;&ensp;The ARTAS Professional Network</span>
+    </div>
+    <h1 class="page-hero-title">Academy of<br><em>Reality Television</em></h1>
+    <div class="hero-divider"></div>
+    <p class="page-hero-subtitle">A complimentary membership for current Reality TV professionals and talent.</p>
+    <div class="page-hero-free-badge">
+      <span>&#10003;&ensp;100% Free Membership &ensp;&bull;&ensp; Open to Industry Professionals</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS THE ACADEMY -->
+<section class="section what-section">
+  <div class="what-inner">
+    <div class="section-header reveal">
+      <span class="section-label gold">About the Academy</span>
+      <h2 class="section-title">What Is the <em class="gold">Academy?</em></h2>
+      <div class="section-divider" style="background: var(--gold-dim);"></div>
+    </div>
+    <div class="what-grid reveal">
+      <div class="what-text">
+        <h3>Your Home in Reality Television</h3>
+        <p>The Academy of Reality Television is a <strong style="color: var(--text-primary);">free membership program</strong> created by The ARTAS for the professionals and talent who make unscripted television happen every day.</p>
+        <p>Whether you work at a network, a production company, or as a freelancer — or whether you appear on screen — the Academy is your professional community. Members receive invitations to exclusive networking events, access to the ARTAS industry ballot, and a home within the broader reality TV world.</p>
+        <p>The Academy holds regular networking events that connect members across departments and disciplines. It&rsquo;s the community the reality TV industry has needed.</p>
+      </div>
+      <div class="what-stat-stack">
+        <div class="what-stat">
+          <div class="what-stat-icon">&#127981;</div>
+          <div class="what-stat-text">
+            <strong>Network &amp; Production Staff</strong>
+            <span>Executives, producers, coordinators, and crew at networks and production companies</span>
+          </div>
+        </div>
+        <div class="what-stat">
+          <div class="what-stat-icon">&#128247;</div>
+          <div class="what-stat-text">
+            <strong>Freelancers</strong>
+            <span>Independent professionals who work across the unscripted TV landscape</span>
+          </div>
+        </div>
+        <div class="what-stat">
+          <div class="what-stat-icon">&#128100;</div>
+          <div class="what-stat-text">
+            <strong>Agents &amp; Managers</strong>
+            <span>Talent representatives who work with reality TV personalities and talent</span>
+          </div>
+        </div>
+        <div class="what-stat">
+          <div class="what-stat-icon">&#127775;</div>
+          <div class="what-stat-text">
+            <strong>On-Screen Talent</strong>
+            <span>Cast members and personalities who have appeared on unscripted series</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO CAN JOIN -->
+<section class="section who-section">
+  <div class="who-inner">
+    <div class="section-header reveal">
+      <span class="section-label">Eligibility</span>
+      <h2 class="section-title">Who Can <em>Join?</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">The Academy is open to current 2024&ndash;2025 Reality TV industry professionals who have worked at least one role in the unscripted television space.</p>
+    </div>
+    <div class="eligibility-box reveal">
+      <h3 class="eligibility-title">Current Reality TV Industry Professionals</h3>
+      <p class="eligibility-subtitle">You qualify if you have held at least one professional role in the reality television industry during the 2024&ndash;2025 season. This includes a broad range of roles across all areas of production and talent.</p>
+      <div class="eligibility-grid">
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>Network executives and development staff</span>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>Showrunners and executive producers</span>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>Producers and story producers</span>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>Directors and field producers</span>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>Post-production and editors</span>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>Casting directors and associates</span>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>Talent agents and managers</span>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>On-screen cast and personalities</span>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>Production coordinators and APs</span>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>Freelance crew and contractors</span>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>Digital and social media teams</span>
+        </div>
+        <div class="eligibility-item">
+          <div class="eligibility-check"></div>
+          <span>PR and publicity professionals</span>
+        </div>
+      </div>
+      <div class="eligibility-note">
+        <span class="eligibility-note-icon">&#9432;</span>
+        <p><strong>Minimum Requirement:</strong> At least one professional role in reality/unscripted television during the 2024&ndash;2025 season. All applications are reviewed by The ARTAS team to verify industry affiliation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBER BENEFITS -->
+<section class="section benefits-section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-label">Perks</span>
+      <h2 class="section-title">Member <em>Benefits</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">What you get as an Academy member &mdash; all complimentary.</p>
+    </div>
+    <div class="benefits-grid reveal">
+      <div class="benefit-card">
+        <div class="benefit-icon-wrap rose">&#127973;</div>
+        <div class="benefit-name">Networking Events</div>
+        <p class="benefit-desc">Invitations to exclusive Academy networking events bringing together professionals from every corner of the reality TV industry &mdash; networks, production, talent, and beyond.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon-wrap gold">&#128228;</div>
+        <div class="benefit-name">Industry Ballot Voting</div>
+        <p class="benefit-desc">Academy members vote directly on ARTAS nominees through the exclusive industry ballot &mdash; helping shape the most credible awards in unscripted television.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon-wrap rose">&#127775;</div>
+        <div class="benefit-name">Exclusive Invitations</div>
+        <p class="benefit-desc">Members receive priority invitations to ARTAS events, screenings, and special announcements throughout the awards season and beyond.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon-wrap gold">&#129309;</div>
+        <div class="benefit-name">Community</div>
+        <p class="benefit-desc">Join a growing community of reality TV professionals who share your passion for unscripted storytelling &mdash; the first professional network built specifically for this industry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO APPLY -->
+<section class="section apply-section" id="apply">
+  <div class="apply-inner">
+    <div class="section-header reveal">
+      <span class="section-label">Join Us</span>
+      <h2 class="section-title">Apply for <em>Membership</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Complete the form below to apply for your complimentary Academy membership. Applications are reviewed by The ARTAS team.</p>
+    </div>
+    <div class="apply-embed-wrap reveal">
+      <iframe
+        src="https://academy.theartas.com"
+        title="Academy of Reality Television Membership Application"
+        loading="lazy"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section">
+  <div class="contact-inner">
+    <div class="section-header reveal">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">Contact &amp; <em>Updates</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Have a question about the Academy? Reach out directly or sign up for text updates.</p>
+    </div>
+    <div class="contact-cards reveal">
+      <div class="contact-card">
+        <span class="contact-card-icon">&#128241;</span>
+        <span class="contact-card-label">Text for Updates</span>
+        <div class="contact-card-main">Text <span class="contact-card-highlight">ARTAS</span> to <span class="contact-card-highlight">76626</span></div>
+        <p class="contact-card-sub">Text ARTAS to 76626 to receive Academy updates, event invitations, and ARTAS announcements directly on your phone.</p>
+      </div>
+      <div class="contact-card">
+        <span class="contact-card-icon">&#9993;</span>
+        <span class="contact-card-label">Email Us</span>
+        <div class="contact-card-main"><a href="mailto:info@theARTAs.com" style="color: var(--gold); font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;">info@theARTAs.com</a></div>
+        <p class="contact-card-sub">Questions about your application, membership status, or upcoming events? Drop us a line and the team will get back to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL FOLLOW -->
+<section class="section social-follow">
+  <div class="social-follow-inner reveal">
+    <span class="section-label">Follow Along</span>
+    <h2 class="section-title">Follow The <em>ARTAS</em></h2>
+    <div style="width: 60px; height: 1px; background: var(--rose-dim); margin: 1rem auto 0;"></div>
+    <p class="section-subtitle" style="margin-top: 1rem;">Stay connected for Academy announcements, event invitations, and awards season reveals.</p>
+    <div class="social-pills">
+      <a href="https://www.instagram.com/realityawardstv/" target="_blank" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.tiktok.com/@realityawardstv" target="_blank" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.28 8.28 0 0 0 4.84 1.55V6.85a4.85 4.85 0 0 1-1.08-.16z"/></svg>
+        <span>TikTok</span>
+      </a>
+      <a href="https://twitter.com/realityawardstv" target="_blank" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>X / Twitter</span>
+      </a>
+      <a href="https://www.facebook.com/RealityTVAwards/" target="_blank" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.youtube.com/realityawardstv" target="_blank" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon points="9.545,15.568 15.818,12 9.545,8.432" fill="#fff"/></svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/12th-logo-A-transparent.png" alt="ARTAS">
+      <span>American Reality Television Awards</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="nominees.html">Nominees</a></li>
+      <li><a href="past-winners.html">Past Winners</a></li>
+      <li><a href="awards-show.html">Awards Show</a></li>
+      <li><a href="submit.html">Submit</a></li>
+      <li><a href="the-buzz.html">The Buzz</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+    <div class="footer-copy">
+      <div class="social-links" style="margin-bottom: 1rem;">
+        <a href="https://www.instagram.com/realityawardstv/" aria-label="Instagram" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.tiktok.com/@realityawardstv" aria-label="TikTok" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.28 8.28 0 0 0 4.84 1.55V6.85a4.85 4.85 0 0 1-1.08-.16z"/></svg></a>
+        <a href="https://twitter.com/realityawardstv" aria-label="X" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.facebook.com/RealityTVAwards/" aria-label="Facebook" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.youtube.com/realityawardstv" aria-label="YouTube" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon points="9.545,15.568 15.818,12 9.545,8.432" fill="#fff"/></svg></a>
+      </div>
+      <p>&copy; 2026 American Reality Television Awards (The ARTAS&reg;). All rights reserved.</p>
+      <p class="producers">Executive Producers: Kristen Moss &amp; Andrew Ward</p>
+      <p style="margin-top: 6px; font-size: 0.7rem;">@RealityAwardsTV &middot; #TheARTAS</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+mobileToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+function closeMobile() { mobileMenu.classList.remove('open'); }
+
+(function() {
+  const c = document.getElementById('particles');
+  for (let i = 0; i < 20; i++) {
+    const s = document.createElement('div'); s.className = 'sparkle';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.animationDuration = (7 + Math.random() * 10) + 's';
+    s.style.animationDelay = Math.random() * 10 + 's';
+    s.style.width = s.style.height = (1.5 + Math.random() * 2.5) + 'px';
+    s.style.background = Math.random() > 0.4 ? 'var(--gold)' : 'var(--rose)';
+    c.appendChild(s);
+  }
+})();
+
+(function() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+})();
+</script>
+</body>
+</html>

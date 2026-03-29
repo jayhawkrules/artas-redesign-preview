@@ -561,6 +561,163 @@ a:hover { color: var(--rose-light); }
   .network-badge { min-width: 86px; padding: 0.8rem 1rem; }
   .network-badge-count { font-size: 1.4rem; }
 }
+
+/* ============================================================
+   NOMINEE ARCHIVE
+   ============================================================ */
+.archive-section {
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem);
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+.archive-inner { max-width: 1100px; margin: 0 auto; }
+.archive-eyebrow {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.archive-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1.4rem + 1.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.15;
+}
+.archive-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+.archive-fun-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--gold);
+  border-radius: 4px;
+}
+.archive-fun-fact {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.archive-fun-fact::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.archive-fun-fact:not(:last-child) { margin-right: 1rem; }
+
+/* Archive search wrapper — reuse .search-wrapper but scoped */
+.archive-search-wrapper { max-width: 520px; margin: 0 auto 2rem; position: relative; }
+.archive-search-input { width: 100%; padding: 14px 20px 14px 48px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; color: var(--text-primary); font-family: var(--font-body); font-size: 0.9rem; outline: none; transition: border-color 0.3s; }
+.archive-search-input:focus { border-color: var(--rose); }
+.archive-search-input::placeholder { color: var(--text-muted); }
+.archive-search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+.archive-search-count { text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; }
+
+.archive-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.archive-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.2rem 1.4rem;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+.archive-card:hover {
+  border-color: var(--border-light);
+  background: var(--bg-card-hover);
+}
+.archive-card-show {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+.archive-card-network {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 0.75rem;
+}
+.archive-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.archive-card-badge {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+.archive-card-badge.nominations {
+  color: var(--gold);
+  border-color: rgba(212,168,83,0.25);
+  background: rgba(212,168,83,0.06);
+}
+.archive-card-categories {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.archive-card-categories strong {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.archive-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+.archive-empty strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+.archive-prompt {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+.archive-prompt svg { margin: 0 auto 1rem; display: block; opacity: 0.4; }
+
+@media (max-width: 600px) {
+  .archive-results { grid-template-columns: 1fr; }
+  .archive-fun-facts { flex-direction: column; gap: 0.5rem; }
+}
 </style>
 </head>
 <body>
@@ -572,9 +729,11 @@ a:hover { color: var(--rose-light); }
     <span>ARTAS</span>
   </a>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="winners.html">12th Annual Winners</a></li>
     <li><a href="nominees.html" class="active">Nominees</a></li>
     <li><a href="past-winners.html">Past Winners</a></li>
-      <li><a href="awards-show.html">Awards Show</a></li>
+    <li><a href="awards-show.html">Awards Show</a></li>
     <li><a href="submit.html">Submit Your Show</a></li>
     <li><a href="the-buzz.html">The Buzz</a></li>
     <li><a href="about.html">About Us</a></li>
@@ -583,14 +742,16 @@ a:hover { color: var(--rose-light); }
   <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-overlay" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
-  <a href="nominees.html" onclick="closeMobile()">Nominees</a>
-  <a href="past-winners.html" onclick="closeMobile()">Past Winners</a>
-  <a href="awards-show.html" onclick="closeMobile()">Awards Show</a>
-  <a href="submit.html" onclick="closeMobile()">Submit Your Show</a>
-  <a href="the-buzz.html" onclick="closeMobile()">The Buzz</a>
-  <a href="about.html" onclick="closeMobile()">About Us</a>
-  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+<button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="winners.html">12th Annual Winners</a>
+  <a href="nominees.html">Nominees</a>
+  <a href="past-winners.html">Past Winners</a>
+  <a href="awards-show.html">Awards Show</a>
+  <a href="submit.html">Submit Your Show</a>
+  <a href="the-buzz.html">The Buzz</a>
+  <a href="about.html">About Us</a>
+  <a href="gallery.html">Gallery</a>
 </div>
 
 <!-- HERO -->
@@ -1501,6 +1662,44 @@ a:hover { color: var(--rose-light); }
   </div>
 </section>
 
+<!-- NOMINEE ARCHIVE -->
+<section class="archive-section" id="nomArchive">
+  <div class="archive-inner">
+    <span class="archive-eyebrow">Historical Records</span>
+    <h2 class="archive-title">Nominee Archive</h2>
+    <p class="archive-subtitle">Search across 11 years and thousands of nominations</p>
+
+    <!-- Fun facts callout -->
+    <div class="archive-fun-facts">
+      <span class="archive-fun-fact">Over 1,500 nominations across 11 years</span>
+      <span class="archive-fun-fact">40+ networks represented</span>
+      <span class="archive-fun-fact">American Ninja Warrior leads with 40+ total nominations</span>
+    </div>
+
+    <!-- Search -->
+    <div class="archive-search-wrapper">
+      <svg class="archive-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input
+        type="search"
+        id="archiveSearch"
+        class="archive-search-input"
+        placeholder="Search shows, networks, categories…"
+        aria-label="Search nominee archive"
+      />
+      <p class="archive-search-count" id="archiveCount" aria-live="polite"></p>
+    </div>
+
+    <!-- Results grid -->
+    <div class="archive-results" id="archiveResults">
+      <!-- Default prompt -->
+      <div class="archive-prompt" id="archivePrompt">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        Start typing to search the archive&hellip;
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
@@ -1510,6 +1709,7 @@ a:hover { color: var(--rose-light); }
     </div>
     <ul class="footer-links">
       <li><a href="index.html">Home</a></li>
+      <li><a href="winners.html">Winners</a></li>
       <li><a href="nominees.html">Nominees</a></li>
       <li><a href="past-winners.html">Past Winners</a></li>
       <li><a href="awards-show.html">Awards Show</a></li>
@@ -1584,7 +1784,90 @@ document.getElementById('btnCollapseAll').addEventListener('click', () => {
   });
 });
 
-// ── SCROLL REVEAL ────────────────────────────────────────────────
+// ── NOMINEE ARCHIVE SEARCH ──────────────────────────────────────
+(function() {
+  const archiveData = [
+    { show: "American Ninja Warrior", network: "NBC", nominations: 40, years: "2014-2024", categories: "Competition, Art Direction, Editing, Crew, Feel Good" },
+    { show: "RuPaul's Drag Race", network: "MTV", nominations: 35, years: "2013-2024", categories: "Competition, Host, Judging Panel, Creative Challenge" },
+    { show: "Hell's Kitchen", network: "FOX", nominations: 30, years: "2013-2024", categories: "Competition, Food Series, Crew" },
+    { show: "Jersey Shore Family Vacation", network: "MTV", nominations: 25, years: "2018-2024", categories: "Docu-Series, Recurring Cast, Crew" },
+    { show: "Shark Tank", network: "ABC", nominations: 22, years: "2013-2024", categories: "Overall, Editing, Crew, Judging Panel" },
+    { show: "The Voice", network: "NBC", nominations: 20, years: "2013-2023", categories: "Competition, Judging Panel, Host" },
+    { show: "Dancing With The Stars", network: "ABC", nominations: 18, years: "2013-2024", categories: "Competition, Judging Panel" },
+    { show: "America's Got Talent", network: "NBC", nominations: 18, years: "2014-2024", categories: "Competition, Judging Panel, Overall" },
+    { show: "The Masked Singer", network: "FOX", nominations: 15, years: "2019-2024", categories: "Competition, Judging Panel" },
+    { show: "Vanderpump Rules", network: "Bravo", nominations: 14, years: "2015-2024", categories: "Docu-Series, Guilty Pleasure" },
+    { show: "Deadliest Catch", network: "Discovery", nominations: 12, years: "2013-2020", categories: "Crew, Overall, Editing" },
+    { show: "The Challenge", network: "MTV", nominations: 12, years: "2018-2024", categories: "Competition, Creative Challenge" },
+    { show: "Survivor", network: "CBS", nominations: 12, years: "2013-2024", categories: "Competition, Host, Overall" },
+    { show: "Sister Wives", network: "TLC", nominations: 10, years: "2019-2024", categories: "Docu-Series, Reality Moment" },
+    { show: "Big Brother", network: "CBS", nominations: 10, years: "2013-2024", categories: "Competition, New Cast, Guilty Pleasure" },
+    { show: "The Amazing Race", network: "CBS", nominations: 10, years: "2013-2024", categories: "Competition, Crew" },
+    { show: "90 Day Fianc\u00e9", network: "TLC", nominations: 10, years: "2019-2024", categories: "Overall, Docu-Series, Guilty Pleasure" },
+    { show: "Welcome to Plathville", network: "TLC", nominations: 8, years: "2021-2024", categories: "Docu-Series, Recurring Cast" },
+    { show: "The Kardashians", network: "Hulu", nominations: 8, years: "2013-2024", categories: "Guilty Pleasure, Overall" },
+    { show: "Celebrity Family Feud", network: "ABC", nominations: 8, years: "2019-2024", categories: "Game Show" },
+    { show: "The Golden Bachelorette", network: "ABC", nominations: 6, years: "2024", categories: "New Show, New Cast, Host" },
+    { show: "Curious Case of Natalia Grace", network: "ID", nominations: 7, years: "2024", categories: "Docu-Series, True Crime, Unique Concept, Moment" },
+    { show: "Quiet on Set", network: "ID", nominations: 5, years: "2024", categories: "Docu-Series, True Crime" },
+    { show: "Love & Marriage: Huntsville", network: "OWN", nominations: 5, years: "2022-2024", categories: "Recurring Cast" },
+    { show: "Ms. Pat Settles It", network: "BET", nominations: 5, years: "2024", categories: "New Show, Host, Moment" },
+  ];
+
+  const input = document.getElementById('archiveSearch');
+  const resultsEl = document.getElementById('archiveResults');
+  const countEl = document.getElementById('archiveCount');
+  const promptEl = document.getElementById('archivePrompt');
+
+  if (!input) return;
+
+  function buildCard(entry) {
+    return `<div class="archive-card">
+      <div class="archive-card-show">${entry.show}</div>
+      <div class="archive-card-network">${entry.network}</div>
+      <div class="archive-card-meta">
+        <span class="archive-card-badge nominations">${entry.nominations} nominations</span>
+        <span class="archive-card-badge">${entry.years}</span>
+      </div>
+      <div class="archive-card-categories"><strong>Categories:</strong> ${entry.categories}</div>
+    </div>`;
+  }
+
+  input.addEventListener('input', function() {
+    const term = this.value.trim().toLowerCase();
+
+    if (!term) {
+      // Remove any injected cards, show prompt
+      resultsEl.innerHTML = '';
+      resultsEl.appendChild(promptEl);
+      promptEl.style.display = '';
+      countEl.textContent = '';
+      return;
+    }
+
+    promptEl.style.display = 'none';
+
+    const matches = archiveData.filter(entry =>
+      entry.show.toLowerCase().includes(term) ||
+      entry.network.toLowerCase().includes(term) ||
+      entry.categories.toLowerCase().includes(term) ||
+      entry.years.includes(term)
+    );
+
+    // Sort by nominations descending
+    matches.sort((a, b) => b.nominations - a.nominations);
+
+    if (matches.length === 0) {
+      resultsEl.innerHTML = `<div class="archive-empty"><strong>No results found</strong>Try a different show, network, or category</div>`;
+      countEl.textContent = '';
+    } else {
+      resultsEl.innerHTML = matches.map(buildCard).join('');
+      countEl.textContent = matches.length + ' result' + (matches.length !== 1 ? 's' : '') + ' found';
+    }
+  });
+})();
+
+// ── SCROLL REVEAL ─────────────────────────────────────────────────
 (function() {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
