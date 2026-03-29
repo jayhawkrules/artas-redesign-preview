@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Winners | The ARTAS — American Reality Television Awards</title>
+<meta name="description" content="A decade of celebrating excellence in unscripted television. Browse all ARTAS winners from the 1st Annual (2013) through the 10th Annual (2023).">
+<meta property="og:title" content="Past Winners — American Reality Television Awards">
+<meta property="og:description" content="Ten years of ARTAS winners. From Deadliest Catch to RuPaul's Drag Race — a hall of records for unscripted television.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #08080A;
+  --bg-surface: #0E0E12;
+  --bg-card: #141418;
+  --bg-card-hover: #1A1A20;
+  --rose: #C1897A;
+  --rose-light: #D4A498;
+  --rose-pale: #E0BEB6;
+  --rose-dim: #8B6259;
+  --rose-glow: rgba(193, 137, 122, 0.15);
+  --gold: #D4A853;
+  --gold-light: #E8C97A;
+  --gold-dim: #8B7340;
+  --gold-glow: rgba(212, 168, 83, 0.15);
+  --text-primary: #F2F2F2;
+  --text-secondary: #B0B0B8;
+  --text-muted: #6E6E78;
+  --border: #1F1F26;
+  --border-light: #2A2A34;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; scroll-padding-top: 140px; }
+body { font-family: var(--font-body); color: var(--text-primary); background: var(--bg-primary); line-height: 1.6; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--rose); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--rose-light); }
+
+/* ─── NAV ─── */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 clamp(1.5rem, 4vw, 3rem); height: 72px; display: flex; align-items: center; justify-content: space-between; transition: background var(--transition-smooth), box-shadow var(--transition-smooth); }
+.nav.scrolled { background: rgba(8,8,10,0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(193,137,122,0.12); }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo img { height: 38px; width: auto; }
+.nav-logo span { font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: clamp(1.2rem, 2.5vw, 2.2rem); list-style: none; }
+.nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); padding: 4px 0; position: relative; transition: color var(--transition-fast); }
+.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--rose); transition: width var(--transition-smooth); }
+.nav-links a:hover { color: var(--rose); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--rose); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta { font-size: 0.68rem !important; font-weight: 600 !important; color: var(--bg-primary) !important; background: var(--rose); padding: 8px 18px !important; border-radius: 2px; transition: background var(--transition-fast), transform var(--transition-fast) !important; }
+.nav-cta:hover { background: var(--rose-light) !important; color: var(--bg-primary) !important; transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: all 0.3s; }
+
+/* ─── MOBILE OVERLAY ─── */
+.mobile-overlay { position: fixed; inset: 0; z-index: 99; background: rgba(8,8,10,0.98); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.mobile-overlay.open { opacity: 1; pointer-events: all; }
+.mobile-overlay a { font-family: var(--font-display); font-size: 1.4rem; color: var(--text-primary); }
+.mobile-overlay a:hover { color: var(--rose); }
+.mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+/* ─── PAGE HERO ─── */
+.page-hero { position: relative; min-height: 55vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 1.5rem 100px; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero-shimmer { position: absolute; inset: 0; background: 
+  radial-gradient(ellipse 60% 60% at 20% 50%, rgba(193,137,122,0.07) 0%, transparent 70%),
+  radial-gradient(ellipse 50% 50% at 80% 40%, rgba(212,168,83,0.05) 0%, transparent 70%);
+}
+.page-hero-lines { position: absolute; inset: 0; overflow: hidden; }
+.page-hero-lines::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(193,137,122,0.2) 30%, rgba(193,137,122,0.2) 70%, transparent);
+}
+.page-hero-lines::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(193,137,122,0.1) 30%, rgba(193,137,122,0.1) 70%, transparent);
+}
+.page-hero-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(8,8,10,0.3) 0%, rgba(8,8,10,0.75) 60%, rgba(8,8,10,1) 100%); z-index: 1; }
+.page-hero-particles { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
+.sparkle { position: absolute; border-radius: 50%; animation: sparkle-float linear infinite; opacity: 0; }
+@keyframes sparkle-float { 0% { opacity: 0; transform: translateY(100vh) scale(0); } 10% { opacity: 0.8; } 90% { opacity: 0.8; } 100% { opacity: 0; transform: translateY(-10vh) scale(1); } }
+.page-hero-content { position: relative; z-index: 3; max-width: 800px; }
+.page-hero-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--rose); margin-bottom: 1.2rem; display: block; }
+.page-hero-title { font-family: var(--font-display); font-size: clamp(3rem, 2.5rem + 3.5vw, 5.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+.page-hero-title em { font-style: italic; color: var(--rose); }
+.hero-divider { display: flex; align-items: center; gap: 1rem; justify-content: center; margin: 1.5rem auto; }
+.hero-divider-line { width: 60px; height: 1px; background: var(--rose-dim); }
+.hero-divider-icon { color: var(--gold); font-size: 1rem; }
+.page-hero-subtitle { font-size: clamp(0.9rem, 0.8rem + 0.5vw, 1.05rem); color: var(--text-secondary); font-weight: 300; max-width: 520px; margin: 0 auto; line-height: 1.8; }
+.hero-stats { display: flex; gap: clamp(2rem, 5vw, 4rem); justify-content: center; margin-top: 2.5rem; flex-wrap: wrap; }
+.hero-stat { text-align: center; }
+.hero-stat-value { font-family: var(--font-display); font-size: clamp(1.8rem, 1.5rem + 1vw, 2.5rem); font-weight: 700; color: var(--gold); line-height: 1; }
+.hero-stat-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.4rem; }
+
+/* ─── YEAR NAV (sticky) ─── */
+.year-nav-wrapper { position: sticky; top: 72px; z-index: 90; background: rgba(8,8,10,0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: box-shadow var(--transition-smooth); }
+.year-nav-wrapper.elevated { box-shadow: 0 4px 30px rgba(0,0,0,0.6); }
+.year-nav { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 3rem); display: flex; gap: 6px; overflow-x: auto; padding-top: 12px; padding-bottom: 12px; scrollbar-width: none; scroll-snap-type: x mandatory; }
+.year-nav::-webkit-scrollbar { display: none; }
+.year-pill {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.year-pill:hover { border-color: var(--rose-dim); color: var(--rose-light); background: var(--bg-card-hover); }
+.year-pill.active { border-color: var(--rose); color: var(--rose); background: rgba(193,137,122,0.08); }
+.year-pill-ordinal { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; }
+.year-pill-year { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; }
+
+/* ─── WINNERS SECTIONS ─── */
+.winners-section { padding: clamp(4rem, 7vw, 6rem) clamp(1.5rem, 4vw, 3rem); border-bottom: 1px solid var(--border); position: relative; }
+.winners-section:nth-child(even) { background: var(--bg-surface); }
+.winners-section:nth-child(odd) { background: var(--bg-primary); }
+.winners-inner { max-width: 1200px; margin: 0 auto; }
+.year-heading-row { display: flex; align-items: center; gap: 1.5rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.year-trophy { width: 48px; height: 48px; flex-shrink: 0; }
+.year-heading-text { flex: 1; }
+.year-ordinal { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.35rem; display: block; }
+.year-title { font-family: var(--font-display); font-size: clamp(1.6rem, 1.2rem + 2vw, 2.8rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+.year-title em { font-style: italic; color: var(--gold); }
+.year-divider { margin-left: auto; width: 80px; height: 1px; background: linear-gradient(to right, var(--rose-dim), transparent); }
+.year-count { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.3rem; }
+
+/* ─── WINNER CARDS GRID ─── */
+.winners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.winner-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.25rem 1.35rem;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+.winner-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--rose-dim), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+}
+.winner-card:hover { border-color: var(--rose-dim); background: var(--bg-card-hover); transform: translateY(-3px); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+.winner-card:hover::before { opacity: 1; }
+.winner-category { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.55rem; }
+.winner-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--text-primary); line-height: 1.25; margin-bottom: 0.3rem; }
+.winner-show { font-size: 0.75rem; color: var(--rose); font-weight: 400; line-height: 1.3; }
+.winner-card.hall-of-fame { border-color: var(--gold-dim); background: rgba(212,168,83,0.04); }
+.winner-card.hall-of-fame::before { background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); opacity: 0.6; }
+.winner-card.hall-of-fame .winner-category { color: var(--gold-dim); }
+.winner-card.hall-of-fame .winner-show { color: var(--gold); }
+.winner-card.hall-of-fame:hover { border-color: var(--gold); box-shadow: 0 10px 40px rgba(212,168,83,0.1); }
+
+/* ─── NOTABLE RECORDS ─── */
+.records-section { padding: clamp(3.5rem, 6vw, 5.5rem) clamp(1.5rem, 4vw, 3rem); background: var(--bg-surface); border-bottom: 1px solid var(--border); }
+.records-inner { max-width: 1100px; margin: 0 auto; }
+.records-header { text-align: center; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.records-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+.records-title { font-family: var(--font-display); font-size: clamp(1.8rem, 1.2rem + 2.5vw, 3rem); font-weight: 700; line-height: 1.1; }
+.records-subtitle { font-size: 0.95rem; color: var(--text-secondary); font-weight: 300; max-width: 520px; margin: 1rem auto 0; line-height: 1.7; }
+.records-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 2.5rem; }
+.record-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+.record-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-dim), var(--rose-dim));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.record-card:hover { transform: translateY(-4px); box-shadow: 0 16px 50px rgba(0,0,0,0.4); border-color: var(--border-light); }
+.record-card:hover::after { transform: scaleX(1); }
+.record-show { font-family: var(--font-display); font-size: clamp(1.1rem, 0.9rem + 0.8vw, 1.5rem); font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem; line-height: 1.2; }
+.record-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 2px;
+  background: rgba(212,168,83,0.1);
+  border: 1px solid rgba(212,168,83,0.25);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+}
+.record-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+.record-desc strong { color: var(--rose-light); font-weight: 600; }
+.record-years { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 1rem; }
+.record-year-tag {
+  padding: 3px 8px;
+  border: 1px solid var(--border-light);
+  border-radius: 2px;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* ─── REVEAL ─── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 60ms; }
+.reveal-delay-2 { transition-delay: 120ms; }
+.reveal-delay-3 { transition-delay: 180ms; }
+.reveal-delay-4 { transition-delay: 240ms; }
+.reveal-delay-5 { transition-delay: 300ms; }
+.reveal-delay-6 { transition-delay: 360ms; }
+
+/* ─── FOOTER ─── */
+.footer { padding: 2.5rem clamp(1.5rem, 4vw, 3rem); border-top: 1px solid var(--border); background: var(--bg-surface); }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand img { height: 26px; opacity: 0.5; }
+.footer-brand span { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; }
+.footer-links { display: flex; gap: 1.8rem; list-style: none; }
+.footer-links a { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; transition: color var(--transition-fast); }
+.footer-links a:hover { color: var(--rose); }
+.footer-copy { width: 100%; text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: 1rem; font-size: 0.68rem; color: var(--text-muted); line-height: 1.7; }
+.footer-copy .producers { color: var(--text-secondary); font-weight: 500; }
+.social-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; }
+.social-links a { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid var(--border-light); border-radius: 50%; color: var(--text-muted); transition: all var(--transition-fast); }
+.social-links a:hover { border-color: var(--rose); color: var(--rose); transform: translateY(-2px); }
+.social-links svg { width: 15px; height: 15px; }
+
+/* ─── SECTION DIVIDER ─── */
+.section-divider-bar { width: 60px; height: 1px; background: var(--rose-dim); margin: 1rem auto 0; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .winners-grid { grid-template-columns: repeat(2, 1fr); }
+  .records-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .year-heading-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .year-divider { display: none; }
+  .records-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+  .hero-stats { gap: 2rem; }
+}
+@media (max-width: 640px) {
+  .winners-grid { grid-template-columns: 1fr; }
+  .year-pill { padding: 7px 12px; }
+  .year-pill-year { font-size: 0.85rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/12th-logo-A-transparent.png" alt="ARTAS">
+    <span>ARTAS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="nominees.html">Nominees</a></li>
+    <li><a href="past-winners.html" class="active">Past Winners</a></li>
+    <li><a href="awards-show.html">Awards Show</a></li>
+    <li><a href="submit.html">Submit Your Show</a></li>
+    <li><a href="the-buzz.html">The Buzz</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="gallery.html" class="nav-cta">Gallery</a></li>
+  </ul>
+  <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-overlay" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="nominees.html">Nominees</a>
+  <a href="past-winners.html">Past Winners</a>
+  <a href="awards-show.html">Awards Show</a>
+  <a href="submit.html">Submit Your Show</a>
+  <a href="the-buzz.html">The Buzz</a>
+  <a href="about.html">About Us</a>
+  <a href="gallery.html">Gallery</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <div class="page-hero-shimmer"></div>
+    <div class="page-hero-lines"></div>
+  </div>
+  <div class="page-hero-particles" id="particles"></div>
+  <div class="page-hero-content">
+    <span class="page-hero-label">The ARTAS Hall of Records</span>
+    <h1 class="page-hero-title">Past <em>Winners</em></h1>
+    <div class="hero-divider">
+      <span class="hero-divider-line"></span>
+      <span class="hero-divider-icon">✦</span>
+      <span class="hero-divider-line"></span>
+    </div>
+    <p class="page-hero-subtitle">A decade of celebrating the best in unscripted television — from the 1st Annual through the 10th Annual.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">10</div>
+        <div class="hero-stat-label">Annual Shows</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">2013</div>
+        <div class="hero-stat-label">Inaugural Year</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">200+</div>
+        <div class="hero-stat-label">Categories Awarded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YEAR NAVIGATION -->
+<div class="year-nav-wrapper" id="yearNavWrapper">
+  <nav class="year-nav" id="yearNav" aria-label="Jump to year">
+    <a href="#year-2023" class="year-pill active" data-year="year-2023">
+      <span class="year-pill-ordinal">10th Annual</span>
+      <span class="year-pill-year">2023</span>
+    </a>
+    <a href="#year-2022" class="year-pill" data-year="year-2022">
+      <span class="year-pill-ordinal">9th Annual</span>
+      <span class="year-pill-year">2022</span>
+    </a>
+    <a href="#year-2021" class="year-pill" data-year="year-2021">
+      <span class="year-pill-ordinal">8th Annual</span>
+      <span class="year-pill-year">2021</span>
+    </a>
+    <a href="#year-2020" class="year-pill" data-year="year-2020">
+      <span class="year-pill-ordinal">7th Annual</span>
+      <span class="year-pill-year">2020</span>
+    </a>
+    <a href="#year-2019" class="year-pill" data-year="year-2019">
+      <span class="year-pill-ordinal">6th Annual</span>
+      <span class="year-pill-year">2019</span>
+    </a>
+    <a href="#year-2018" class="year-pill" data-year="year-2018">
+      <span class="year-pill-ordinal">5th Annual</span>
+      <span class="year-pill-year">2018</span>
+    </a>
+    <a href="#year-2016" class="year-pill" data-year="year-2016">
+      <span class="year-pill-ordinal">4th Annual</span>
+      <span class="year-pill-year">2016</span>
+    </a>
+    <a href="#year-2015" class="year-pill" data-year="year-2015">
+      <span class="year-pill-ordinal">3rd Annual</span>
+      <span class="year-pill-year">2015</span>
+    </a>
+    <a href="#year-2014" class="year-pill" data-year="year-2014">
+      <span class="year-pill-ordinal">2nd Annual</span>
+      <span class="year-pill-year">2014</span>
+    </a>
+    <a href="#year-2013" class="year-pill" data-year="year-2013">
+      <span class="year-pill-ordinal">1st Annual</span>
+      <span class="year-pill-year">2013</span>
+    </a>
+  </nav>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     10TH ANNUAL — 2023
+═══════════════════════════════════════════════ -->
+<section class="winners-section" id="year-2023">
+  <div class="winners-inner">
+    <div class="year-heading-row reveal">
+      <svg class="year-trophy" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 4L28 14H38L30 20L33 31L24 25L15 31L18 20L10 14H20L24 4Z" fill="none" stroke="#D4A853" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M17 36H31" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M20 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M28 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 42H32" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="year-heading-text">
+        <span class="year-ordinal">10th Annual</span>
+        <h2 class="year-title">American Reality Television Awards — <em>2023</em></h2>
+        <span class="year-count">27 categories awarded</span>
+      </div>
+      <div class="year-divider"></div>
+    </div>
+    <div class="winners-grid">
+      <div class="winner-card reveal reveal-delay-1"><div class="winner-category">Outstanding Art Direction</div><div class="winner-name">Lego Masters</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal reveal-delay-2"><div class="winner-category">Outstanding Competition Show</div><div class="winner-name">The Masked Singer</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal reveal-delay-3"><div class="winner-category">Most Creative Challenge</div><div class="winner-name">The Challenge All Stars</div><div class="winner-show">Paramount+</div></div>
+      <div class="winner-card reveal reveal-delay-4"><div class="winner-category">Outstanding Docu-Series</div><div class="winner-name">Trixie Motel</div><div class="winner-show">Discovery+</div></div>
+      <div class="winner-card reveal reveal-delay-5"><div class="winner-category">Best Editing</div><div class="winner-name">Mysterious Creatures With Forrest Galante</div><div class="winner-show">Discovery+</div></div>
+      <div class="winner-card reveal reveal-delay-6"><div class="winner-category">Outstanding Feel Good Show</div><div class="winner-name">Say Yes to the Dress</div><div class="winner-show">TLC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Food Series</div><div class="winner-name">Hell's Kitchen</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Game / Variety Show</div><div class="winner-name">Celebrity Family Feud</div><div class="winner-show">ABC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Guilty Pleasure Show</div><div class="winner-name">Vanderpump Rules</div><div class="winner-show">Bravo</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Home Series</div><div class="winner-name">Flip or Flop</div><div class="winner-show">HGTV</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Host</div><div class="winner-name">RuPaul</div><div class="winner-show">RuPaul's Drag Race All Stars — Paramount+</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Best International Reality Series</div><div class="winner-name">The Mole</div><div class="winner-show">Netflix</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Judging Panel</div><div class="winner-name">RuPaul's Drag Race All Stars</div><div class="winner-show">Paramount+</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Kids Reality Series</div><div class="winner-name">Super Dad</div><div class="winner-show">Magnolia Network</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Best New Cast</div><div class="winner-name">Big Brother</div><div class="winner-show">CBS</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Best New Show</div><div class="winner-name">Undercover Underage</div><div class="winner-show">Investigation Discovery</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Overall Show</div><div class="winner-name">RuPaul's Drag Race All Stars</div><div class="winner-show">Paramount+</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Best Paranormal Series</div><div class="winner-name">Ghost Hunters</div><div class="winner-show">Travel Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Production Crew</div><div class="winner-name">American Ninja Warrior</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Production Company</div><div class="winner-name">Warner Bros.</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Best Reality Podcast</div><div class="winner-name">Juicy Scoop w/ Heather McDonald</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Reality Royalty</div><div class="winner-name">Selena Gomez</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Reality TV Moment</div><div class="winner-name">Jack Osbourne's Night of Terror: UFOs</div><div class="winner-show">Travel Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Best Returning Cast</div><div class="winner-name">Jersey Shore: Family Vacation</div><div class="winner-show">MTV</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Travel Series</div><div class="winner-name">Stanley Tucci: Searching for Italy</div><div class="winner-show">CNN</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Best True Crime Series</div><div class="winner-name">Evil Lives Here</div><div class="winner-show">Investigation Discovery</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Most Unique Concept</div><div class="winner-name">Blown Away</div><div class="winner-show">Netflix</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     9TH ANNUAL — 2022
+═══════════════════════════════════════════════ -->
+<section class="winners-section" id="year-2022">
+  <div class="winners-inner">
+    <div class="year-heading-row reveal">
+      <svg class="year-trophy" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 4L28 14H38L30 20L33 31L24 25L15 31L18 20L10 14H20L24 4Z" fill="none" stroke="#D4A853" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M17 36H31" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M20 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M28 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 42H32" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="year-heading-text">
+        <span class="year-ordinal">9th Annual</span>
+        <h2 class="year-title">American Reality Television Awards — <em>2022</em></h2>
+        <span class="year-count">21 categories awarded</span>
+      </div>
+      <div class="year-divider"></div>
+    </div>
+    <div class="winners-grid">
+      <div class="winner-card reveal reveal-delay-1"><div class="winner-category">Outstanding Competition Show</div><div class="winner-name">Legendary</div><div class="winner-show">HBO Max</div></div>
+      <div class="winner-card reveal reveal-delay-2"><div class="winner-category">Most Creative Challenge</div><div class="winner-name">Guy's Grocery Games</div><div class="winner-show">Food Network</div></div>
+      <div class="winner-card reveal reveal-delay-3"><div class="winner-category">Outstanding Digital Reality Series</div><div class="winner-name">9 Months with Courteney Cox</div><div class="winner-show">Facebook Watch</div></div>
+      <div class="winner-card reveal reveal-delay-4"><div class="winner-category">Best Overall Show</div><div class="winner-name">The Bachelor</div><div class="winner-show">ABC</div></div>
+      <div class="winner-card reveal reveal-delay-5"><div class="winner-category">Outstanding Production Company</div><div class="winner-name">Sony Pictures Television</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-6"><div class="winner-category">Outstanding Production Crew</div><div class="winner-name">Hell's Kitchen S19</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Best Lifestyle Show</div><div class="winner-name">Men in Kilts</div><div class="winner-show">STARZ</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding New Show</div><div class="winner-name">Six Degrees w/ Mike Rowe</div><div class="winner-show">Discovery+</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Cast</div><div class="winner-name">Crikey! It's the Irwins</div><div class="winner-show">Animal Planet</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Docu-Series</div><div class="winner-name">Men in Kilts</div><div class="winner-show">STARZ</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Best Editing</div><div class="winner-name">American Ninja Warrior S12</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Best Feel Good Show</div><div class="winner-name">Men in Kilts</div><div class="winner-show">STARZ</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Game Show</div><div class="winner-name">Celebrity Family Feud</div><div class="winner-show">ABC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Guilty Pleasure Show</div><div class="winner-name">1000-Lb. Sisters</div><div class="winner-show">TLC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Host</div><div class="winner-name">Valerie Bertinelli</div><div class="winner-show">Valerie's Home Cooking — Food Network</div></div>
+      <div class="winner-card reveal"><div class="winner-category">International Reality Series</div><div class="winner-name">Big Brother Canada</div><div class="winner-show">Global</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Judging Panel</div><div class="winner-name">America's Got Talent</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Kids Reality Series</div><div class="winner-name">Kids Baking Championship</div><div class="winner-show">Food Network</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Reality Royalty</div><div class="winner-name">Darcey &amp; Stacey Silva</div><div class="winner-show">Darcey &amp; Stacey — TLC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Reality TV Moment</div><div class="winner-name">Ghost Adventures</div><div class="winner-show">Travel Channel</div></div>
+      <div class="winner-card hall-of-fame reveal"><div class="winner-category">Hall of Fame</div><div class="winner-name">Tiffany "New York" Pollard</div><div class="winner-show">Hall of Fame Inductee</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Unique Concept</div><div class="winner-name">Ultimate Cowboy Showdown</div><div class="winner-show">INSP</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     8TH ANNUAL — 2021
+═══════════════════════════════════════════════ -->
+<section class="winners-section" id="year-2021">
+  <div class="winners-inner">
+    <div class="year-heading-row reveal">
+      <svg class="year-trophy" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 4L28 14H38L30 20L33 31L24 25L15 31L18 20L10 14H20L24 4Z" fill="none" stroke="#D4A853" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M17 36H31" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M20 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M28 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 42H32" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="year-heading-text">
+        <span class="year-ordinal">8th Annual</span>
+        <h2 class="year-title">American Reality Television Awards — <em>2021</em></h2>
+        <span class="year-count">21 categories awarded</span>
+      </div>
+      <div class="year-divider"></div>
+    </div>
+    <div class="winners-grid">
+      <div class="winner-card reveal reveal-delay-1"><div class="winner-category">Outstanding Production Company</div><div class="winner-name">Sony Pictures Entertainment</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-2"><div class="winner-category">Overall Show</div><div class="winner-name">90 Day Fiancé</div><div class="winner-show">TLC</div></div>
+      <div class="winner-card reveal reveal-delay-3"><div class="winner-category">New Show</div><div class="winner-name">Amy Schumer Learns to Cook</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-4"><div class="winner-category">Reality Royalty Award</div><div class="winner-name">Dr. Sandra Lee</div><div class="winner-show">Dr. Pimple Popper</div></div>
+      <div class="winner-card reveal reveal-delay-5"><div class="winner-category">Outstanding Host</div><div class="winner-name">Wayne Brady</div><div class="winner-show">Let's Make a Deal</div></div>
+      <div class="winner-card reveal reveal-delay-6"><div class="winner-category">Dynamic Cast — New</div><div class="winner-name">My Feet Are Killing Me</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — Recurring</div><div class="winner-name">Crikey! It's the Irwins</div><div class="winner-show">Animal Planet</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Docu-Series</div><div class="winner-name">Married to Medicine</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Lifestyle Show</div><div class="winner-name">Diners, Drive-Ins and Dives</div><div class="winner-show">Food Network</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Feel Good Show</div><div class="winner-name">America's Funniest Home Videos</div><div class="winner-show">ABC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Unique Concept</div><div class="winner-name">90 Day Fiancé: Self-Quarantine</div><div class="winner-show">TLC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Competition Show</div><div class="winner-name">The Masked Singer</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Creative Challenge</div><div class="winner-name">Restaurant: Impossible</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Judging Panel</div><div class="winner-name">American Idol</div><div class="winner-show">ABC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Reality TV Moment</div><div class="winner-name">Pit Bulls and Parolees</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Badass Crew — Outstanding Production Crew</div><div class="winner-name">Jimmy Kimmel Live!</div><div class="winner-show">ABC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Guilty Pleasure</div><div class="winner-name">Chrisley Knows Best</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Editing</div><div class="winner-name">Shark Tank</div><div class="winner-show">ABC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Digital Reality Series</div><div class="winner-name">Gown &amp; Out in Beverly Hills</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Game / Variety Show</div><div class="winner-name">Jeopardy! The Greatest of All Time</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Kids Reality Series</div><div class="winner-name">Kids Baking Championship</div><div class="winner-show">Food Network</div></div>
+      <div class="winner-card reveal"><div class="winner-category">International Reality Series</div><div class="winner-name">Crikey! It's the Irwins</div><div class="winner-show">Animal Planet</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     7TH ANNUAL — 2020
+═══════════════════════════════════════════════ -->
+<section class="winners-section" id="year-2020">
+  <div class="winners-inner">
+    <div class="year-heading-row reveal">
+      <svg class="year-trophy" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 4L28 14H38L30 20L33 31L24 25L15 31L18 20L10 14H20L24 4Z" fill="none" stroke="#D4A853" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M17 36H31" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M20 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M28 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 42H32" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="year-heading-text">
+        <span class="year-ordinal">7th Annual</span>
+        <h2 class="year-title">American Reality Television Awards — <em>2020</em></h2>
+        <span class="year-count">22 categories awarded</span>
+      </div>
+      <div class="year-divider"></div>
+    </div>
+    <div class="winners-grid">
+      <div class="winner-card reveal reveal-delay-1"><div class="winner-category">Outstanding Production Company</div><div class="winner-name">495 Productions</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-2"><div class="winner-category">Overall Show</div><div class="winner-name">Hell's Kitchen</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal reveal-delay-3"><div class="winner-category">New Show</div><div class="winner-name">Making It</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-4"><div class="winner-category">Reality Royalty — Queen</div><div class="winner-name">Jennifer Lopez</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-5"><div class="winner-category">Reality Royalty — King</div><div class="winner-name">Derek Hough</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-6"><div class="winner-category">Host / Hostess</div><div class="winner-name">Dwayne "The Rock" Johnson</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Performance</div><div class="winner-name">Kodi Lee</div><div class="winner-show">America's Got Talent</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — New</div><div class="winner-name">The Titan Games</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — Recurring</div><div class="winner-name">Floribama Shore</div><div class="winner-show">MTV</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Lifestyle Show</div><div class="winner-name">Property Brothers</div><div class="winner-show">HGTV</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Docu-Series</div><div class="winner-name">I Am Jazz</div><div class="winner-show">TLC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Lifestyle Show</div><div class="winner-name">Drag Me Down the Aisle</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Feel Good Show</div><div class="winner-name">Hollywood Game Night</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Unique Concept</div><div class="winner-name">The Aquarium</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Competition Show</div><div class="winner-name">America's Got Talent</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Creative Challenge</div><div class="winner-name">The Titan Games</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Judging Panel</div><div class="winner-name">The Voice</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Badass Crew — Outstanding Production Crew</div><div class="winner-name">Deadliest Catch</div><div class="winner-show">Discovery Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Guilty Pleasure</div><div class="winner-name">Dr. Pimple Popper</div><div class="winner-show">TLC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Editing</div><div class="winner-name">World of Dance</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Digital Reality Series</div><div class="winner-name">I Want My Stuff Back</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Game / Variety Show</div><div class="winner-name">Are You Smarter Than a 5th Grader</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Kids Reality Series</div><div class="winner-name">American Ninja Warrior Jr.</div><div class="winner-show">NBC</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     6TH ANNUAL — 2019
+═══════════════════════════════════════════════ -->
+<section class="winners-section" id="year-2019">
+  <div class="winners-inner">
+    <div class="year-heading-row reveal">
+      <svg class="year-trophy" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 4L28 14H38L30 20L33 31L24 25L15 31L18 20L10 14H20L24 4Z" fill="none" stroke="#D4A853" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M17 36H31" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M20 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M28 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 42H32" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="year-heading-text">
+        <span class="year-ordinal">6th Annual</span>
+        <h2 class="year-title">American Reality Television Awards — <em>2019</em></h2>
+        <span class="year-count">26 categories awarded</span>
+      </div>
+      <div class="year-divider"></div>
+    </div>
+    <div class="winners-grid">
+      <div class="winner-card reveal reveal-delay-1"><div class="winner-category">Outstanding Production Company</div><div class="winner-name">Fly on the Wall Productions</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-2"><div class="winner-category">Overall Show</div><div class="winner-name">Pitbulls &amp; Parolees</div><div class="winner-show">Animal Planet</div></div>
+      <div class="winner-card reveal reveal-delay-3"><div class="winner-category">New Show</div><div class="winner-name">Top Chef Junior</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-4"><div class="winner-category">Reality Royalty Award</div><div class="winner-name">Tamar Braxton</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-5"><div class="winner-category">Host / Hostess</div><div class="winner-name">Steve Harvey</div><div class="winner-show">Celebrity Family Feud</div></div>
+      <div class="winner-card reveal reveal-delay-6"><div class="winner-category">Villain</div><div class="winner-name">Kevin O'Leary</div><div class="winner-show">Shark Tank</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — New</div><div class="winner-name">Queer Eye</div><div class="winner-show">Netflix</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — Recurring</div><div class="winner-name">Vanderpump Rules</div><div class="winner-show">Bravo</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Docu-Series</div><div class="winner-name">Jersey Shore: Family Vacation</div><div class="winner-show">MTV</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Lifestyle Show</div><div class="winner-name">Property Brothers</div><div class="winner-show">HGTV</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Feel Good Show</div><div class="winner-name">American Ninja Warrior</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Unique Concept</div><div class="winner-name">The Zoo</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Competition Show</div><div class="winner-name">America's Got Talent</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Judging Panel</div><div class="winner-name">World of Dance</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Badass Crew — Outstanding Production Crew</div><div class="winner-name">The Amazing Race</div><div class="winner-show">CBS</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Guilty Pleasure</div><div class="winner-name">My Cat From Hell</div><div class="winner-show">Animal Planet</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Editing</div><div class="winner-name">Team Ninja Warrior</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Digital Reality Series</div><div class="winner-name">Top Chef: Last Chance Kitchen</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Reality TV Website</div><div class="winner-name">RadarOnline.com</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Game / Variety Show</div><div class="winner-name">Ellen's Game of Games</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Fan Favorite — Big Brother</div><div class="winner-name">Tyler Crispen</div><div class="winner-show">Big Brother — CBS</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Fan Favorite — Bachelor Nation</div><div class="winner-name">Colton Underwood</div><div class="winner-show">The Bachelor — ABC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Fan Favorite — Real Housewives</div><div class="winner-name">Kandi Burruss</div><div class="winner-show">Real Housewives of Atlanta</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Fan Favorite — Ninja Warrior</div><div class="winner-name">Drew Dreschel</div><div class="winner-show">American Ninja Warrior</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Fan Favorite — RuPaul's Drag Race</div><div class="winner-name">Trinity the Tuck</div><div class="winner-show">RuPaul's Drag Race</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Fan Favorite — Bravolebrity</div><div class="winner-name">Stassi Schroeder</div><div class="winner-show">Vanderpump Rules</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     5TH ANNUAL — 2018
+═══════════════════════════════════════════════ -->
+<section class="winners-section" id="year-2018">
+  <div class="winners-inner">
+    <div class="year-heading-row reveal">
+      <svg class="year-trophy" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 4L28 14H38L30 20L33 31L24 25L15 31L18 20L10 14H20L24 4Z" fill="none" stroke="#D4A853" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M17 36H31" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M20 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M28 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 42H32" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="year-heading-text">
+        <span class="year-ordinal">5th Annual</span>
+        <h2 class="year-title">American Reality Television Awards — <em>2018</em></h2>
+        <span class="year-count">22 categories awarded</span>
+      </div>
+      <div class="year-divider"></div>
+    </div>
+    <div class="winners-grid">
+      <div class="winner-card reveal reveal-delay-1"><div class="winner-category">Outstanding Production Company</div><div class="winner-name">44 Blue Productions</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-2"><div class="winner-category">Overall Show</div><div class="winner-name">America's Got Talent</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal reveal-delay-3"><div class="winner-category">New Show</div><div class="winner-name">Martha &amp; Snoop's Potluck Dinner Party</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-4"><div class="winner-category">Reality Royalty Award</div><div class="winner-name">Snoop Dogg</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-5"><div class="winner-category">Host / Hostess</div><div class="winner-name">Leah Remini</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-6"><div class="winner-category">Villain</div><div class="winner-name">Chad Johnson / Scott Disick</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Performance</div><div class="winner-name">Adam Klein</div><div class="winner-show">Survivor</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — New</div><div class="winner-name">Amazing Race (Season 28)</div><div class="winner-show">CBS</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — Recurring</div><div class="winner-name">Deadliest Catch</div><div class="winner-show">Discovery Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Docu-Series</div><div class="winner-name">Vanderpump Rules</div><div class="winner-show">Bravo</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Lifestyle Show</div><div class="winner-name">Fixer Upper</div><div class="winner-show">HGTV</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Feel Good Show</div><div class="winner-name">Pitbulls &amp; Parolees</div><div class="winner-show">Animal Planet</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Unique Concept</div><div class="winner-name">Cast Me!</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Competition Show</div><div class="winner-name">America's Got Talent</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Creative Challenge</div><div class="winner-name">Big Brother (Season 18)</div><div class="winner-show">CBS</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Judging Panel</div><div class="winner-name">RuPaul's Drag Race</div><div class="winner-show">VH1</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Badass Crew — Outstanding Production Crew</div><div class="winner-name">Deadliest Catch</div><div class="winner-show">Discovery Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Guilty Pleasure</div><div class="winner-name">Hell's Kitchen</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Editing</div><div class="winner-name">Naked &amp; Afraid</div><div class="winner-show">Discovery Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Digital Reality Series</div><div class="winner-name">ANW: Crashing the Course</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Shocking Moment</div><div class="winner-name">RuPaul's Drag Race (Lady Gaga)</div><div class="winner-show">VH1</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Heartfelt Moment</div><div class="winner-name">Undercover Boss</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Heartfelt Moment</div><div class="winner-name">Dance Moms (JoJo Siwa)</div><div class="winner-show">Lifetime</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Reality TV Website</div><div class="winner-name">PerezHilton.com</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Game / Variety Show</div><div class="winner-name">The Price Is Right</div><div class="winner-show">CBS</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     4TH ANNUAL — 2016
+═══════════════════════════════════════════════ -->
+<section class="winners-section" id="year-2016">
+  <div class="winners-inner">
+    <div class="year-heading-row reveal">
+      <svg class="year-trophy" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 4L28 14H38L30 20L33 31L24 25L15 31L18 20L10 14H20L24 4Z" fill="none" stroke="#D4A853" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M17 36H31" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M20 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M28 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 42H32" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="year-heading-text">
+        <span class="year-ordinal">4th Annual</span>
+        <h2 class="year-title">American Reality Television Awards — <em>2016</em></h2>
+        <span class="year-count">24 categories awarded</span>
+      </div>
+      <div class="year-divider"></div>
+    </div>
+    <div class="winners-grid">
+      <div class="winner-card hall-of-fame reveal reveal-delay-1"><div class="winner-category">Hall of Fame</div><div class="winner-name">Janice Dickinson</div><div class="winner-show">Hall of Fame Inductee</div></div>
+      <div class="winner-card reveal reveal-delay-2"><div class="winner-category">Outstanding Production Company</div><div class="winner-name">ITV Entertainment</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-3"><div class="winner-category">Overall Show</div><div class="winner-name">ITV Entertainment</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-4"><div class="winner-category">New Show</div><div class="winner-name">Born This Way</div><div class="winner-show">A&amp;E</div></div>
+      <div class="winner-card reveal reveal-delay-5"><div class="winner-category">Reality Royalty — Queen</div><div class="winner-name">Vicki Gunvalson</div><div class="winner-show">Real Housewives of Orange County</div></div>
+      <div class="winner-card reveal reveal-delay-6"><div class="winner-category">Reality Royalty — King</div><div class="winner-name">Todd Chrisley</div><div class="winner-show">Chrisley Knows Best</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Host / Hostess</div><div class="winner-name">RuPaul Charles</div><div class="winner-show">RuPaul's Drag Race</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Villain</div><div class="winner-name">Abby Lee Miller</div><div class="winner-show">Dance Moms</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Performance</div><div class="winner-name">Sawyer Fredericks</div><div class="winner-show">The Voice</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Crossover Talent</div><div class="winner-name">Julia Louis-Dreyfus</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — New</div><div class="winner-name">Born This Way</div><div class="winner-show">A&amp;E</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — Recurring</div><div class="winner-name">Real Housewives of Orange County</div><div class="winner-show">Bravo</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Docu-Series</div><div class="winner-name">Little Women: LA</div><div class="winner-show">Lifetime</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Lifestyle Show</div><div class="winner-name">Ellen's Design Challenge</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Feel Good Show</div><div class="winner-name">Pitbulls &amp; Parolees</div><div class="winner-show">Animal Planet</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Unique Concept</div><div class="winner-name">Dating Naked</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Competition Show</div><div class="winner-name">American Ninja Warrior</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Creative Challenge</div><div class="winner-name">RuPaul's Drag Race</div><div class="winner-show">Logo / VH1</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Judging Panel</div><div class="winner-name">The Voice</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Badass Crew — Outstanding Production Crew</div><div class="winner-name">Deadliest Catch</div><div class="winner-show">Discovery Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Guilty Pleasure</div><div class="winner-name">Big Brother</div><div class="winner-show">CBS</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Editing</div><div class="winner-name">The First 48</div><div class="winner-show">A&amp;E</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Digital Reality Series</div><div class="winner-name">Making a Murderer</div><div class="winner-show">Netflix</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Shocking Moment</div><div class="winner-name">Botched</div><div class="winner-show">E!</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Heartfelt Moment</div><div class="winner-name">Dance Moms (JoJo Siwa)</div><div class="winner-show">Lifetime</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Reality TV Website</div><div class="winner-name">TMZ.com</div><div class="winner-show">&nbsp;</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     3RD ANNUAL — 2015
+═══════════════════════════════════════════════ -->
+<section class="winners-section" id="year-2015">
+  <div class="winners-inner">
+    <div class="year-heading-row reveal">
+      <svg class="year-trophy" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 4L28 14H38L30 20L33 31L24 25L15 31L18 20L10 14H20L24 4Z" fill="none" stroke="#D4A853" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M17 36H31" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M20 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M28 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 42H32" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="year-heading-text">
+        <span class="year-ordinal">3rd Annual</span>
+        <h2 class="year-title">American Reality Television Awards — <em>2015</em></h2>
+        <span class="year-count">22 categories awarded</span>
+      </div>
+      <div class="year-divider"></div>
+    </div>
+    <div class="winners-grid">
+      <div class="winner-card hall-of-fame reveal reveal-delay-1"><div class="winner-category">Hall of Fame</div><div class="winner-name">Heidi Montag &amp; Spencer Pratt</div><div class="winner-show">Hall of Fame Inductees</div></div>
+      <div class="winner-card reveal reveal-delay-2"><div class="winner-category">Outstanding Production Company</div><div class="winner-name">Original Productions</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-3"><div class="winner-category">Overall Show</div><div class="winner-name">Hell's Kitchen</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal reveal-delay-4"><div class="winner-category">New Show</div><div class="winner-name">Wahlburgers</div><div class="winner-show">A&amp;E</div></div>
+      <div class="winner-card reveal reveal-delay-5"><div class="winner-category">Reality Royalty — Queen</div><div class="winner-name">Leah Remini</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-6"><div class="winner-category">Reality Royalty — King</div><div class="winner-name">Blake Shelton</div><div class="winner-show">The Voice</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Host / Hostess</div><div class="winner-name">Gordon Ramsay</div><div class="winner-show">Hell's Kitchen / MasterChef</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Villain</div><div class="winner-name">Abby Lee Miller</div><div class="winner-show">Dance Moms</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Performance</div><div class="winner-name">Emily West</div><div class="winner-show">America's Got Talent</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — New</div><div class="winner-name">MasterChef Jr.</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — Recurring</div><div class="winner-name">Dance Moms</div><div class="winner-show">Lifetime</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Docu-Series</div><div class="winner-name">Vanderpump Rules</div><div class="winner-show">Bravo</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Feel Good Show</div><div class="winner-name">Pitbulls &amp; Parolees</div><div class="winner-show">Animal Planet</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Unique Concept</div><div class="winner-name">Married at First Sight</div><div class="winner-show">Lifetime / FYI</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Competition Show</div><div class="winner-name">The Amazing Race</div><div class="winner-show">CBS</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Creative Challenge</div><div class="winner-name">Big Brother</div><div class="winner-show">CBS</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Judging Panel</div><div class="winner-name">Dancing with the Stars</div><div class="winner-show">ABC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Badass Crew — Outstanding Production Crew</div><div class="winner-name">Deadliest Catch</div><div class="winner-show">Discovery Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Guilty Pleasure</div><div class="winner-name">Hell's Kitchen</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Editing</div><div class="winner-name">The First 48</div><div class="winner-show">A&amp;E</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Shocking Moment</div><div class="winner-name">Deadliest Catch</div><div class="winner-show">Discovery Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Heartfelt Moment</div><div class="winner-name">American Ninja Warrior (Kacy Catanzaro)</div><div class="winner-show">NBC</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     2ND ANNUAL — 2014
+═══════════════════════════════════════════════ -->
+<section class="winners-section" id="year-2014">
+  <div class="winners-inner">
+    <div class="year-heading-row reveal">
+      <svg class="year-trophy" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 4L28 14H38L30 20L33 31L24 25L15 31L18 20L10 14H20L24 4Z" fill="none" stroke="#D4A853" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M17 36H31" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M20 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M28 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 42H32" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="year-heading-text">
+        <span class="year-ordinal">2nd Annual</span>
+        <h2 class="year-title">American Reality Television Awards — <em>2014</em></h2>
+        <span class="year-count">23 categories awarded</span>
+      </div>
+      <div class="year-divider"></div>
+    </div>
+    <div class="winners-grid">
+      <div class="winner-card reveal reveal-delay-1"><div class="winner-category">Outstanding Production Company</div><div class="winner-name">One Three Media</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-2"><div class="winner-category">Overall Show</div><div class="winner-name">Deadliest Catch</div><div class="winner-show">Discovery Channel</div></div>
+      <div class="winner-card reveal reveal-delay-3"><div class="winner-category">New Show</div><div class="winner-name">MasterChef Junior</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal reveal-delay-4"><div class="winner-category">Reality Royalty — Queen</div><div class="winner-name">Lisa Vanderpump</div><div class="winner-show">Vanderpump Rules / RHOBH</div></div>
+      <div class="winner-card reveal reveal-delay-5"><div class="winner-category">Reality Royalty — King</div><div class="winner-name">Blake Shelton</div><div class="winner-show">The Voice</div></div>
+      <div class="winner-card reveal reveal-delay-6"><div class="winner-category">Host / Hostess</div><div class="winner-name">Betty White</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Villain</div><div class="winner-name">Abby Lee Miller / Kevin O'Leary</div><div class="winner-show">Dance Moms / Shark Tank</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Performance</div><div class="winner-name">Top 20</div><div class="winner-show">So You Think You Can Dance</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — New</div><div class="winner-name">Hell's Kitchen</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — Recurring</div><div class="winner-name">Duck Dynasty</div><div class="winner-show">A&amp;E</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Docu-Series</div><div class="winner-name">Pitbulls &amp; Parolees</div><div class="winner-show">Animal Planet</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Feel Good Show</div><div class="winner-name">Pitbulls &amp; Parolees</div><div class="winner-show">Animal Planet</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Unique Concept</div><div class="winner-name">Betty White's Off Their Rockers</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Competition Show</div><div class="winner-name">The Voice</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Creative Challenge</div><div class="winner-name">RuPaul's Drag Race</div><div class="winner-show">Logo</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Judging Panel</div><div class="winner-name">The Voice</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Badass Crew — Outstanding Production Crew</div><div class="winner-name">Deadliest Catch</div><div class="winner-show">Discovery Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Guilty Pleasure</div><div class="winner-name">Snooki &amp; JWOWW</div><div class="winner-show">MTV</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Editing</div><div class="winner-name">Deadliest Catch</div><div class="winner-show">Discovery Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Shocking Moment</div><div class="winner-name">Preachers' Daughters</div><div class="winner-show">Lifetime</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Heartfelt Moment</div><div class="winner-name">MasterChef</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Reality Duo</div><div class="winner-name">Sig &amp; Edgar</div><div class="winner-show">Deadliest Catch</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dramatic Exit</div><div class="winner-name">Dancing with the Stars</div><div class="winner-show">ABC</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     1ST ANNUAL — 2013
+═══════════════════════════════════════════════ -->
+<section class="winners-section" id="year-2013">
+  <div class="winners-inner">
+    <div class="year-heading-row reveal">
+      <svg class="year-trophy" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 4L28 14H38L30 20L33 31L24 25L15 31L18 20L10 14H20L24 4Z" fill="none" stroke="#D4A853" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M17 36H31" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M20 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M28 36V42" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 42H32" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="year-heading-text">
+        <span class="year-ordinal">1st Annual — Inaugural</span>
+        <h2 class="year-title">American Reality Television Awards — <em>2013</em></h2>
+        <span class="year-count">20 categories awarded</span>
+      </div>
+      <div class="year-divider"></div>
+    </div>
+    <div class="winners-grid">
+      <div class="winner-card hall-of-fame reveal reveal-delay-1"><div class="winner-category">Hall of Fame / Humanitarian</div><div class="winner-name">Gillian Larson / Reality Rally</div><div class="winner-show">Hall of Fame Inductee</div></div>
+      <div class="winner-card reveal reveal-delay-2"><div class="winner-category">Outstanding Production Company</div><div class="winner-name">Mark Burnett Productions</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-3"><div class="winner-category">Overall Show</div><div class="winner-name">The Voice</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal reveal-delay-4"><div class="winner-category">New Show</div><div class="winner-name">Duck Dynasty</div><div class="winner-show">A&amp;E</div></div>
+      <div class="winner-card reveal reveal-delay-5"><div class="winner-category">Reality Royalty — Queen</div><div class="winner-name">Khloé Kardashian</div><div class="winner-show">&nbsp;</div></div>
+      <div class="winner-card reveal reveal-delay-6"><div class="winner-category">Reality Royalty — King</div><div class="winner-name">Si Robertson</div><div class="winner-show">Duck Dynasty</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Host / Hostess</div><div class="winner-name">Ryan Seacrest</div><div class="winner-show">American Idol</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Villain</div><div class="winner-name">Abi-Maria Gomes</div><div class="winner-show">Survivor</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Performance</div><div class="winner-name">Jessica Sanchez</div><div class="winner-show">American Idol</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Dynamic Cast — Recurring</div><div class="winner-name">Storage Wars</div><div class="winner-show">A&amp;E</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Outstanding Docu-Series</div><div class="winner-name">Duck Dynasty</div><div class="winner-show">A&amp;E</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Unique Concept</div><div class="winner-name">Betty White's Off Their Rockers</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Competition Show</div><div class="winner-name">The Voice</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Judging Panel</div><div class="winner-name">The Voice</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Badass Crew — Outstanding Production Crew</div><div class="winner-name">Deadliest Catch</div><div class="winner-show">Discovery Channel</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Guilty Pleasure</div><div class="winner-name">Jersey Shore</div><div class="winner-show">MTV</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Shocking Moment</div><div class="winner-name">American Idol</div><div class="winner-show">FOX</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Heartfelt Moment</div><div class="winner-name">The Voice</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Game / Variety Show</div><div class="winner-name">Family Feud</div><div class="winner-show">CBS</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Spin-Off</div><div class="winner-name">Top Chef</div><div class="winner-show">Bravo</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Talk Show</div><div class="winner-name">Ellen</div><div class="winner-show">NBC</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Sore Loser Moment</div><div class="winner-name">Jeff Kent</div><div class="winner-show">Survivor</div></div>
+      <div class="winner-card reveal"><div class="winner-category">Theme Song</div><div class="winner-name">Dancing with the Stars</div><div class="winner-show">ABC</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     NOTABLE RECORDS
+═══════════════════════════════════════════════ -->
+<section class="records-section">
+  <div class="records-inner">
+    <div class="records-header reveal">
+      <span class="records-label">The Hall of Records</span>
+      <h2 class="records-title" style="font-family: var(--font-display);">Notable <span style="font-style: italic; color: var(--gold);">Streaks</span> &amp; Dynasties</h2>
+      <div class="section-divider-bar" style="background: var(--gold-dim);"></div>
+      <p class="records-subtitle">These shows defined a decade of unscripted television dominance at the ARTAS.</p>
+    </div>
+    <div class="records-grid">
+      <div class="record-card reveal reveal-delay-1">
+        <div class="record-show">Deadliest Catch</div>
+        <div class="record-badge">✦ Dynasty Record</div>
+        <p class="record-desc">The most decorated crew in ARTAS history. Deadliest Catch took home the <strong>"Badass Crew"</strong> award for Outstanding Production Crew in four consecutive years — a streak unmatched by any other show in the award's history.</p>
+        <div class="record-years">
+          <span class="record-year-tag">2013</span>
+          <span class="record-year-tag">2014</span>
+          <span class="record-year-tag">2015</span>
+          <span class="record-year-tag">2016</span>
+          <span class="record-year-tag">2018</span>
+          <span class="record-year-tag">2020</span>
+        </div>
+      </div>
+      <div class="record-card reveal reveal-delay-2">
+        <div class="record-show">Pitbulls &amp; Parolees</div>
+        <div class="record-badge">✦ Feel Good Royalty</div>
+        <p class="record-desc">Tia Torres' show captured the hearts of ARTAS voters year after year. Pitbulls &amp; Parolees won <strong>Feel Good Show</strong> multiple times across the first six annual awards, alongside Overall Show and Docu-Series honors.</p>
+        <div class="record-years">
+          <span class="record-year-tag">2014 (Docu &amp; Feel Good)</span>
+          <span class="record-year-tag">2015 (Feel Good)</span>
+          <span class="record-year-tag">2016 (Feel Good)</span>
+          <span class="record-year-tag">2018 (Feel Good)</span>
+          <span class="record-year-tag">2019 (Overall)</span>
+        </div>
+      </div>
+      <div class="record-card reveal reveal-delay-3">
+        <div class="record-show">RuPaul's Drag Race</div>
+        <div class="record-badge">✦ Multi-Category Legend</div>
+        <p class="record-desc">RuPaul's Drag Race swept across categories from Creative Challenge and Judging Panel to Overall Show and Outstanding Host — with RuPaul himself winning <strong>Best Host</strong> and the show taking <strong>Overall Show</strong> at the 10th Annual.</p>
+        <div class="record-years">
+          <span class="record-year-tag">2014 (Creative Challenge)</span>
+          <span class="record-year-tag">2016 (Creative Challenge, Host)</span>
+          <span class="record-year-tag">2018 (Judging Panel, Shocking Moment)</span>
+          <span class="record-year-tag">2023 (Overall, Host, Judging)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/12th-logo-A-transparent.png" alt="ARTAS">
+      <span>American Reality Television Awards</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="nominees.html">Nominees</a></li>
+      <li><a href="past-winners.html">Past Winners</a></li>
+      <li><a href="awards-show.html">Awards Show</a></li>
+      <li><a href="submit.html">Submit</a></li>
+      <li><a href="the-buzz.html">The Buzz</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+    <div class="footer-copy">
+      <div class="social-links">
+        <a href="https://www.instagram.com/realityawardstv/" aria-label="Instagram" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.tiktok.com/@realityawardstv" aria-label="TikTok" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.28 8.28 0 0 0 4.84 1.55V6.85a4.85 4.85 0 0 1-1.08-.16z"/></svg></a>
+        <a href="https://twitter.com/realityawardstv" aria-label="X" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.facebook.com/RealityTVAwards/" aria-label="Facebook" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.youtube.com/realityawardstv" aria-label="YouTube" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon points="9.545,15.568 15.818,12 9.545,8.432" fill="#fff"/></svg></a>
+      </div>
+      <p>&copy; 2026 American Reality Television Awards (The ARTAS&reg;). All rights reserved.</p>
+      <p class="producers">Executive Producers: Kristen Moss &amp; Andrew Ward</p>
+      <p style="margin-top: 6px; font-size: 0.7rem;">@RealityAwardsTV &middot; #TheARTAS</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// ── Mobile menu
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+mobileToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+// ── Year nav sticky elevation
+const yearNavWrapper = document.getElementById('yearNavWrapper');
+window.addEventListener('scroll', () => {
+  yearNavWrapper.classList.toggle('elevated', window.scrollY > 200);
+}, { passive: true });
+
+// ── Year nav active pill (IntersectionObserver)
+const yearSections = document.querySelectorAll('.winners-section[id]');
+const yearPills = document.querySelectorAll('.year-pill');
+
+const navHeight = 72 + 60; // nav + year nav bar height
+
+const pillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      yearPills.forEach(pill => {
+        pill.classList.toggle('active', pill.getAttribute('data-year') === id);
+      });
+      // Scroll the active pill into view in the year nav
+      const activePill = document.querySelector(`.year-pill[data-year="${id}"]`);
+      if (activePill) {
+        activePill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  });
+}, {
+  rootMargin: `-${navHeight}px 0px -50% 0px`,
+  threshold: 0
+});
+
+yearSections.forEach(section => pillObserver.observe(section));
+
+// ── Smooth scroll for year pills (account for sticky nav + year nav height)
+document.querySelectorAll('.year-pill').forEach(pill => {
+  pill.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = pill.getAttribute('data-year');
+    const target = document.getElementById(targetId);
+    if (target) {
+      const offset = 72 + 60 + 16; // nav + year nav + breathing room
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// ── Sparkle particles
+(function() {
+  const c = document.getElementById('particles');
+  if (!c) return;
+  for (let i = 0; i < 24; i++) {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.animationDuration = (8 + Math.random() * 12) + 's';
+    s.style.animationDelay = Math.random() * 12 + 's';
+    const size = (1.5 + Math.random() * 2.5) + 'px';
+    s.style.width = size;
+    s.style.height = size;
+    // Mix rose and gold sparkles
+    s.style.background = Math.random() > 0.5 ? 'var(--rose)' : 'var(--gold)';
+    c.appendChild(s);
+  }
+})();
+
+// ── IntersectionObserver reveal with staggered card delays
+(function() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+
+  // Stagger winner cards within each grid
+  document.querySelectorAll('.winners-grid').forEach(grid => {
+    const cards = grid.querySelectorAll('.winner-card');
+    cards.forEach((card, i) => {
+      // Only add delay classes if not already set
+      if (!card.className.includes('reveal-delay')) {
+        const delay = (i % 6) * 60;
+        card.style.transitionDelay = delay + 'ms';
+      }
+    });
+  });
+
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+})();
+</script>
+</body>
+</html>
