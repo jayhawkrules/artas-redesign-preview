@@ -1053,58 +1053,56 @@ window.addEventListener('scroll', () => {
   yearNavWrapper.classList.toggle('elevated', window.scrollY > 200);
 }, { passive: true });
 
-// Year nav active pill tracking
-const yearSections = document.querySelectorAll('.winners-section[id]');
-const yearPills = document.querySelectorAll('.year-pill');
-const yearNav = document.getElementById('yearNav');
-let isScrollingFromClick = false;
+// Year pill navigation — simple and clean
+(function() {
+  const sections = document.querySelectorAll('.winners-section[id]');
+  const pills = document.querySelectorAll('.year-pill');
+  let activeId = null;
+  let clickLock = false;
 
-function setActivePill(yearId) {
-  yearPills.forEach(pill => {
-    const isActive = pill.getAttribute('data-year') === yearId;
-    pill.classList.toggle('active', isActive);
-    if (isActive) {
-      pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  // Highlight the correct pill — no auto-scrolling the pill bar during passive scroll
+  function highlight(yearId, scrollPillBar) {
+    if (yearId === activeId) return;
+    activeId = yearId;
+    pills.forEach(p => p.classList.toggle('active', p.getAttribute('data-year') === yearId));
+    if (scrollPillBar) {
+      const ap = document.querySelector('.year-pill[data-year="' + yearId + '"]');
+      if (ap) ap.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
-  });
-}
-
-// Use scroll-based detection instead of IntersectionObserver for reliability
-function updateActiveOnScroll() {
-  if (isScrollingFromClick) return;
-  const scrollPos = window.scrollY + 200;
-  let currentSection = null;
-  yearSections.forEach(section => {
-    if (section.offsetTop <= scrollPos) {
-      currentSection = section;
-    }
-  });
-  if (currentSection) {
-    setActivePill(currentSection.id);
   }
-}
 
-window.addEventListener('scroll', updateActiveOnScroll, { passive: true });
+  // On scroll: find which section is currently in view
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (clickLock || ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY + 250;
+      let found = null;
+      sections.forEach(s => { if (s.offsetTop <= scrollY) found = s.id; });
+      if (found) highlight(found, false);
+      ticking = false;
+    });
+  }, { passive: true });
 
-// Click handler for year pills
-yearPills.forEach(pill => {
-  pill.addEventListener('click', e => {
-    e.preventDefault();
-    const targetId = pill.getAttribute('data-year');
-    const target = document.getElementById(targetId);
-    if (!target) return;
+  // Click a pill: scroll to the section, lock scroll tracking briefly
+  pills.forEach(pill => {
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const id = pill.getAttribute('data-year');
+      const target = document.getElementById(id);
+      if (!target) return;
 
-    isScrollingFromClick = true;
-    setActivePill(targetId);
+      clickLock = true;
+      highlight(id, true);
 
-    const offset = 72 + 60 + 20;
-    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
+      const top = target.getBoundingClientRect().top + window.scrollY - 152;
+      window.scrollTo({ top, behavior: 'smooth' });
 
-    // Re-enable scroll tracking after animation
-    setTimeout(() => { isScrollingFromClick = false; }, 800);
+      setTimeout(() => { clickLock = false; }, 1200);
+    });
   });
-});
+})();
 
 // ── Sparkle particles
 (function() {
