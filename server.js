@@ -35,6 +35,8 @@ const server = http.createServer((req, res) => {
   } else if (!path.extname(urlPath)) {
     // No extension — try .html
     urlPath = urlPath + '.html';
+    // Handle /the-buzz route
+    if (urlPath === '/the-buzz.html') urlPath = '/the-buzz.html';
   }
   
   const filePath = path.join(ROOT, urlPath);

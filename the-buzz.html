@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Buzz — American Reality Television Awards</title>
+  <meta name="description" content="News, press releases, and updates from the American Reality Television Awards (The ARTAS).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg-primary: #08080A;
+  --bg-surface: #0E0E12;
+  --bg-card: #141418;
+  --bg-card-hover: #1A1A20;
+  --rose: #C1897A;
+  --rose-light: #D4A498;
+  --rose-pale: #E0BEB6;
+  --rose-dim: #8B6259;
+  --rose-glow: rgba(193, 137, 122, 0.15);
+  --gold: #D4A853;
+  --gold-light: #E8C97A;
+  --gold-dim: #8B7340;
+  --text-primary: #F2F2F2;
+  --text-secondary: #B0B0B8;
+  --text-muted: #6E6E78;
+  --border: #1F1F26;
+  --border-light: #2A2A34;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { font-family: var(--font-body); color: var(--text-primary); background: var(--bg-primary); line-height: 1.6; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--rose); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--rose-light); }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 clamp(1.5rem, 4vw, 3rem); height: 72px; display: flex; align-items: center; justify-content: space-between; transition: background var(--transition-smooth), box-shadow var(--transition-smooth); }
+.nav.scrolled { background: rgba(8,8,10,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(193,137,122,0.12); }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo img { height: 38px; width: auto; }
+.nav-logo span { font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: clamp(1.2rem, 2.5vw, 2.2rem); list-style: none; }
+.nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); padding: 4px 0; position: relative; transition: color var(--transition-fast); }
+.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--rose); transition: width var(--transition-smooth); }
+.nav-links a:hover { color: var(--rose); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--rose); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta { font-size: 0.68rem !important; font-weight: 600 !important; color: var(--bg-primary) !important; background: var(--rose); padding: 8px 18px !important; border-radius: 2px; transition: background var(--transition-fast), transform var(--transition-fast) !important; }
+.nav-cta:hover { background: var(--rose-light) !important; color: var(--bg-primary) !important; transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: all 0.3s; }
+.mobile-overlay { position: fixed; inset: 0; z-index: 99; background: rgba(8,8,10,0.98); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.mobile-overlay.open { opacity: 1; pointer-events: all; }
+.mobile-overlay a { font-family: var(--font-display); font-size: 1.4rem; color: var(--text-primary); }
+.mobile-overlay a:hover { color: var(--rose); }
+.mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+/* PAGE HERO */
+.page-hero {
+  position: relative;
+  padding: 140px clamp(1.5rem, 4vw, 3rem) 80px;
+  text-align: center;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose-dim), transparent);
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(193,137,122,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 30% at 20% 80%, rgba(212,168,83,0.04) 0%, transparent 60%);
+}
+.page-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, transparent 70%);
+}
+.page-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.page-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 1.25rem;
+}
+.page-hero-label::before,
+.page-hero-label::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--rose-dim);
+}
+.page-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 2rem + 4vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+.page-hero-title em {
+  font-style: italic;
+  color: var(--rose);
+}
+.page-hero-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.75;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* BUZZ CONTENT */
+.buzz-section {
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 3rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* FEATURED POST */
+.featured-post {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+.featured-post:hover {
+  border-color: var(--rose-dim);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(193,137,122,0.1);
+}
+.featured-post::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rose-dim), var(--rose), var(--gold), var(--rose), var(--rose-dim));
+  z-index: 1;
+}
+.featured-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+}
+.featured-visual {
+  position: relative;
+  background: linear-gradient(135deg, #1A0F0D 0%, #0E0A08 40%, #12100E 70%, #1A1210 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  overflow: hidden;
+}
+.featured-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(193,137,122,0.12) 0%, transparent 70%);
+}
+.featured-visual-icon {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.featured-visual-icon svg {
+  width: 100px;
+  height: 100px;
+  opacity: 0.15;
+  margin-bottom: 1.5rem;
+}
+.featured-visual-year {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 4rem + 4vw, 10rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--rose);
+  opacity: 0.08;
+  position: absolute;
+  bottom: -0.1em;
+  right: 0.1em;
+  z-index: 0;
+  user-select: none;
+}
+.featured-visual-logo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.featured-visual-logo .artas-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(193,137,122,0.1);
+  border: 1px solid rgba(193,137,122,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.featured-visual-logo .artas-icon svg {
+  width: 40px;
+  height: 40px;
+  opacity: 0.7;
+}
+.featured-visual-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--rose-dim);
+}
+.featured-content {
+  padding: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(20,20,24,0.8) 100%);
+}
+.featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.badge-latest {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  background: var(--rose);
+  color: var(--bg-primary);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+.badge-latest::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+.featured-date {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+.featured-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 0.9rem + 1.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+.featured-excerpt {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 1.75rem;
+}
+.featured-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rose);
+  transition: gap var(--transition-fast), color var(--transition-fast);
+}
+.featured-read-more:hover {
+  gap: 16px;
+  color: var(--rose-light);
+}
+.featured-read-more svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-fast);
+}
+.featured-read-more:hover svg {
+  transform: translateX(3px);
+}
+
+/* SECTION HEADER */
+.buzz-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.buzz-section-header-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.buzz-section-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* POSTS GRID */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.post-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-smooth), background var(--transition-smooth), transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+.post-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose-dim), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+}
+.post-card:hover {
+  border-color: var(--border-light);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(193,137,122,0.06);
+}
+.post-card:hover::before {
+  opacity: 1;
+}
+.post-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.post-date {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+.post-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.post-tag.press-release {
+  background: rgba(193,137,122,0.12);
+  color: var(--rose-light);
+  border: 1px solid rgba(193,137,122,0.2);
+}
+.post-tag.editorial {
+  background: rgba(212,168,83,0.1);
+  color: var(--gold);
+  border: 1px solid rgba(212,168,83,0.2);
+}
+.post-title {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 0.75rem + 0.5vw, 1.1rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+.post-card:hover .post-title {
+  color: var(--rose-light);
+}
+.post-excerpt {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.post-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: auto;
+  padding-top: 0.5rem;
+  transition: color var(--transition-fast), gap var(--transition-fast);
+  border-top: 1px solid var(--border);
+}
+.post-read-more:hover {
+  color: var(--rose);
+  gap: 10px;
+}
+
+/* FOOTER */
+.footer { padding: 2.5rem clamp(1.5rem, 4vw, 3rem); border-top: 1px solid var(--border); background: var(--bg-surface); }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand img { height: 26px; opacity: 0.5; }
+.footer-brand span { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; }
+.footer-links { display: flex; gap: 1.8rem; list-style: none; }
+.footer-links a { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; transition: color var(--transition-fast); }
+.footer-links a:hover { color: var(--rose); }
+.footer-copy { width: 100%; text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: 1rem; font-size: 0.68rem; color: var(--text-muted); line-height: 1.7; }
+.footer-copy .producers { color: var(--text-secondary); font-weight: 500; }
+.social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
+.social-links a { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid var(--border-light); border-radius: 50%; color: var(--text-muted); transition: all var(--transition-fast); }
+.social-links a:hover { border-color: var(--rose); color: var(--rose); transform: translateY(-2px); }
+.social-links svg { width: 15px; height: 15px; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .featured-inner { grid-template-columns: 1fr; }
+  .featured-visual { min-height: 200px; padding: 2.5rem 2rem; }
+  .featured-visual-year { font-size: 6rem; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .posts-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .page-hero-title { font-size: 3rem; }
+}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/12th-logo-A-transparent.png" alt="ARTAS">
+    <span>ARTAS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="nominees.html">Nominees</a></li>
+    <li><a href="awards-show.html">Awards Show</a></li>
+    <li><a href="submit.html">Submit Your Show</a></li>
+    <li><a href="the-buzz.html" class="active">The Buzz</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="gallery.html" class="nav-cta">Gallery</a></li>
+  </ul>
+  <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-overlay" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="nominees.html" onclick="closeMobile()">Nominees</a>
+  <a href="awards-show.html" onclick="closeMobile()">Awards Show</a>
+  <a href="submit.html" onclick="closeMobile()">Submit Your Show</a>
+  <a href="the-buzz.html" onclick="closeMobile()">The Buzz</a>
+  <a href="about.html" onclick="closeMobile()">About Us</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-label">American Reality Television Awards</div>
+    <h1 class="page-hero-title"><em>The</em> Buzz</h1>
+    <p class="page-hero-subtitle">News, press releases, and updates from the American Reality Television Awards</p>
+  </div>
+</section>
+
+<!-- BUZZ CONTENT -->
+<div style="background: var(--bg-primary);">
+  <div class="buzz-section">
+
+    <!-- FEATURED POST -->
+    <article class="featured-post reveal">
+      <div class="featured-inner">
+        <div class="featured-visual">
+          <div class="featured-visual-year">12</div>
+          <div class="featured-visual-logo">
+            <div class="artas-icon">
+              <!-- Trophy/star icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+              </svg>
+            </div>
+            <span class="featured-visual-label">12th Annual ARTAS</span>
+          </div>
+        </div>
+        <div class="featured-content">
+          <div class="featured-meta">
+            <span class="badge-latest">Latest</span>
+            <time class="featured-date">March 28, 2026</time>
+          </div>
+          <h2 class="featured-title">12th Annual American Reality Television Awards Winners Coming April 2026</h2>
+          <p class="featured-excerpt">The votes have been counted. The results are in. Next month, the 12th Annual ARTAS will officially reveal the winners across all 26 categories — and the competition has never been tighter.</p>
+          <a href="https://www.realitytelevisionawards.com/12th-annual-american-reality-television-awards-winners-coming-april-2026/" class="featured-read-more">
+            Read More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- POSTS GRID -->
+    <div class="buzz-section-header">
+      <div class="buzz-section-label">More Stories</div>
+      <div class="buzz-section-header-line"></div>
+    </div>
+
+    <div class="posts-grid">
+
+      <!-- Post 2 -->
+      <article class="post-card reveal" style="transition-delay: 0.05s;">
+        <div class="post-card-top">
+          <time class="post-date">October 23, 2025</time>
+          <span class="post-tag press-release">Press Release</span>
+        </div>
+        <h3 class="post-title">12th Annual American Reality TV Awards – ARTAS Official Nominations</h3>
+        <p class="post-excerpt">The 12th annual ARTAS has announced its official nominees in 26 distinct categories. The worldwide vote is open now.</p>
+        <a href="https://www.realitytelevisionawards.com/12th-annual-american-reality-tv-awards-artas-official-nominations/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="post-card reveal" style="transition-delay: 0.10s;">
+        <div class="post-card-top">
+          <time class="post-date">November 5, 2024</time>
+          <span class="post-tag press-release">Press Release</span>
+        </div>
+        <h3 class="post-title">11th Annual ARTAS Celebrates Excellence in Unscripted Television</h3>
+        <p class="post-excerpt">Hosted by Heather McDonald. Since its inception in 2013, the ARTAS has recognized outstanding achievements in unscripted television.</p>
+        <a href="https://www.realitytelevisionawards.com/11th-annual-american-reality-television-awards-celebrates-excellence-in-unscripted-television/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 4 -->
+      <article class="post-card reveal" style="transition-delay: 0.15s;">
+        <div class="post-card-top">
+          <time class="post-date">August 5, 2024</time>
+          <span class="post-tag press-release">Press Release</span>
+        </div>
+        <h3 class="post-title">11th Annual American Reality TV Awards – ARTAS® Official Nominations</h3>
+        <p class="post-excerpt">The 11th annual ARTAS has announced its official nominees in 29 distinct categories.</p>
+        <a href="https://www.realitytelevisionawards.com/11th-annual-american-reality-tv-awards-artas-official-nominations/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 5 -->
+      <article class="post-card reveal" style="transition-delay: 0.20s;">
+        <div class="post-card-top">
+          <time class="post-date">March 11, 2024</time>
+          <span class="post-tag editorial">Editorial</span>
+        </div>
+        <h3 class="post-title">Upcoming Reality TV Shows in 2024: Stars to Watch</h3>
+        <p class="post-excerpt">The reality TV universe is abuzz with fresh faces and familiar favorites. Here's a comprehensive guide to the highly anticipated shows.</p>
+        <a href="https://www.realitytelevisionawards.com/%f0%9f%8c%9f-upcoming-reality-tv-shows-in-2024-stars-to-watch/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 6 -->
+      <article class="post-card reveal" style="transition-delay: 0.25s;">
+        <div class="post-card-top">
+          <time class="post-date">March 4, 2024</time>
+          <span class="post-tag editorial">Editorial</span>
+        </div>
+        <h3 class="post-title">Reality Bites: The Latest Scoop from the Small Screen</h3>
+        <p class="post-excerpt">The anticipation is building as some of our favorite reality shows gear up for their new seasons.</p>
+        <a href="https://www.realitytelevisionawards.com/reality-bites-the-latest-scoop-from-the-small-screen/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 7 -->
+      <article class="post-card reveal" style="transition-delay: 0.30s;">
+        <div class="post-card-top">
+          <time class="post-date">March 1, 2024</time>
+          <span class="post-tag editorial">Editorial</span>
+        </div>
+        <h3 class="post-title">Navigating the Drama: A Closer Look at Reality TV Stars</h3>
+        <p class="post-excerpt">Reality television has become an integral part of our entertainment landscape, captivating audiences with its mix of drama, intrigue, and unscripted moments.</p>
+        <a href="https://www.realitytelevisionawards.com/navigating-the-drama-a-closer-look-at-reality-tv-stars-and-their-lives/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 8 -->
+      <article class="post-card reveal" style="transition-delay: 0.35s;">
+        <div class="post-card-top">
+          <time class="post-date">December 19, 2023</time>
+          <span class="post-tag press-release">Press Release</span>
+        </div>
+        <h3 class="post-title">10th Annual American Reality Television Awards – Winners</h3>
+        <p class="post-excerpt">RuPaul's Drag Race Wins Three ARTAS. The Masked Singer Awarded Outstanding Competition Show Two Years In A Row.</p>
+        <a href="https://www.realitytelevisionawards.com/10th-annual-american-reality-television-awards-winners/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 9 -->
+      <article class="post-card reveal" style="transition-delay: 0.40s;">
+        <div class="post-card-top">
+          <time class="post-date">December 6, 2023</time>
+          <span class="post-tag editorial">Editorial</span>
+        </div>
+        <h3 class="post-title">Reality Television Through the Ages</h3>
+        <p class="post-excerpt">In the vast landscape of entertainment, reality television has emerged as a powerful force, captivating audiences worldwide.</p>
+        <a href="https://www.realitytelevisionawards.com/reality-television-through-the-ages-a-journey-from-milestones-to-the-future/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 10 -->
+      <article class="post-card reveal" style="transition-delay: 0.45s;">
+        <div class="post-card-top">
+          <time class="post-date">June 20, 2023</time>
+          <span class="post-tag press-release">Press Release</span>
+        </div>
+        <h3 class="post-title">10th Annual American Reality TV Awards – ARTAS Official Nominations</h3>
+        <p class="post-excerpt">The 10th annual ARTAS has announced its official nominees in 27 distinct categories.</p>
+        <a href="https://www.realitytelevisionawards.com/10th-nominations-press/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 11 -->
+      <article class="post-card reveal" style="transition-delay: 0.50s;">
+        <div class="post-card-top">
+          <time class="post-date">November 22, 2022</time>
+          <span class="post-tag press-release">Press Release</span>
+        </div>
+        <h3 class="post-title">9th Annual ARTAS Hosted by Vivica A. Fox – Winners</h3>
+        <p class="post-excerpt">Tiffany 'New York' Pollard named 2022 Hall of Fame Inductee. Men in Kilts Wins Three Awards.</p>
+        <a href="https://www.realitytelevisionawards.com/popular-and-unscripted-shows-stars-recognized-at-the-9th-annual-american-reality-television-awards-artas-thursday-nov-17-hosted-by-vivica-a-fox/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 12 -->
+      <article class="post-card reveal" style="transition-delay: 0.55s;">
+        <div class="post-card-top">
+          <time class="post-date">November 16, 2022</time>
+          <span class="post-tag editorial">Editorial</span>
+        </div>
+        <h3 class="post-title">ReelMood Hosts an ARTAS Metaverse Watch Party</h3>
+        <p class="post-excerpt">The first ever reality television awards show watch party in the Metaverse, presented by ReelMood.</p>
+        <a href="https://www.realitytelevisionawards.com/tune-in-alert-reelmood-hosts-an-artas-metaverse-watch-party-on-thursday-november-17/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 13 -->
+      <article class="post-card reveal" style="transition-delay: 0.60s;">
+        <div class="post-card-top">
+          <time class="post-date">November 3, 2022</time>
+          <span class="post-tag press-release">Press Release</span>
+        </div>
+        <h3 class="post-title">Vivica A. Fox to Host the 9th Annual ARTAS</h3>
+        <p class="post-excerpt">Reality TV Veteran Tiffany 'New York' Pollard Named 2022 Hall of Fame Inductee. Special appearances from Sofía Vergara, Steve Harvey, and more.</p>
+        <a href="https://www.realitytelevisionawards.com/vivica-a-fox-to-host-the-9th-annual-american-reality-television-awards-artas-11-17/" class="post-read-more">Read More →</a>
+      </article>
+
+      <!-- Post 14 -->
+      <article class="post-card reveal" style="transition-delay: 0.65s;">
+        <div class="post-card-top">
+          <time class="post-date">October 17, 2022</time>
+          <span class="post-tag press-release">Press Release</span>
+        </div>
+        <h3 class="post-title">9th Annual American Reality TV Awards – ARTAS Official Nominations</h3>
+        <p class="post-excerpt">The 9th annual ARTAS has announced its official nominees.</p>
+        <a href="https://www.realitytelevisionawards.com/9th-annual-american-reality-tv-awards-artas-official-nominations/" class="post-read-more">Read More →</a>
+      </article>
+
+    </div><!-- /posts-grid -->
+  </div><!-- /buzz-section -->
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/12th-logo-A-transparent.png" alt="ARTAS">
+      <span>American Reality Television Awards</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="nominees.html">Nominees</a></li>
+      <li><a href="awards-show.html">Awards Show</a></li>
+      <li><a href="submit.html">Submit</a></li>
+      <li><a href="the-buzz.html">The Buzz</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+    <div class="footer-copy">
+      <div class="social-links" style="margin-bottom: 1rem;">
+        <a href="https://www.instagram.com/realityawardstv/" aria-label="Instagram" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.tiktok.com/@realityawardstv" aria-label="TikTok" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.28 8.28 0 0 0 4.84 1.55V6.85a4.85 4.85 0 0 1-1.08-.16z"/></svg></a>
+        <a href="https://twitter.com/realityawardstv" aria-label="X" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.facebook.com/RealityTVAwards/" aria-label="Facebook" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.youtube.com/realityawardstv" aria-label="YouTube" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon points="9.545,15.568 15.818,12 9.545,8.432" fill="#fff"/></svg></a>
+      </div>
+      <p>&copy; 2026 American Reality Television Awards (The ARTAS&reg;). All rights reserved.</p>
+      <p class="producers">Executive Producers: Kristen Moss &amp; Andrew Ward</p>
+      <p style="margin-top: 6px; font-size: 0.7rem;">@RealityAwardsTV &middot; #TheARTAS</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll behaviour
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Mobile menu
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+mobileToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+function closeMobile() { mobileMenu.classList.remove('open'); }
+
+// IntersectionObserver scroll reveal with staggered delay
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
