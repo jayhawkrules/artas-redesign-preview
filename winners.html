@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12th Annual Winners | The ARTAS — American Reality Television Awards</title>
+<meta name="description" content="12th Annual American Reality Television Awards winners, revealed throughout April 2026 on social media. Follow @RealityAwardsTV for every reveal.">
+<meta property="og:title" content="12th Annual Winners — The ARTAS">
+<meta property="og:description" content="Winners are being revealed throughout April 2026. Follow @RealityAwardsTV so you don't miss any announcement.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #08080A;
+  --bg-surface: #0E0E12;
+  --bg-card: #141418;
+  --bg-card-hover: #1A1A20;
+  --rose: #C1897A;
+  --rose-light: #D4A498;
+  --rose-pale: #E0BEB6;
+  --rose-dim: #8B6259;
+  --rose-glow: rgba(193, 137, 122, 0.15);
+  --gold: #D4A853;
+  --gold-light: #E8C97A;
+  --gold-dim: #8B7340;
+  --text-primary: #F2F2F2;
+  --text-secondary: #B0B0B8;
+  --text-muted: #6E6E78;
+  --border: #1F1F26;
+  --border-light: #2A2A34;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { font-family: var(--font-body); color: var(--text-primary); background: var(--bg-primary); line-height: 1.6; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--rose); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--rose-light); }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 clamp(1.5rem, 4vw, 3rem); height: 72px; display: flex; align-items: center; justify-content: space-between; transition: background var(--transition-smooth), box-shadow var(--transition-smooth); }
+.nav.scrolled { background: rgba(8,8,10,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(193,137,122,0.12); }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo img { height: 38px; width: auto; }
+.nav-logo span { font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: clamp(1.2rem, 2.5vw, 2.2rem); list-style: none; }
+.nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); padding: 4px 0; position: relative; transition: color var(--transition-fast); }
+.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--rose); transition: width var(--transition-smooth); }
+.nav-links a:hover { color: var(--rose); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--rose); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta { font-size: 0.68rem !important; font-weight: 600 !important; color: var(--bg-primary) !important; background: var(--rose); padding: 8px 18px !important; border-radius: 2px; transition: background var(--transition-fast), transform var(--transition-fast) !important; }
+.nav-cta:hover { background: var(--rose-light) !important; color: var(--bg-primary) !important; transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: all 0.3s; }
+
+/* MOBILE OVERLAY */
+.mobile-overlay { position: fixed; inset: 0; z-index: 99; background: rgba(8,8,10,0.98); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.mobile-overlay.open { opacity: 1; pointer-events: all; }
+.mobile-overlay a { font-family: var(--font-display); font-size: 1.4rem; color: var(--text-primary); }
+.mobile-overlay a:hover { color: var(--rose); }
+.mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+/* BUTTONS */
+.btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 0.73rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 14px 34px; border: none; border-radius: 2px; cursor: pointer; transition: all var(--transition-fast); text-decoration: none; gap: 8px; }
+.btn-rose { background: var(--rose); color: var(--bg-primary); }
+.btn-rose:hover { background: var(--rose-light); color: var(--bg-primary); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(193,137,122,0.25); }
+.btn-gold { background: var(--gold); color: var(--bg-primary); }
+.btn-gold:hover { background: var(--gold-light); color: var(--bg-primary); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,168,83,0.25); }
+.btn-outline { background: transparent; color: var(--text-primary); border: 1px solid var(--border-light); }
+.btn-outline:hover { border-color: var(--rose); color: var(--rose); transform: translateY(-2px); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+
+/* ============================================================
+   PAGE HERO
+   ============================================================ */
+.winners-hero {
+  position: relative;
+  padding: 148px clamp(1.5rem, 4vw, 3rem) 90px;
+  text-align: center;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+.winners-hero-top-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--rose-dim) 30%, var(--gold) 50%, var(--rose-dim) 70%, transparent 100%);
+  z-index: 2;
+}
+.winners-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(193,137,122,0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(212,168,83,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 10% 60%, rgba(193,137,122,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.winners-hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30 L60 30 M30 0 L30 60' stroke='%231F1F26' stroke-width='0.5'/%3E%3C/svg%3E");
+  opacity: 0.35;
+}
+.winners-hero-particles { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.sparkle { position: absolute; background: var(--rose); border-radius: 50%; animation: sparkle-float linear infinite; opacity: 0; }
+@keyframes sparkle-float { 0% { opacity: 0; transform: translateY(100vh) scale(0); } 10% { opacity: 0.7; } 90% { opacity: 0.7; } 100% { opacity: 0; transform: translateY(-10vh) scale(1); } }
+
+.winners-hero-content { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; }
+
+.winners-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 22px;
+  border: 1px solid var(--rose-dim);
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+  background: rgba(193,137,122,0.06);
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--rose-light);
+}
+.winners-hero-badge .badge-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--rose);
+  box-shadow: 0 0 8px var(--rose);
+  animation: dot-pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+.winners-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 2rem + 4vw, 5rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.winners-hero-title .line-12th {
+  color: var(--rose);
+  font-style: italic;
+  display: block;
+}
+.winners-hero-title .line-winners {
+  color: var(--text-primary);
+  display: block;
+}
+
+.winners-hero-divider {
+  width: 80px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose-dim), transparent);
+  margin: 1.2rem auto 1.2rem;
+}
+
+.winners-hero-subtitle {
+  font-size: clamp(0.9rem, 0.8rem + 0.5vw, 1.05rem);
+  color: var(--text-secondary);
+  font-weight: 300;
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.75;
+}
+
+/* ============================================================
+   PROGRESS TRACKER
+   ============================================================ */
+.progress-tracker {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem clamp(1.5rem, 4vw, 3rem);
+  position: sticky;
+  top: 72px;
+  z-index: 50;
+}
+.progress-tracker-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.progress-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.progress-label strong {
+  color: var(--rose);
+  font-variant-numeric: tabular-nums;
+}
+.progress-bar-wrap {
+  flex: 1;
+  min-width: 120px;
+  height: 4px;
+  background: var(--border-light);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--rose), var(--gold));
+  border-radius: 2px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.progress-pct {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--rose);
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 3ch;
+  text-align: right;
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem); }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: clamp(2.5rem, 5vw, 3.5rem); }
+.section-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.75rem; display: block; }
+.section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 1rem + 3vw, 3rem); font-weight: 700; line-height: 1.1; }
+.section-title em { font-style: italic; color: var(--rose); }
+.section-divider { width: 60px; height: 1px; background: var(--rose-dim); margin: 1rem auto 0; }
+.section-subtitle { font-size: 0.95rem; color: var(--text-secondary); font-weight: 300; max-width: 620px; margin: 1rem auto 0; line-height: 1.75; }
+
+/* ============================================================
+   WINNER CARDS GRID
+   ============================================================ */
+.winners-grid-section { background: var(--bg-primary); }
+.winners-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ——— TBA STATE ——— */
+.winner-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.75rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-smooth), background var(--transition-smooth), transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  cursor: default;
+}
+.winner-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+  transition: background var(--transition-smooth);
+}
+.winner-card:hover {
+  border-color: var(--border-light);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* Category name — always shown */
+.winner-category {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+  transition: color var(--transition-smooth);
+}
+
+/* TBA winner name */
+.winner-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.3;
+  transition: color var(--transition-smooth), font-style var(--transition-smooth);
+}
+
+/* TBA show */
+.winner-show {
+  font-size: 0.75rem;
+  color: transparent;
+  margin-top: 0.35rem;
+  letter-spacing: 0.04em;
+  transition: color var(--transition-smooth);
+}
+
+/* Trophy placeholder icon */
+.winner-placeholder {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  opacity: 0.08;
+  transition: opacity var(--transition-smooth);
+}
+.winner-placeholder svg { width: 32px; height: 32px; color: var(--text-muted); }
+
+/* TBA label */
+.winner-tba-label {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 2px;
+  transition: all var(--transition-smooth);
+}
+
+/* ——— ANNOUNCED STATE ——— */
+.winner-card.announced {
+  border-color: rgba(212, 168, 83, 0.25);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(212,168,83,0.04) 100%);
+  cursor: default;
+}
+.winner-card.announced::before {
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.winner-card.announced:hover {
+  border-color: rgba(212,168,83,0.45);
+  box-shadow: 0 8px 30px rgba(212,168,83,0.1);
+}
+.winner-card.announced .winner-category {
+  color: var(--rose);
+}
+.winner-card.announced .winner-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--gold);
+}
+.winner-card.announced .winner-show {
+  color: var(--rose-light);
+}
+.winner-card.announced .winner-placeholder {
+  opacity: 0;
+}
+.winner-card.announced .winner-tba-label {
+  display: none;
+}
+
+/* Gold trophy icon for announced */
+.winner-trophy {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+}
+.winner-trophy svg { width: 28px; height: 28px; color: var(--gold); }
+.winner-card.announced .winner-trophy { opacity: 0.6; }
+
+/* ============================================================
+   SOCIAL SECTION
+   ============================================================ */
+.follow-section { background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.follow-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.follow-announce {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  border: 1px solid rgba(193,137,122,0.35);
+  border-radius: 2px;
+  background: rgba(193,137,122,0.06);
+  margin-bottom: 1.5rem;
+}
+.follow-announce .live-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--rose);
+  box-shadow: 0 0 10px var(--rose);
+  animation: dot-pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.follow-announce span {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose-light);
+}
+.follow-text {
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.15rem);
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.follow-text strong { color: var(--text-primary); font-weight: 600; }
+
+.social-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 2rem; }
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--border-light);
+  border-radius: 50px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+.social-pill:hover { border-color: var(--rose); color: var(--rose); background: var(--rose-glow); transform: translateY(-2px); }
+.social-pill svg { flex-shrink: 0; }
+
+/* SOCIAL LINKS FOOTER */
+.social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
+.social-links a { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid var(--border-light); border-radius: 50%; color: var(--text-muted); transition: all var(--transition-fast); }
+.social-links a:hover { border-color: var(--rose); color: var(--rose); transform: translateY(-2px); }
+.social-links svg { width: 15px; height: 15px; }
+
+/* FOOTER */
+.footer { padding: 2.5rem clamp(1.5rem, 4vw, 3rem); border-top: 1px solid var(--border); background: var(--bg-surface); }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand img { height: 26px; opacity: 0.5; }
+.footer-brand span { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; }
+.footer-links { display: flex; gap: 1.8rem; list-style: none; }
+.footer-links a { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; transition: color var(--transition-fast); }
+.footer-links a:hover { color: var(--rose); }
+.footer-copy { width: 100%; text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: 1rem; font-size: 0.68rem; color: var(--text-muted); line-height: 1.7; }
+.footer-copy .producers { color: var(--text-secondary); font-weight: 500; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .winners-cards-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .progress-tracker-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .progress-bar-wrap { width: 100%; min-width: unset; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+@media (max-width: 540px) {
+  .winners-cards-grid { grid-template-columns: 1fr; }
+  .social-pill span { display: none; }
+  .social-pill { padding: 10px; border-radius: 50%; }
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="nominees.html" onclick="closeMobile()">Nominees</a>
+  <a href="past-winners.html" onclick="closeMobile()">Past Winners</a>
+  <a href="awards-show.html" onclick="closeMobile()">Awards Show</a>
+  <a href="winners.html" onclick="closeMobile()">12th Annual Winners</a>
+  <a href="submit.html" onclick="closeMobile()">Submit Your Show</a>
+  <a href="the-buzz.html" onclick="closeMobile()">The Buzz</a>
+  <a href="about.html" onclick="closeMobile()">About Us</a>
+  <a href="gallery.html" onclick="closeMobile()">Gallery</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo" style="text-decoration:none;">
+    <img src="images/12th-logo-A-transparent.png" alt="The ARTAS">
+    <span>The ARTAS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="nominees.html">Nominees</a></li>
+    <li><a href="past-winners.html">Past Winners</a></li>
+    <li><a href="awards-show.html" class="active">Awards Show</a></li>
+    <li><a href="submit.html">Submit Your Show</a></li>
+    <li><a href="the-buzz.html">The Buzz</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="gallery.html" class="nav-cta">Gallery</a></li>
+  </ul>
+  <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="winners-hero">
+  <div class="winners-hero-top-line"></div>
+  <div class="winners-hero-bg-grid"></div>
+  <div class="winners-hero-particles" id="particles"></div>
+
+  <div class="winners-hero-content">
+    <div class="winners-hero-badge reveal">
+      <span class="badge-dot"></span>
+      <span>Reveals Throughout April 2026</span>
+    </div>
+
+    <h1 class="winners-hero-title reveal reveal-delay-1">
+      <span class="line-12th">12th Annual</span>
+      <span class="line-winners">Winners</span>
+    </h1>
+
+    <div class="winners-hero-divider reveal reveal-delay-2"></div>
+
+    <p class="winners-hero-subtitle reveal reveal-delay-2">
+      Winners are rolling out throughout the month of April 2026. This page and our social media channels will update as each winner is revealed — stay tuned!
+    </p>
+
+    <div class="reveal reveal-delay-3">
+      <a href="awards-show.html" class="btn btn-outline" style="margin-right:1rem;">Awards Show</a>
+      <a href="nominees.html" class="btn btn-rose">View All Nominees</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRESS TRACKER -->
+<div class="progress-tracker" id="progressTracker">
+  <div class="progress-tracker-inner">
+    <span class="progress-label"><strong id="announcedCount">0</strong> of 26 Winners Announced</span>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+    <span class="progress-pct" id="progressPct">0%</span>
+  </div>
+</div>
+
+<!-- WINNERS GRID -->
+<section class="winners-grid-section section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-label">12th Annual ARTAS</span>
+      <h2 class="section-title">All 26 <em>Categories</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">12th Annual ARTAS winners are rolling out throughout April. Our website and socials will update as each winner is announced — follow us and check back often so you don't miss a single reveal.</p>
+    </div>
+
+    <div class="winners-cards-grid" id="winnersGrid">
+
+      <!-- 1 -->
+      <div class="winner-card reveal" data-category="outstanding-art-direction">
+        <div class="winner-category">Outstanding Art Direction</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 9 9 8.1z"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="winner-card reveal" data-category="outstanding-competition-show">
+        <div class="winner-category">Outstanding Competition Show</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="winner-card reveal" data-category="most-creative-challenge">
+        <div class="winner-category">Most Creative Challenge</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="winner-card reveal" data-category="outstanding-docu-series">
+        <div class="winner-category">Outstanding Docu-Series</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="winner-card reveal" data-category="best-editing">
+        <div class="winner-category">Best Editing</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="winner-card reveal" data-category="best-feel-good-show">
+        <div class="winner-category">Best Feel Good Show</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="winner-card reveal" data-category="outstanding-food-series">
+        <div class="winner-category">Outstanding Food Series</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="winner-card reveal" data-category="outstanding-game-show">
+        <div class="winner-category">Outstanding Game Show</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="winner-card reveal" data-category="guilty-pleasure-show">
+        <div class="winner-category">Guilty Pleasure Show</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="winner-card reveal" data-category="outstanding-host">
+        <div class="winner-category">Outstanding Host</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="winner-card reveal" data-category="international-reality-series">
+        <div class="winner-category">International Reality Series</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="winner-card reveal" data-category="best-judging-panel">
+        <div class="winner-category">Best Judging Panel</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="winner-card reveal" data-category="outstanding-new-cast">
+        <div class="winner-category">Outstanding New Cast</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="winner-card reveal" data-category="outstanding-new-show">
+        <div class="winner-category">Outstanding New Show</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 15 -->
+      <div class="winner-card reveal" data-category="best-overall-show">
+        <div class="winner-category">Best Overall Show</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 16 -->
+      <div class="winner-card reveal" data-category="outstanding-production-company">
+        <div class="winner-category">Outstanding Production Company</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 17 -->
+      <div class="winner-card reveal" data-category="outstanding-production-crew">
+        <div class="winner-category">Outstanding Production Crew</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 18 -->
+      <div class="winner-card reveal" data-category="reality-king">
+        <div class="winner-category">Reality King (Reality Royalty Award&reg;)</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 19h20M4 15l4-8 4 4 4-6 4 10"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 19 -->
+      <div class="winner-card reveal" data-category="overall-reality-podcast">
+        <div class="winner-category">Overall Reality Podcast</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 20 -->
+      <div class="winner-card reveal" data-category="reality-tv-moment">
+        <div class="winner-category">Reality TV Moment</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 21 -->
+      <div class="winner-card reveal" data-category="reality-queen">
+        <div class="winner-category">Reality Queen (Reality Royalty Award&reg;)</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 19h20M4 15l4-8 4 4 4-6 4 10"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 22 -->
+      <div class="winner-card reveal" data-category="outstanding-recurring-cast">
+        <div class="winner-category">Outstanding Recurring Cast</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 23 -->
+      <div class="winner-card reveal" data-category="best-talk-variety-show">
+        <div class="winner-category">Best Talk/Variety Show</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 24 -->
+      <div class="winner-card reveal" data-category="outstanding-true-crime-series">
+        <div class="winner-category">Outstanding True Crime Series</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 25 -->
+      <div class="winner-card reveal" data-category="most-unique-concept">
+        <div class="winner-category">Most Unique Concept</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+      <!-- 26 -->
+      <div class="winner-card reveal" data-category="outstanding-digital-reality-series">
+        <div class="winner-category">Outstanding Digital Reality Series</div>
+        <div class="winner-name">To Be Announced</div>
+        <div class="winner-show"></div>
+        <span class="winner-tba-label">April 2026</span>
+        <div class="winner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+        <div class="winner-trophy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8m-4-4v4M12 17c-4.4 0-7-3.6-7-7V5h14v5c0 3.4-2.6 7-7 7z"/><path d="M5 7H3a2 2 0 0 0 0 4h2M19 7h2a2 2 0 1 1 0 4h-2"/></svg>
+        </div>
+      </div>
+
+    </div><!-- /winners-cards-grid -->
+  </div>
+</section>
+
+<!-- FOLLOW FOR REVEALS -->
+<section class="follow-section section">
+  <div class="follow-inner">
+    <div class="section-header reveal">
+      <span class="section-label">Don't Miss a Reveal</span>
+      <h2 class="section-title">Follow for <em>Winners</em></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="follow-announce reveal reveal-delay-1">
+      <span class="live-dot"></span>
+      <span>Daily Reveals — April 2026</span>
+    </div>
+
+    <p class="follow-text reveal reveal-delay-1">
+      Winners are rolling out <strong>all month long</strong> across our social media and right here on this page. Follow us and stay tuned!
+      Follow <strong>@RealityAwardsTV</strong> so you don't miss any announcement.
+    </p>
+
+    <div class="social-pills reveal reveal-delay-2">
+      <a href="https://www.instagram.com/realityawardstv/" class="social-pill" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.tiktok.com/@realityawardstv" class="social-pill" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.28 8.28 0 0 0 4.84 1.55V6.85a4.85 4.85 0 0 1-1.08-.16z"/></svg>
+        <span>TikTok</span>
+      </a>
+      <a href="https://twitter.com/realityawardstv" class="social-pill" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>X / Twitter</span>
+      </a>
+      <a href="https://www.facebook.com/RealityTVAwards/" class="social-pill" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.youtube.com/realityawardstv" class="social-pill" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon points="9.545,15.568 15.818,12 9.545,8.432" fill="#08080A"/></svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <div class="reveal reveal-delay-3">
+      <a href="awards-show.html" class="btn btn-outline" style="margin-right:1rem;">Awards Show Page</a>
+      <a href="nominees.html" class="btn btn-rose">View All Nominees</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/12th-logo-A-transparent.png" alt="ARTAS">
+      <span>American Reality Television Awards</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="nominees.html">Nominees</a></li>
+      <li><a href="past-winners.html">Past Winners</a></li>
+      <li><a href="winners.html">12th Annual Winners</a></li>
+      <li><a href="awards-show.html">Awards Show</a></li>
+      <li><a href="submit.html">Submit</a></li>
+      <li><a href="the-buzz.html">The Buzz</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+    <div class="footer-copy">
+      <div class="social-links" style="margin-bottom:1rem;">
+        <a href="https://www.instagram.com/realityawardstv/" aria-label="Instagram" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@realityawardstv" aria-label="TikTok" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.28 8.28 0 0 0 4.84 1.55V6.85a4.85 4.85 0 0 1-1.08-.16z"/></svg>
+        </a>
+        <a href="https://twitter.com/realityawardstv" aria-label="X" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/RealityTVAwards/" aria-label="Facebook" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/realityawardstv" aria-label="YouTube" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon points="9.545,15.568 15.818,12 9.545,8.432" fill="#08080A"/></svg>
+        </a>
+      </div>
+      <p>&copy; 2026 American Reality Television Awards (The ARTAS&reg;). All rights reserved.</p>
+      <p class="producers">Executive Producers: Kristen Moss &amp; Andrew Ward</p>
+      <p style="margin-top:6px;font-size:0.7rem;">@RealityAwardsTV &middot; #TheARTAS</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+// MOBILE MENU
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+mobileToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+function closeMobile() { mobileMenu.classList.remove('open'); }
+
+// SPARKLES
+(function() {
+  const c = document.getElementById('particles');
+  if (!c) return;
+  for (let i = 0; i < 18; i++) {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.animationDuration = (7 + Math.random() * 10) + 's';
+    s.style.animationDelay = Math.random() * 12 + 's';
+    s.style.width = s.style.height = (1.5 + Math.random() * 2.5) + 'px';
+    c.appendChild(s);
+  }
+})();
+
+// REVEAL ANIMATIONS
+(function() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+})();
+
+// PROGRESS TRACKER
+function updateProgress() {
+  const cards = document.querySelectorAll('.winner-card');
+  const announced = document.querySelectorAll('.winner-card.announced').length;
+  const total = cards.length;
+  const pct = total > 0 ? Math.round((announced / total) * 100) : 0;
+
+  document.getElementById('announcedCount').textContent = announced;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+}
+updateProgress();
+
+/*
+ * ============================================================
+ * HOW TO ANNOUNCE A WINNER
+ * ============================================================
+ * To reveal a winner, update the card in the HTML above:
+ *
+ * 1. Add class "announced" to the .winner-card div
+ * 2. Set the .winner-name text to the winner's name
+ * 3. Set the .winner-show text to the show/network
+ *
+ * Example — from TBA:
+ *   <div class="winner-card" data-category="outstanding-competition-show">
+ *     <div class="winner-category">Outstanding Competition Show</div>
+ *     <div class="winner-name">To Be Announced</div>
+ *     <div class="winner-show"></div>
+ *     <span class="winner-tba-label">April 2026</span>
+ *
+ * To announced:
+ *   <div class="winner-card announced" data-category="outstanding-competition-show">
+ *     <div class="winner-category">Outstanding Competition Show</div>
+ *     <div class="winner-name">American Ninja Warrior</div>
+ *     <div class="winner-show">NBC</div>
+ *     <span class="winner-tba-label">April 2026</span>
+ *
+ * The progress bar and counter update automatically on page load.
+ * ============================================================
+ */
+</script>
+</body>
+</html>
