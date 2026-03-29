@@ -59,6 +59,8 @@
     .nav-cta.active { background: var(--rose-dim) !important; color: var(--text-primary) !important; box-shadow: inset 0 0 0 1px var(--rose); }
     .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
     .nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: all 0.3s; }
+.nav-search-toggle { background: none; border: none; cursor: pointer; padding: 8px; color: var(--text-secondary); transition: color 0.2s; margin-left: 0.5rem; }
+.nav-search-toggle:hover { color: var(--rose); }
 
     /* ── MOBILE OVERLAY ── */
     .mobile-overlay { position: fixed; inset: 0; z-index: 99; background: rgba(8,8,10,0.98); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
@@ -472,7 +474,8 @@
     <li><a href="about.html">About Us</a></li>
     <li><a href="gallery.html" class="nav-cta active">Gallery</a></li>
   </ul>
-    <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu">
+    <button class="nav-search-toggle" id="searchToggle" aria-label="Search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+  <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -807,5 +810,6 @@
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 
+<script src="global-search.js"></script>
 </body>
 </html>

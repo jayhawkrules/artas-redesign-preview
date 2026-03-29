@@ -59,6 +59,8 @@ a:hover { color: var(--rose-light); }
 .nav-cta::after { display: none !important; }
 .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
 .nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: all 0.3s; }
+.nav-search-toggle { background: none; border: none; cursor: pointer; padding: 8px; color: var(--text-secondary); transition: color 0.2s; margin-left: 0.5rem; }
+.nav-search-toggle:hover { color: var(--rose); }
 
 /* HERO — 12th Annual focus */
 .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 1.5rem 60px; overflow: hidden; }
@@ -258,6 +260,7 @@ a:hover { color: var(--rose-light); }
     <li><a href="about.html">About Us</a></li>
     <li><a href="gallery.html" class="nav-cta">Gallery</a></li>
   </ul>
+  <button class="nav-search-toggle" id="searchToggle" aria-label="Search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
   <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 
@@ -339,59 +342,9 @@ a:hover { color: var(--rose-light); }
       </div>
     </div>
 
-    <div class="winners-grid reveal">
-      <div class="winner-card">
-        <img src="images/gallery/heather-mcdonald.png" alt="Heather McDonald" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">Heather McDonald</span><span class="winner-show">Juicy Scoop</span></div>
-      </div>
-      <div class="winner-card">
-        <img src="images/gallery/jojo-siwa.png" alt="JoJo Siwa" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">JoJo Siwa</span><span class="winner-show">Special Forces, Dance Moms</span></div>
-      </div>
-      <div class="winner-card">
-        <img src="images/gallery/omarosa.png" alt="Omarosa" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">Omarosa</span><span class="winner-show">House of Villains</span></div>
-      </div>
-      <div class="winner-card">
-        <img src="images/gallery/gleb-savchenko.png" alt="Gleb Savchenko" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">Gleb Savchenko</span><span class="winner-show">Dancing With The Stars</span></div>
-      </div>
-      <div class="winner-card">
-        <img src="images/gallery/chandler-kinney.png" alt="Chandler Kinney" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">Chandler Kinney</span><span class="winner-show">Dancing With The Stars</span></div>
-      </div>
-      <div class="winner-card">
-        <img src="images/gallery/saraya.png" alt="Saraya" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">Saraya</span><span class="winner-show">AEW Wrestling</span></div>
-      </div>
-      <div class="winner-card">
-        <img src="images/gallery/howie-d.png" alt="Howie D" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">Howie D</span><span class="winner-show">Backstreet Boys</span></div>
-      </div>
-      <div class="winner-card">
-        <img src="images/gallery/aj-mclean.png" alt="AJ McLean" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">AJ McLean</span><span class="winner-show">Backstreet Boys</span></div>
-      </div>
-      <div class="winner-card">
-        <img src="images/gallery/nev-schulman.png" alt="Nev Schulman" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">Nev Schulman</span><span class="winner-show">Catfish</span></div>
-      </div>
-      <div class="winner-card">
-        <img src="images/gallery/chelsea-lazkani.png" alt="Chelsea Lazkani" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">Chelsea Lazkani</span><span class="winner-show">Selling Sunset</span></div>
-      </div>
-      <div class="winner-card">
-        <img src="images/gallery/jimbo.png" alt="JIMBO" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">JIMBO</span><span class="winner-show">Drag Race All Stars</span></div>
-      </div>
-      <div class="winner-card">
-        <img src="images/gallery/vance-walker.png" alt="Vance Walker" loading="lazy">
-        <div class="winner-overlay"><span class="winner-name">Vance Walker</span><span class="winner-show">American Ninja Warrior</span></div>
-      </div>
-    </div>
-    <p style="text-align: center; font-size: 0.68rem; color: var(--text-muted); margin-top: 1rem; letter-spacing: 0.06em;">Talent from past ARTAS ceremonies</p>
-    <div style="text-align: center; margin-top: 1.5rem;" class="reveal">
-      <a href="nominees.html" class="btn btn-rose">View All 12th Annual Nominees</a>
+    <div style="text-align: center; margin-top: 2rem;" class="reveal">
+      <a href="winners.html" class="btn btn-rose" style="margin-right: 1rem;">See Winners So Far</a>
+      <a href="nominees.html" class="btn btn-outline">View All Nominees</a>
     </div>
   </div>
 </section>
@@ -518,9 +471,9 @@ a:hover { color: var(--rose-light); }
     <p class="section-subtitle">Stay connected for winner reveals, behind-the-scenes moments, and all things unscripted TV.</p>
   </div>
   <div class="ig-grid reveal" style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWSUlbWDmrr/" data-instgrm-version="14" style="background:#08080A; border:1px solid var(--border); border-radius:8px; max-width:100%; min-width:240px; width:100%;"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DU9XKz0j4y9/" data-instgrm-version="14" style="background:#08080A; border:1px solid var(--border); border-radius:8px; max-width:100%; min-width:240px; width:100%;"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DVb5rC-kvUI/" data-instgrm-version="14" style="background:#08080A; border:1px solid var(--border); border-radius:8px; max-width:100%; min-width:240px; width:100%;"></blockquote>
+    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWFXLysj4Tx/" data-instgrm-version="14" style="background:#08080A; border:1px solid var(--border); border-radius:8px; max-width:100%; min-width:240px; width:100%;"></blockquote>
+    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWE3fZZjwQR/" data-instgrm-version="14" style="background:#08080A; border:1px solid var(--border); border-radius:8px; max-width:100%; min-width:240px; width:100%;"></blockquote>
+    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DV82K6ZAPSe/" data-instgrm-version="14" style="background:#08080A; border:1px solid var(--border); border-radius:8px; max-width:100%; min-width:240px; width:100%;"></blockquote>
   </div>
   <div style="text-align: center; margin-top: 2rem;" class="reveal">
     <a href="https://www.instagram.com/realityawardstv/" target="_blank" class="btn btn-rose" style="gap: 8px;">
@@ -610,5 +563,6 @@ function closeMobile() { mobileMenu.classList.remove('open'); }
   u(); setInterval(u, 1000);
 })();
 </script>
+<script src="global-search.js"></script>
 </body>
 </html>
