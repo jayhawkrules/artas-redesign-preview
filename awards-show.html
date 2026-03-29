@@ -590,7 +590,7 @@ a:hover { color: var(--rose-light); }
     </p>
 
     <div class="hero-ctas reveal reveal-delay-4">
-      <a href="winners.html" class="btn btn-rose">
+      <a href="winners.html" class="btn btn-rose winners-cta" style="display:none;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         See Winners So Far
       </a>
@@ -648,7 +648,7 @@ a:hover { color: var(--rose-light); }
     </div>
 
     <div class="reveal reveal-delay-2">
-      <a href="winners.html" class="btn btn-rose">
+      <a href="winners.html" class="btn btn-rose winners-cta" style="display:none;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         See Winners Announced So Far
       </a>
@@ -891,6 +891,12 @@ function closeMobile() { mobileMenu.classList.remove('open'); }
   }
   tick();
   setInterval(tick, 1000);
+})();
+// Show winners buttons only after April 1
+(function() {
+  if (new Date() >= new Date('2026-04-01T00:00:00-07:00')) {
+    document.querySelectorAll('.winners-cta').forEach(el => el.style.display = '');
+  }
 })();
 </script>
 <script src="global-search.js"></script>

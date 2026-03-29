@@ -343,7 +343,7 @@ a:hover { color: var(--rose-light); }
     </div>
 
     <div style="text-align: center; margin-top: 2rem;" class="reveal">
-      <a href="winners.html" class="btn btn-rose" style="margin-right: 1rem;">See Winners So Far</a>
+      <a href="winners.html" class="btn btn-rose winners-cta" style="margin-right: 1rem; display: none;">See Winners So Far</a>
       <a href="nominees.html" class="btn btn-outline">View All Nominees</a>
     </div>
   </div>
@@ -561,6 +561,14 @@ function closeMobile() { mobileMenu.classList.remove('open'); }
     s.textContent = String(Math.floor((diff%6e4)/1e3)).padStart(2,'0');
   }
   u(); setInterval(u, 1000);
+})();
+
+// Show "See Winners So Far" button only after April 1, 2026
+(function() {
+  const april1 = new Date('2026-04-01T00:00:00-07:00');
+  if (new Date() >= april1) {
+    document.querySelectorAll('.winners-cta').forEach(el => el.style.display = '');
+  }
 })();
 </script>
 <script src="global-search.js"></script>

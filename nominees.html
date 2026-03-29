@@ -720,6 +720,14 @@ a:hover { color: var(--rose-light); }
   .archive-results { grid-template-columns: 1fr; }
   .archive-fun-facts { flex-direction: column; gap: 0.5rem; }
 }
+
+/* WINNER MARKING */
+.nominee-item.is-winner { background: rgba(212,168,83,0.08); border: 1px solid rgba(212,168,83,0.25); border-radius: 4px; padding: 10px 12px; position: relative; }
+.nominee-item.is-winner .nominee-bullet { background: var(--gold); width: 6px; height: 6px; }
+.nominee-item.is-winner .nominee-show-name { color: var(--gold); font-weight: 700; }
+.winner-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bg-primary); background: var(--gold); padding: 2px 8px; border-radius: 2px; margin-left: 8px; white-space: nowrap; }
+.winner-badge svg { width: 10px; height: 10px; }
+.accordion-card.has-winner .accordion-title { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -1889,6 +1897,39 @@ document.getElementById('btnCollapseAll').addEventListener('click', () => {
 
   // Other reveal elements (non-accordion)
   document.querySelectorAll('.reveal:not(.accordion-card)').forEach(el => obs.observe(el));
+})();
+
+// ── WINNER MARKING ──
+// To mark a winner: add the show name (exactly as it appears in the nominee list) to this object.
+// The key is the category number (01-26), the value is the winning show name.
+// Example: '01': 'American Ninja Warrior' marks ANW as winner of Outstanding Art Direction.
+// When you tell me a winner, I'll add it here and it auto-highlights on the page.
+(function() {
+  const winners = {
+    // '01': 'American Ninja Warrior',  // Outstanding Art Direction
+    // '02': 'The Masked Singer',       // Outstanding Competition Show
+    // etc.
+  };
+
+  const cards = document.querySelectorAll('.accordion-card');
+  cards.forEach((card, index) => {
+    const num = String(index + 1).padStart(2, '0');
+    const winnerName = winners[num];
+    if (!winnerName) return;
+
+    card.classList.add('has-winner');
+    const items = card.querySelectorAll('.nominee-item');
+    items.forEach(item => {
+      const showEl = item.querySelector('.nominee-show-name');
+      if (showEl && showEl.textContent.trim().toLowerCase() === winnerName.toLowerCase()) {
+        item.classList.add('is-winner');
+        const badge = document.createElement('span');
+        badge.className = 'winner-badge';
+        badge.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg> WINNER';
+        item.querySelector('.nominee-show-full').appendChild(badge);
+      }
+    });
+  });
 })();
 </script>
 <script src="global-search.js"></script>
