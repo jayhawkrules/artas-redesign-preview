@@ -593,3 +593,108 @@
   }
 
 })();
+
+/* ARTAS Universal Countdown Handler */
+(function(){
+  var openDate = new Date('2026-04-01T00:00:00-07:00');
+  var closeDate = new Date('2026-07-01T23:59:59-07:00');
+  
+  // Map of page-specific countdown element IDs
+  var countdowns = [
+    // Submit Your Show page
+    { days: 'asw-cd-days', hours: 'asw-cd-hours', mins: 'asw-cd-mins', secs: 'asw-cd-secs', label: 'asw-countdown-label', wrapper: 'asw-countdown' },
+    // Awards Show page
+    { days: 'artasShowCdDays', hours: 'artasShowCdHours', mins: 'artasShowCdMins', secs: 'artasShowCdSecs', label: null, wrapper: 'artasShowCountdown' },
+    // Homepage
+    { days: 'artasHomeCdDays', hours: 'artasHomeCdHours', mins: 'artasHomeCdMins', secs: 'artasHomeCdSecs', label: 'artasHomeCountdownLabel', wrapper: null },
+  ];
+  
+  function updateCountdown() {
+    var now = new Date();
+    
+    countdowns.forEach(function(cd) {
+      var dEl = document.getElementById(cd.days);
+      var hEl = document.getElementById(cd.hours);
+      var mEl = document.getElementById(cd.mins);
+      var sEl = document.getElementById(cd.secs);
+      
+      if (!dEl) return; // This countdown isn't on this page
+      
+      var target, labelText;
+      if (now < openDate) {
+        target = openDate;
+        labelText = 'Until Submissions Open';
+      } else if (now < closeDate) {
+        target = closeDate;
+        labelText = 'Until Submissions Close';
+      } else {
+        dEl.textContent = '0';
+        hEl.textContent = '0';
+        mEl.textContent = '0';
+        sEl.textContent = '0';
+        if (cd.label) {
+          var lEl = document.getElementById(cd.label);
+          if (lEl) lEl.textContent = 'Submissions Closed';
+        }
+        // Replace countdown with "Now Open" message if before close
+        if (cd.wrapper && now >= openDate && now < closeDate) {
+          var wrapper = document.getElementById(cd.wrapper);
+          if (wrapper) {
+            wrapper.innerHTML = '<div style="text-align:center;padding:30px;"><span style="font-family:Playfair Display,serif;font-size:2rem;font-weight:700;color:#D4A853;">Submissions Now Open!</span><p style="color:#B0B0B8;margin-top:10px;">Submit your show for the 13th Annual ARTAS</p></div>';
+          }
+        }
+        return;
+      }
+      
+      var diff = target - now;
+      dEl.textContent = Math.floor(diff / 864e5);
+      hEl.textContent = String(Math.floor((diff % 864e5) / 36e5)).padStart(2, '0');
+      mEl.textContent = String(Math.floor((diff % 36e5) / 6e4)).padStart(2, '0');
+      sEl.textContent = String(Math.floor((diff % 6e4) / 1e3)).padStart(2, '0');
+      
+      if (cd.label) {
+        var lEl = document.getElementById(cd.label);
+        if (lEl) lEl.textContent = labelText;
+      }
+    });
+  }
+  
+  // Also handle generic countdown elements (class-based)
+  function updateGenericCountdowns() {
+    var numbers = document.querySelectorAll('[class*="countdown-number"]');
+    if (numbers.length === 0) return;
+    
+    var now = new Date();
+    var target = now < openDate ? openDate : closeDate;
+    var diff = target - now;
+    
+    if (diff <= 0) {
+      numbers.forEach(function(el) { el.textContent = '0'; });
+      return;
+    }
+    
+    var vals = [
+      Math.floor(diff / 864e5),
+      String(Math.floor((diff % 864e5) / 36e5)).padStart(2, '0'),
+      String(Math.floor((diff % 36e5) / 6e4)).padStart(2, '0'),
+      String(Math.floor((diff % 6e4) / 1e3)).padStart(2, '0')
+    ];
+    
+    numbers.forEach(function(el, i) {
+      if (i < vals.length) el.textContent = vals[i];
+    });
+  }
+  
+  function tick() {
+    updateCountdown();
+    updateGenericCountdowns();
+  }
+  
+  // Start when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { tick(); setInterval(tick, 1000); });
+  } else {
+    tick();
+    setInterval(tick, 1000);
+  }
+})();
