@@ -698,3 +698,52 @@
     setInterval(tick, 1000);
   }
 })();
+
+/* ARTAS Blog Category Filter */
+(function(){
+  // Only run on the blog/posts page
+  if (!document.body.classList.contains('blog') && !document.body.classList.contains('archive')) return;
+  
+  var categories = [
+    { name: 'All Posts', slug: '', url: '/the-buzz/' },
+    { name: 'Reality TV This Week', slug: 'reality-tv-this-week', url: '/category/reality-tv-this-week/' },
+    { name: 'Industry Beats', slug: 'industry-beats', url: '/category/industry-beats/' },
+    { name: 'Casting Calls', slug: 'casting-calls', url: '/category/casting-calls/' }
+  ];
+  
+  // Determine current category from URL
+  var currentSlug = '';
+  var path = window.location.pathname;
+  categories.forEach(function(cat) {
+    if (cat.slug && path.indexOf(cat.slug) > -1) currentSlug = cat.slug;
+  });
+  
+  // Build the filter bar
+  var filterBar = document.createElement('div');
+  filterBar.id = 'artas-blog-filter';
+  filterBar.style.cssText = 'max-width:1200px;margin:0 auto 2rem;padding:1.5rem clamp(1rem,3vw,2rem);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;';
+  
+  // Add heading
+  var heading = document.createElement('span');
+  heading.textContent = 'Filter:';
+  heading.style.cssText = 'font-family:Inter,sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#6E6E78;margin-right:8px;';
+  filterBar.appendChild(heading);
+  
+  categories.forEach(function(cat) {
+    var btn = document.createElement('a');
+    btn.href = cat.url;
+    btn.textContent = cat.name;
+    var isActive = (cat.slug === currentSlug) || (cat.slug === '' && currentSlug === '');
+    btn.style.cssText = 'padding:8px 18px;border-radius:2px;font-family:Inter,sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;' + 
+      (isActive ? 'background:#C1897A;color:#FFFFFF;' : 'background:rgba(193,137,122,0.1);color:#B0B0B8;border:1px solid rgba(193,137,122,0.2);');
+    btn.addEventListener('mouseenter', function() { if (!isActive) { btn.style.background = 'rgba(193,137,122,0.2)'; btn.style.color = '#F2F2F2'; }});
+    btn.addEventListener('mouseleave', function() { if (!isActive) { btn.style.background = 'rgba(193,137,122,0.1)'; btn.style.color = '#B0B0B8'; }});
+    filterBar.appendChild(btn);
+  });
+  
+  // Insert at top of content area
+  var content = document.querySelector('#primary, #main, .site-main, .ast-container');
+  if (content) {
+    content.insertBefore(filterBar, content.firstChild);
+  }
+})();
