@@ -782,7 +782,7 @@
   // Create the side photos container
   var container = document.createElement('div');
   container.className = 'artas-side-photos-global';
-  container.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden;';
+  container.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden;';
   
   selected.forEach(function(url, i) {
     var img = document.createElement('img');
@@ -793,11 +793,11 @@
     
     // Alternate left and right
     var isLeft = i % 2 === 0;
-    var topPos = 5 + (i * (90 / count));
+    var topPos = 100 + (i * 500);
     
     img.style.cssText = 'position:absolute;' +
-      (isLeft ? 'left:-10px;' : 'right:-10px;') +
-      'top:' + topPos + '%;' +
+      (isLeft ? 'left:10px;' : 'right:10px;') +
+      'top:' + topPos + 'px;' +
       'width:140px;height:auto;border-radius:8px;max-height:200px;object-fit:cover;' +
       'opacity:0.5;filter:grayscale(15%) brightness(0.8);' +
       'pointer-events:none;border:1px solid rgba(193,137,122,0.12);' +
@@ -807,7 +807,13 @@
     container.appendChild(img);
   });
   
-  document.body.appendChild(container);
+  var main = document.querySelector('#page, .site, body');
+  if (main) { main.style.position = 'relative'; main.appendChild(container); }
+  // Offset photos below hero on homepage
+  var heroH = 0;
+  var hero = document.querySelector('.artas-home-hero, .aw-hero, .page-hero, [class*="-hero"]');
+  if (hero) heroH = hero.offsetHeight || 600;
+  container.style.top = heroH + 'px';
   
   // Hide on narrow screens
   var style = document.createElement('style');
