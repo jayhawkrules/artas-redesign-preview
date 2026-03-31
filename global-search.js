@@ -776,7 +776,7 @@
   }
   
   // Pick 8-12 photos for this page
-  var count = 8 + Math.floor(seededRandom() * 5);
+  var count = 4 + Math.floor(seededRandom() * 3);
   var selected = shuffled.slice(0, count);
   
   // Create the side photos container
@@ -793,13 +793,13 @@
     
     // Alternate left and right
     var isLeft = i % 2 === 0;
-    var topPos = 8 + (i * (85 / count));
+    var topPos = 5 + (i * (90 / count));
     
     img.style.cssText = 'position:absolute;' +
       (isLeft ? 'left:-10px;' : 'right:-10px;') +
       'top:' + topPos + '%;' +
-      'width:160px;height:auto;border-radius:8px;' +
-      'opacity:0.6;filter:grayscale(10%) brightness(0.85);' +
+      'width:140px;height:auto;border-radius:8px;max-height:200px;object-fit:cover;' +
+      'opacity:0.5;filter:grayscale(15%) brightness(0.8);' +
       'pointer-events:none;border:1px solid rgba(193,137,122,0.12);' +
       'box-shadow:0 4px 20px rgba(0,0,0,0.4);' +
       'transition:opacity 0.3s;';
