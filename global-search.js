@@ -747,3 +747,70 @@
     content.insertBefore(filterBar, content.firstChild);
   }
 })();
+
+/* ARTAS Side Photos - Different photos on every page */
+(function(){
+  var photos = ["https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/JoJo-Siwa-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Omorosa-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Nev-Schulman-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Heather-McDonald-Host.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Kristen-Doute-Vanderpump-Rules.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Ariana-and-Scheana-Vanderpump-Rules.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/AJ-McClean-and-Howie-Backstreet-Boys.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Abby-Lee-Miller-on-RC.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Drag-Queens-RuPauls-Drag-Race.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Jag-Bains-Big-Brother.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Ridiculousness-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/The-Challenge-Big-Brother-ARTAS-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Salina-Estitties-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Brittany-Martinez.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Abi-Maria-Gomes-Survivor.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Big-Ed-1.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Chelsea-Lazkani.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Gleb-Savchenko-1.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Chandler-Kinney-1.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Vance-Walker.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/JIMBO-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Dr.-Sandra-Lee-1.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Abby-Lee-Miller-Smiling-in-seat.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Ariana-Madix-Scheana-Marie-Vanderpump-Rules-presenting.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Tamra-Judge.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Kendra-Wilkinson.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Omarosa.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Heather-McDonald.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Nev-Schulman.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/JoJo-Siwa.png"];
+  
+  // Skip gallery page (already has photos) and blog pages
+  if (document.querySelector('.artas-gallery-wrap')) return;
+  
+  // Use page URL as seed for consistent but different photos per page
+  var seed = 0;
+  var path = window.location.pathname;
+  for (var i = 0; i < path.length; i++) seed += path.charCodeAt(i);
+  
+  // Simple seeded shuffle
+  function seededRandom() {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  }
+  
+  // Shuffle array with seed
+  var shuffled = photos.slice();
+  for (var i = shuffled.length - 1; i > 0; i--) {
+    var j = Math.floor(seededRandom() * (i + 1));
+    var temp = shuffled[i];
+    shuffled[i] = shuffled[j];
+    shuffled[j] = temp;
+  }
+  
+  // Pick 8-12 photos for this page
+  var count = 8 + Math.floor(seededRandom() * 5);
+  var selected = shuffled.slice(0, count);
+  
+  // Create the side photos container
+  var container = document.createElement('div');
+  container.className = 'artas-side-photos-global';
+  container.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden;';
+  
+  selected.forEach(function(url, i) {
+    var img = document.createElement('img');
+    img.src = url;
+    img.alt = 'ARTAS';
+    img.loading = 'lazy';
+    img.className = 'artas-side-photo-global';
+    
+    // Alternate left and right
+    var isLeft = i % 2 === 0;
+    var topPos = 8 + (i * (85 / count));
+    
+    img.style.cssText = 'position:absolute;' +
+      (isLeft ? 'left:-10px;' : 'right:-10px;') +
+      'top:' + topPos + '%;' +
+      'width:160px;height:auto;border-radius:8px;' +
+      'opacity:0.3;filter:grayscale(20%) brightness(0.8);' +
+      'pointer-events:none;border:1px solid rgba(193,137,122,0.12);' +
+      'box-shadow:0 4px 20px rgba(0,0,0,0.4);' +
+      'transition:opacity 0.3s;';
+    
+    container.appendChild(img);
+  });
+  
+  document.body.appendChild(container);
+  
+  // Hide on narrow screens
+  var style = document.createElement('style');
+  style.textContent = '@media(max-width:1300px){.artas-side-photos-global{display:none !important}}';
+  document.head.appendChild(style);
+})();
