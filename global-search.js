@@ -799,7 +799,7 @@
       (isLeft ? 'left:-10px;' : 'right:-10px;') +
       'top:' + topPos + '%;' +
       'width:160px;height:auto;border-radius:8px;' +
-      'opacity:0.3;filter:grayscale(20%) brightness(0.8);' +
+      'opacity:0.6;filter:grayscale(10%) brightness(0.85);' +
       'pointer-events:none;border:1px solid rgba(193,137,122,0.12);' +
       'box-shadow:0 4px 20px rgba(0,0,0,0.4);' +
       'transition:opacity 0.3s;';
