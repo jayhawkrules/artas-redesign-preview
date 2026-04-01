@@ -796,7 +796,7 @@
   document.head.appendChild(mq);
 })();
 
-/* ARTAS Winner Card Countdown Timers */
+/* ARTAS Winner Card Countdown Timers + Auto-Reveal */
 (function(){
   var ci='<span class="aw-countdown-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>';
   function bld(diff){
@@ -809,10 +809,38 @@
     p+='<div class="aw-countdown-unit"><span class="aw-countdown-num">'+String(s).padStart(2,'0')+'</span><span class="aw-countdown-label">sec</span></div>';
     return p;
   }
+  /* Reveal a winner card client-side */
+  function revealCard(c){
+    if(c.classList.contains('announced'))return;
+    var winnerName=c.getAttribute('data-winner');
+    var winnerNet=c.getAttribute('data-winner-network');
+    if(!winnerName)return; /* No winner data embedded — skip */
+    c.classList.add('announced');
+    var nameEl=c.querySelector('.aw-card-name');
+    var showEl=c.querySelector('.aw-card-show');
+    var tba=c.querySelector('.aw-card-tba');
+    var badge=c.querySelector('.aw-card-winner-badge');
+    if(nameEl)nameEl.textContent=winnerName;
+    if(showEl)showEl.textContent=winnerNet||'';
+    if(tba)tba.style.display='none';
+    if(badge)badge.style.display='inline-block';
+    if(c._cdEl)c._cdEl.style.display='none';
+    /* Update progress bar */
+    var total=document.querySelectorAll('.aw-card').length;
+    var ann=document.querySelectorAll('.aw-card.announced').length;
+    var pct=total>0?Math.round(ann/total*100):0;
+    var countEl=document.getElementById('aw-announced-count');
+    var fillEl=document.getElementById('aw-progress-fill');
+    var pctEl=document.getElementById('aw-progress-pct');
+    if(countEl)countEl.textContent=ann;
+    if(fillEl)fillEl.style.width=pct+'%';
+    if(pctEl)pctEl.textContent=pct+'%';
+  }
   function init(){
-    var cards=document.querySelectorAll('.aw-card[data-reveal-date]:not(.announced)');
+    var cards=document.querySelectorAll('.aw-card[data-reveal-date]');
     if(!cards.length)return;
     cards.forEach(function(c){
+      if(c.classList.contains('announced'))return;
       var t=new Date(c.getAttribute('data-reveal-date')).getTime();
       var el=document.createElement('div');el.className='aw-countdown';
       var tba=c.querySelector('.aw-card-tba');
@@ -825,7 +853,11 @@
       cards.forEach(function(c){
         if(c.classList.contains('announced')){if(c._cdEl)c._cdEl.style.display='none';return;}
         var diff=c._cdT-now,el=c._cdEl;if(!el)return;
-        if(diff<=0){el.innerHTML=ci+'<span style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#D4A853;">Revealing Soon\u2026</span>';return;}
+        if(diff<=0){
+          /* Countdown hit zero — auto-reveal! */
+          revealCard(c);
+          return;
+        }
         var h=bld(diff);if(h)el.innerHTML=h;
       });
     }
