@@ -795,3 +795,25 @@
   mq.textContent='@media(max-width:1024px){img[style*="position:absolute"][alt="ARTAS"]{display:none !important}}';
   document.head.appendChild(mq);
 })();
+
+/* Fix hamburger menu button color */
+(function(){
+  function fixHamburger(){
+    var btn=document.querySelector('[data-section="section-header-mobile-trigger"] .ast-mobile-menu-trigger-fill');
+    if(btn){
+      btn.style.cssText='background:rgba(193,137,122,0.2)!important;border:2px solid #C1897A!important;color:#C1897A!important;border-radius:4px!important;padding:6px 8px!important;';
+      var svgs=btn.querySelectorAll('svg');
+      svgs.forEach(function(s){s.style.fill='#C1897A';s.style.color='#C1897A';});
+      var spans=btn.querySelectorAll('.ast-mobile-svg');
+      spans.forEach(function(s){s.style.fill='#C1897A';});
+    }
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',fixHamburger);
+  } else {
+    fixHamburger();
+  }
+  // Also run after a short delay in case Astra JS overrides
+  setTimeout(fixHamburger,500);
+  setTimeout(fixHamburger,1500);
+})();
