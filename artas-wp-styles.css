@@ -25,3 +25,6 @@
 .asw-form-wrapper iframe,.artas-submit-wrap iframe,.asw-section iframe{min-height:8000px !important;height:8000px !important}
 .artas-home-montage-grid img{filter:grayscale(10%) brightness(0.7) !important;opacity:1 !important}
 .artas-home-hero-bg::after{background:radial-gradient(ellipse at center,rgba(8,8,10,0.4) 0%,rgba(8,8,10,0.65) 60%,rgba(8,8,10,0.9) 100%) !important}
+.artas-home-montage-grid img{filter:grayscale(0%) brightness(0.85) !important;opacity:1 !important}
+.artas-home-hero-bg::after{background:radial-gradient(ellipse at center,rgba(8,8,10,0.3) 0%,rgba(8,8,10,0.5) 55%,rgba(8,8,10,0.85) 100%) !important}
+.artas-home-wrap .artas-home-hero-bg{opacity:1 !important}
