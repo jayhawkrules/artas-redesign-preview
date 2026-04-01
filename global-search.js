@@ -796,14 +796,31 @@
   document.head.appendChild(mq);
 })();
 
-/* Fix hamburger menu button color — rose/pink lines on dark bg */
+/* Fix hamburger menu button — replace thick SVG with clean 3-line SVG */
 (function(){
+  var cleanHamburger='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#C1897A" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
   function fixHamburger(){
-    var btn=document.querySelector('button.menu-toggle, .ast-mobile-menu-trigger-minimal, .ast-mobile-menu-trigger-fill');
-    if(btn){
-      btn.style.cssText='background:rgba(193,137,122,0.1)!important;border:1.5px solid #C1897A!important;color:#C1897A!important;border-radius:4px!important;padding:6px 8px!important;box-shadow:none!important;';
-      var svgs=btn.querySelectorAll('svg, .ast-mobile-svg');
-      svgs.forEach(function(s){s.style.fill='#C1897A';s.style.color='#C1897A';s.style.stroke='none';});
+    var btn=document.querySelector('button.menu-toggle');
+    if(!btn)return;
+    btn.style.cssText='background:rgba(193,137,122,0.1)!important;border:1.5px solid #C1897A!important;color:#C1897A!important;border-radius:4px!important;padding:6px 8px!important;box-shadow:none!important;width:auto!important;height:auto!important;';
+    /* Replace the hamburger SVG with a clean stroke-based one */
+    var menuSvg=btn.querySelector('.ast-menu2-svg');
+    if(menuSvg&&!menuSvg.dataset.artasFixed){
+      menuSvg.dataset.artasFixed='1';
+      var wrapper=menuSvg.parentElement;
+      var newSvg=document.createElement('span');
+      newSvg.innerHTML=cleanHamburger;
+      newSvg.style.cssText='display:inline-flex;align-items:center;';
+      newSvg.className=wrapper.className;
+      wrapper.style.display='none';
+      wrapper.parentElement.insertBefore(newSvg,wrapper);
+    }
+    /* Also fix close SVG color */
+    var closeSvg=btn.querySelector('.ast-close-svg');
+    if(closeSvg){
+      closeSvg.setAttribute('fill','#C1897A');
+      closeSvg.style.fill='#C1897A';
+      closeSvg.style.color='#C1897A';
     }
   }
   if(document.readyState==='loading'){
@@ -811,7 +828,6 @@
   } else {
     fixHamburger();
   }
-  // Run after delays to override Astra JS
   setTimeout(fixHamburger,300);
   setTimeout(fixHamburger,800);
   setTimeout(fixHamburger,2000);
