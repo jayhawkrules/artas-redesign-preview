@@ -28,3 +28,4 @@
 .artas-home-montage-grid img{filter:grayscale(0%) brightness(0.85) !important;opacity:1 !important}
 .artas-home-hero-bg::after{background:radial-gradient(ellipse at center,rgba(8,8,10,0.3) 0%,rgba(8,8,10,0.5) 55%,rgba(8,8,10,0.85) 100%) !important}
 .artas-home-wrap .artas-home-hero-bg{opacity:1 !important}
+.asw-form-wrapper iframe,.artas-submit-wrap iframe{height:10000px !important;min-height:10000px !important;max-height:none !important;overflow:hidden !important;border:none !important}
