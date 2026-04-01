@@ -30,3 +30,5 @@
 .artas-home-wrap .artas-home-hero-bg{opacity:1 !important}
 .asw-form-wrapper iframe,.artas-submit-wrap iframe{height:10000px !important;min-height:10000px !important;max-height:none !important;overflow:hidden !important;border:none !important}
  @media (max-width:1024px){.artas-side-photo,.artas-side-photo-global,img[alt="ARTAS"][style*="position:absolute"]{display:none !important}}.ast-mobile-menu-trigger-fill,.main-header-menu-toggle,button.menu-toggle,.menu-toggle{background:rgba(193,137,122,0.15) !important;border:1.5px solid #C1897A !important;border-radius:4px !important;padding:6px 8px !important}.ast-mobile-menu-trigger-fill .ast-icon,.ast-mobile-menu-trigger-fill svg,button.menu-toggle svg,.menu-toggle .ast-icon{color:#C1897A !important;fill:#C1897A !important;stroke:#C1897A !important}.asw-form-wrapper iframe,.artas-submit-wrap iframe{height:6000px !important;min-height:6000px !important}
+.artas-home-montage-grid img{filter:none !important;opacity:0.7 !important}
+.artas-home-hero-bg::after{background:radial-gradient(ellipse at center,rgba(8,8,10,0.35) 0%,rgba(8,8,10,0.55) 50%,rgba(8,8,10,0.88) 100%) !important}
