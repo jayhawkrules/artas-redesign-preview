@@ -792,20 +792,18 @@
   }else{setTimeout(addPhotos,500);}
   
   var mq=document.createElement('style');
-  mq.textContent='@media(max-width:1024px){img[style*="position:absolute"][alt="ARTAS"]{display:none !important}}';
+  mq.textContent='@media(max-width:1024px){img[style*="position:absolute"][alt="ARTAS"],img[alt="ARTAS"][style*="left:"],img[alt="ARTAS"][style*="right:"]{display:none !important;visibility:hidden !important;width:0 !important;height:0 !important;overflow:hidden !important}}';
   document.head.appendChild(mq);
 })();
 
-/* Fix hamburger menu button color */
+/* Fix hamburger menu button color — rose/pink lines on dark bg */
 (function(){
   function fixHamburger(){
-    var btn=document.querySelector('[data-section="section-header-mobile-trigger"] .ast-mobile-menu-trigger-fill');
+    var btn=document.querySelector('button.menu-toggle, .ast-mobile-menu-trigger-minimal, .ast-mobile-menu-trigger-fill');
     if(btn){
-      btn.style.cssText='background:rgba(193,137,122,0.2)!important;border:2px solid #C1897A!important;color:#C1897A!important;border-radius:4px!important;padding:6px 8px!important;';
-      var svgs=btn.querySelectorAll('svg');
-      svgs.forEach(function(s){s.style.fill='#C1897A';s.style.color='#C1897A';});
-      var spans=btn.querySelectorAll('.ast-mobile-svg');
-      spans.forEach(function(s){s.style.fill='#C1897A';});
+      btn.style.cssText='background:rgba(193,137,122,0.1)!important;border:1.5px solid #C1897A!important;color:#C1897A!important;border-radius:4px!important;padding:6px 8px!important;box-shadow:none!important;';
+      var svgs=btn.querySelectorAll('svg, .ast-mobile-svg');
+      svgs.forEach(function(s){s.style.fill='#C1897A';s.style.color='#C1897A';s.style.stroke='none';});
     }
   }
   if(document.readyState==='loading'){
@@ -813,7 +811,8 @@
   } else {
     fixHamburger();
   }
-  // Also run after a short delay in case Astra JS overrides
-  setTimeout(fixHamburger,500);
-  setTimeout(fixHamburger,1500);
+  // Run after delays to override Astra JS
+  setTimeout(fixHamburger,300);
+  setTimeout(fixHamburger,800);
+  setTimeout(fixHamburger,2000);
 })();
