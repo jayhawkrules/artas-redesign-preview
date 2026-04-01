@@ -792,6 +792,6 @@
   }else{setTimeout(addPhotos,500);}
   
   var mq=document.createElement('style');
-  mq.textContent='@media(max-width:1300px){img[style*="position:absolute"][alt="ARTAS"]{display:none !important}}';
+  mq.textContent='@media(max-width:1024px){img[style*="position:absolute"][alt="ARTAS"]{display:none !important}}';
   document.head.appendChild(mq);
 })();
