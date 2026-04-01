@@ -748,54 +748,6 @@
   }
 })();
 
-/* ARTAS Side Photos - Scroll with page, different per page */
-(function(){
-  var photos = ["https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/JoJo-Siwa-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Omorosa-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Nev-Schulman-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Heather-McDonald-Host.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Kristen-Doute-Vanderpump-Rules.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Ariana-and-Scheana-Vanderpump-Rules.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/AJ-McClean-and-Howie-Backstreet-Boys.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Abby-Lee-Miller-on-RC.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Drag-Queens-RuPauls-Drag-Race.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Jag-Bains-Big-Brother.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Ridiculousness-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/The-Challenge-Big-Brother-ARTAS-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Salina-Estitties-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Brittany-Martinez.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/Abi-Maria-Gomes-Survivor.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Big-Ed-1.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Chelsea-Lazkani.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Gleb-Savchenko-1.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Chandler-Kinney-1.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Vance-Walker.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2026/03/JIMBO-scaled.webp", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Dr.-Sandra-Lee-1.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Tamra-Judge.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Kendra-Wilkinson.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Omarosa.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Heather-McDonald.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/Nev-Schulman.png", "https://www.realitytelevisionawards.com/wp-content/uploads/2024/11/JoJo-Siwa.png"];
-  if(document.querySelector('.artas-gallery-wrap'))return;if(document.body.classList.contains('home')||document.body.classList.contains('page-id-7')||document.querySelector('.artas-home-wrap'))return;
-  var seed=0;var path=window.location.pathname;
-  for(var i=0;i<path.length;i++)seed+=path.charCodeAt(i);
-  function sr(){seed=(seed*9301+49297)%233280;return seed/233280;}
-  var s=photos.slice();
-  for(var i=s.length-1;i>0;i--){var j=Math.floor(sr()*(i+1));var t=s[i];s[i]=s[j];s[j]=t;}
-  var picked=s.slice(0,5+Math.floor(sr()*3));
-  
-  function addPhotos(){
-    var pageH=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
-    var startY=0;
-    var hero=document.querySelector('.artas-home-hero,.aw-hero,.page-hero,[class*="-hero"]');
-    if(hero)startY=hero.getBoundingClientRect().height+window.scrollY;
-    else startY=400;
-    
-    var spacing=(pageH-startY)/(picked.length+1);
-    if(spacing<400)spacing=400;
-    
-    picked.forEach(function(url,i){
-      var img=document.createElement('img');
-      img.src=url;img.alt='ARTAS';img.loading='lazy';
-      var isLeft=i%2===0;
-      var yPos=startY+100+(i*spacing);
-      img.style.cssText='position:absolute;'+
-        (isLeft?'left:15px;':'right:15px;')+
-        'top:'+yPos+'px;'+
-        'width:140px;max-height:200px;object-fit:cover;border-radius:8px;'+
-        'opacity:0.5;filter:grayscale(15%) brightness(0.8);'+
-        'pointer-events:none;z-index:0;'+
-        'border:1px solid rgba(193,137,122,0.12);'+
-        'box-shadow:0 4px 20px rgba(0,0,0,0.4);';
-      document.body.appendChild(img);
-    });
-  }
-  
-  document.body.style.position='relative';
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',function(){setTimeout(addPhotos,500);});
-  }else{setTimeout(addPhotos,500);}
-  
-  var mq=document.createElement('style');
-  mq.textContent='@media(max-width:1024px){img[style*="position:absolute"][alt="ARTAS"],img[alt="ARTAS"][style*="left:"],img[alt="ARTAS"][style*="right:"]{display:none !important;visibility:hidden !important;width:0 !important;height:0 !important;overflow:hidden !important}}';
-  document.head.appendChild(mq);
-})();
-
 /* ARTAS Winner Card System: Countdown + Auto-Reveal + Sort + Next-Reveal Banner */
 (function(){
   var ci='<span class="aw-countdown-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>';
