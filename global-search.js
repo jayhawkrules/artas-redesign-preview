@@ -796,9 +796,48 @@
   document.head.appendChild(mq);
 })();
 
+/* ARTAS Winner Card Countdown Timers */
+(function(){
+  var ci='<span class="aw-countdown-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>';
+  function bld(diff){
+    if(diff<=0)return null;
+    var d=Math.floor(diff/864e5),h=Math.floor((diff%864e5)/36e5),m=Math.floor((diff%36e5)/6e4),s=Math.floor((diff%6e4)/1e3);
+    var p=ci;
+    if(d>0){p+='<div class="aw-countdown-unit"><span class="aw-countdown-num">'+d+'</span><span class="aw-countdown-label">day'+(d!==1?'s':'')+'</span></div><span class="aw-countdown-sep">:</span>';}
+    p+='<div class="aw-countdown-unit"><span class="aw-countdown-num">'+String(h).padStart(2,'0')+'</span><span class="aw-countdown-label">hrs</span></div><span class="aw-countdown-sep">:</span>';
+    p+='<div class="aw-countdown-unit"><span class="aw-countdown-num">'+String(m).padStart(2,'0')+'</span><span class="aw-countdown-label">min</span></div><span class="aw-countdown-sep">:</span>';
+    p+='<div class="aw-countdown-unit"><span class="aw-countdown-num">'+String(s).padStart(2,'0')+'</span><span class="aw-countdown-label">sec</span></div>';
+    return p;
+  }
+  function init(){
+    var cards=document.querySelectorAll('.aw-card[data-reveal-date]:not(.announced)');
+    if(!cards.length)return;
+    cards.forEach(function(c){
+      var t=new Date(c.getAttribute('data-reveal-date')).getTime();
+      var el=document.createElement('div');el.className='aw-countdown';
+      var tba=c.querySelector('.aw-card-tba');
+      if(tba){tba.style.display='none';tba.parentNode.insertBefore(el,tba.nextSibling);}
+      else{c.appendChild(el);}
+      c._cdEl=el;c._cdT=t;
+    });
+    function tick(){
+      var now=Date.now();
+      cards.forEach(function(c){
+        if(c.classList.contains('announced')){if(c._cdEl)c._cdEl.style.display='none';return;}
+        var diff=c._cdT-now,el=c._cdEl;if(!el)return;
+        if(diff<=0){el.innerHTML=ci+'<span style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#D4A853;">Revealing Soon\u2026</span>';return;}
+        var h=bld(diff);if(h)el.innerHTML=h;
+      });
+    }
+    tick();setInterval(tick,1000);
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
+  else{init();}
+})();
+
 /* Fix hamburger menu button — replace thick SVG with clean 3-line SVG */
 (function(){
-  var cleanHamburger='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#C1897A" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  var cleanHamburger='<svg class="artas-hamburger-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#C1897A" stroke-width="2" stroke-linecap="round" style="fill:none!important;stroke:#C1897A!important;"><line x1="3" y1="6" x2="21" y2="6" style="fill:none!important;stroke:#C1897A!important;"/><line x1="3" y1="12" x2="21" y2="12" style="fill:none!important;stroke:#C1897A!important;"/><line x1="3" y1="18" x2="21" y2="18" style="fill:none!important;stroke:#C1897A!important;"/></svg>';
   function fixHamburger(){
     var btn=document.querySelector('button.menu-toggle');
     if(!btn)return;
