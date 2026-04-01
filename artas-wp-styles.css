@@ -33,3 +33,6 @@
 .artas-home-montage-grid img{filter:none !important;opacity:0.75 !important}
 .artas-home-hero-bg::after{content:'' !important;position:absolute !important;inset:0 !important;z-index:1 !important;background:radial-gradient(ellipse at center,rgba(8,8,10,0.25) 0%,rgba(8,8,10,0.45) 50%,rgba(8,8,10,0.85) 100%) !important;pointer-events:none !important}
 .artas-home-wrap .artas-home-hero-bg{opacity:1 !important}
+button.menu-toggle,.menu-toggle,.ast-mobile-menu-trigger-fill button.menu-toggle,button.menu-toggle.ast-mobile-menu-trigger-fill,button.menu-toggle.ast-mobile-menu-trigger-fill.toggled,button.menu-toggle:focus,button.menu-toggle:active{color:var(--text-primary) !important;background-color:transparent !important;background:transparent !important;background-image:none !important;border:2px solid var(--border-light) !important;box-shadow:none !important}
+.ast-mobile-menu-trigger-minimal .mobile-menu-toggle-icon span,button.menu-toggle span,.menu-toggle span{background-color:var(--text-primary) !important}
+@media(max-width:768px){.ast-header-break-point .main-header-menu,.ast-mobile-menu,.ast-flyout-menu-wrap{background-color:rgba(14,14,18,0.98) !important}}
