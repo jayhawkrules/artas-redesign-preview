@@ -922,3 +922,43 @@
   setTimeout(fixHamburger,800);
   setTimeout(fixHamburger,2000);
 })();
+/* Past Winners Rich Search Dropdown */
+(function(){
+  function initPWSearch(){
+    var input=document.getElementById('pwSearch');
+    if(!input||!window.DATABASE)return;
+    var wrap=input.closest('.pw-search-wrap');
+    if(!wrap)return;
+    wrap.style.position='relative';
+    var dd=document.createElement('div');
+    dd.id='pw-search-dropdown';
+    dd.style.cssText='position:absolute;top:100%;left:0;right:0;max-height:400px;overflow-y:auto;background:#0E0E12;border:1px solid #2A2A34;border-top:none;border-radius:0 0 6px 6px;z-index:50;display:none;box-shadow:0 8px 24px rgba(0,0,0,0.4);';
+    wrap.appendChild(dd);
+    function doSearch(q){
+      if(!q||q.length<2){dd.style.display='none';return;}
+      var ql=q.toLowerCase();
+      var matches=window.DATABASE.filter(function(it){
+        var n=(it.name||'').toLowerCase();
+        var net=(it.network||'').toLowerCase();
+        var sh=(it.shows||'').toLowerCase();
+        return n.includes(ql)||net.includes(ql)||sh.includes(ql);
+      }).slice(0,8);
+      if(!matches.length){dd.style.display='none';return;}
+      var h='';
+      matches.forEach(function(it){
+        var badge=it.type==='show'?'<span style="font-size:0.55rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px;background:rgba(193,137,122,0.15);color:#C1897A;">Show</span>':it.type==='person'?'<span style="font-size:0.55rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px;background:rgba(212,168,83,0.15);color:#D4A853;">Person</span>':'';
+        var meta='';
+        if(it.type==='show')meta='<div style="font-size:0.75rem;color:#6E6E78;margin-top:3px;">'+(it.network||'')+(it.nominations?' &middot; '+it.nominations+' nominations':'')+(it.wins?' &middot; '+it.wins+' wins':'')+(it.years?' &middot; '+it.years:'')+'</div>';
+        else if(it.type==='person')meta='<div style="font-size:0.75rem;color:#6E6E78;margin-top:3px;">'+(it.shows||'')+'</div>';
+        h+='<a href="'+(it.link||'#')+'" style="display:block;padding:12px 16px;border-bottom:1px solid #1F1F26;text-decoration:none;" onmouseover="this.style.background=\'rgba(193,137,122,0.06)\'" onmouseout="this.style.background=\'transparent\'">'+'<div style="display:flex;align-items:center;gap:8px;"><span style="font-size:0.9rem;font-weight:600;color:#F2F2F2;">'+it.name+'</span>'+badge+'</div>'+meta+'</a>';
+      });
+      dd.innerHTML=h;
+      dd.style.display='block';
+    }
+    input.addEventListener('input',function(){doSearch(this.value.trim().toLowerCase());});
+    input.addEventListener('blur',function(){setTimeout(function(){dd.style.display='none';},200);});
+    input.addEventListener('focus',function(){if(this.value.trim().length>=2)doSearch(this.value.trim().toLowerCase());});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initPWSearch);
+  else initPWSearch();
+})();
