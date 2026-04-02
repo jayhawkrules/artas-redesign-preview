@@ -8,7 +8,8 @@
 
   // ─── DATABASE ────────────────────────────────────────────────────────────────
 
-  const DATABASE = [
+  window.DATABASE = window.DATABASE || [];
+  const DATABASE = window.DATABASE = [
     // SHOWS
     {name:"American Ninja Warrior",network:"NBC",nominations:40,wins:8,years:"2013–2024",type:"show",link:"/past-winners/"},
     {name:"RuPaul's Drag Race",network:"MTV",nominations:35,wins:7,years:"2013–2024",type:"show",link:"/past-winners/"},
