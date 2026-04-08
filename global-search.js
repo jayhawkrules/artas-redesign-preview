@@ -962,3 +962,51 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initPWSearch);
   else initPWSearch();
 })();
+
+/* ARTAS Winners Progress Bar — count .announced cards and update counter */
+(function(){
+  function updateWinnersProgress(){
+    var total = document.querySelectorAll('.aw-card').length;
+    if(!total) return;
+    var announced = document.querySelectorAll('.aw-card.announced').length;
+    var pct = Math.round(announced / total * 100);
+    var countEl = document.getElementById('aw-announced-count');
+    var fillEl  = document.getElementById('aw-progress-fill');
+    var pctEl   = document.getElementById('aw-progress-pct');
+    if(countEl) countEl.textContent = announced;
+    if(fillEl)  fillEl.style.width  = pct + '%';
+    if(pctEl)   pctEl.textContent   = pct + '%';
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', updateWinnersProgress);
+  } else {
+    updateWinnersProgress();
+  }
+  // Run again after a short delay in case cards are sorted/moved by other JS
+  setTimeout(updateWinnersProgress, 1000);
+  setTimeout(updateWinnersProgress, 2500);
+})();
+
+/* ARTAS Winners Progress Bar — count .announced cards and update counter */
+(function(){
+  function updateWinnersProgress(){
+    var total = document.querySelectorAll('.aw-card').length;
+    if(!total) return;
+    var announced = document.querySelectorAll('.aw-card.announced').length;
+    var pct = Math.round(announced / total * 100);
+    var countEl = document.getElementById('aw-announced-count');
+    var fillEl  = document.getElementById('aw-progress-fill');
+    var pctEl   = document.getElementById('aw-progress-pct');
+    if(countEl) countEl.textContent = announced;
+    if(fillEl)  fillEl.style.width  = pct + '%';
+    if(pctEl)   pctEl.textContent   = pct + '%';
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', updateWinnersProgress);
+  } else {
+    updateWinnersProgress();
+  }
+  // Run again after a short delay in case cards are sorted/moved by other JS
+  setTimeout(updateWinnersProgress, 1000);
+  setTimeout(updateWinnersProgress, 2500);
+})();
