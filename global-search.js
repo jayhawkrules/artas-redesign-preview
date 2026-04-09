@@ -606,19 +606,23 @@
       desktopHeaderRight.appendChild(wrap);
     }
 
-    // On mobile: inject into the mobile header bar, BEFORE the hamburger button
-    const mobileHeaderBar = document.querySelector('#ast-mobile-header .main-header-bar, .ast-mobile-header-wrap, #ast-mobile-header');
-    if (mobileHeaderBar) {
-      const btnWrap = document.querySelector('.ast-button-wrap'); // hamburger wrapper
-      if (btnWrap && btnWrap.parentNode) {
-        const mobileBtn = btn.cloneNode(true);
-        mobileBtn.id = 'searchToggleMobile';
-        mobileBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          document.getElementById('searchToggle') && document.getElementById('searchToggle').click();
-        });
-        btnWrap.parentNode.insertBefore(mobileBtn, btnWrap);
-      }
+    // On mobile: inject BEFORE the hamburger button wrapper
+    const btnWrap = document.querySelector('.ast-button-wrap');
+    if (btnWrap && btnWrap.parentNode) {
+      const mobileBtn = document.createElement('button');
+      mobileBtn.id = 'searchToggleMobile';
+      mobileBtn.setAttribute('aria-label', 'Search');
+      mobileBtn.style.cssText = 'background:none;border:none;cursor:pointer;padding:8px 10px;color:#B0B0B8;display:inline-flex;align-items:center;justify-content:center;z-index:100;position:relative;';
+      mobileBtn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="pointer-events:none;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>';
+      // Store reference to open/close functions on window so mobile button can call them
+      mobileBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        if (window._artasSearch) {
+          window._artasSearch.isOpen ? window._artasSearch.close() : window._artasSearch.open();
+        }
+      });
+      btnWrap.parentNode.insertBefore(mobileBtn, btnWrap);
     }
   }
 
@@ -660,6 +664,13 @@
 
     // Close button
     closeBtn.addEventListener('click', closeSearch);
+
+    // Expose open/close on window for mobile button
+    window._artasSearch = {
+      open: openSearch,
+      close: closeSearch,
+      get isOpen() { return isOpen; }
+    };
 
     // Wire up the toggle button injected into the nav
     document.addEventListener('click', function (e) {
