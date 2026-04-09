@@ -540,11 +540,27 @@
 
   // ─── INIT ────────────────────────────────────────────────────────────────────
 
+  function injectSearchToggle() {
+    if (document.getElementById('searchToggle')) return; // Already exists
+    // Find the header nav bar to inject into
+    const headerBar = document.querySelector('.ast-primary-header-bar, .main-header-bar, #masthead');
+    if (!headerBar) return;
+    const btn = document.createElement('button');
+    btn.id = 'searchToggle';
+    btn.setAttribute('aria-label', 'Search');
+    btn.style.cssText = 'background:none;border:none;cursor:pointer;padding:6px 10px;color:#B0B0B8;display:inline-flex;align-items:center;justify-content:center;position:absolute;right:60px;top:50%;transform:translateY(-50%);z-index:100;';
+    btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>';
+    headerBar.style.position = 'relative';
+    headerBar.appendChild(btn);
+  }
+
   function init() {
     const { overlay, closeBtn, input, results } = buildOverlay();
     overlayEl = overlay;
     inputEl   = input;
     resultsEl = results;
+
+    injectSearchToggle();
 
     // Initial hint
     const hint = document.createElement('div');
