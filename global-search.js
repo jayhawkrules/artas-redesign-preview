@@ -259,6 +259,7 @@
     .artas-badge-show   { background: rgba(201,168,76,0.15); color: #c9a84c; border: 1px solid rgba(201,168,76,0.3); }
     .artas-badge-person { background: rgba(176,40,90,0.15);  color: #d4527a; border: 1px solid rgba(176,40,90,0.3);  }
     .artas-badge-page   { background: rgba(80,80,120,0.2);   color: #9a9abf; border: 1px solid rgba(80,80,120,0.3);  }
+    .artas-badge-post   { background: rgba(80,160,120,0.2);  color: #50c090; border: 1px solid rgba(80,160,120,0.3); }
 
     .artas-result-meta {
       font-size: 0.8rem;
@@ -409,11 +410,17 @@
   // ─── RENDER RESULTS ──────────────────────────────────────────────────────────
 
   function badgeClass(type) {
-    return type === 'show' ? 'artas-badge-show' : type === 'person' ? 'artas-badge-person' : 'artas-badge-page';
+    if (type === 'show')   return 'artas-badge-show';
+    if (type === 'person') return 'artas-badge-person';
+    if (type === 'post')   return 'artas-badge-post';
+    return 'artas-badge-page';
   }
 
   function badgeLabel(type) {
-    return type === 'show' ? 'Show' : type === 'person' ? 'Person' : 'Page';
+    if (type === 'show')   return 'Show';
+    if (type === 'person') return 'Person';
+    if (type === 'post')   return 'Blog';
+    return 'Page';
   }
 
   function renderCard(item) {
@@ -462,6 +469,18 @@
       stats.className = 'artas-result-stats';
       stats.textContent = `${item.nominations} nominations · ${item.wins} wins`;
       meta.appendChild(stats);
+    } else if (item.type === 'post') {
+      if (item.date) {
+        const dateEl = document.createElement('span');
+        dateEl.className = 'artas-result-stats';
+        dateEl.textContent = item.date;
+        meta.appendChild(dateEl);
+      }
+      if (item.excerpt) {
+        const exc = document.createElement('span');
+        exc.textContent = item.excerpt;
+        meta.appendChild(exc);
+      }
     } else {
       const desc = document.createElement('span');
       desc.textContent = item.description;
@@ -485,7 +504,24 @@
     return group;
   }
 
-  function updateResults(results, query) {
+  async function fetchPosts(query) {
+    try {
+      const host = window.location.origin;
+      const url = `${host}/wp-json/wp/v2/posts?search=${encodeURIComponent(query)}&per_page=5&_fields=id,title,excerpt,link,date`;
+      const res = await fetch(url);
+      if (!res.ok) return [];
+      const posts = await res.json();
+      return posts.map(p => ({
+        name: (p.title && p.title.rendered ? p.title.rendered : '').replace(/<[^>]+>/g, ''),
+        excerpt: (p.excerpt && p.excerpt.rendered ? p.excerpt.rendered : '').replace(/<[^>]+>/g, '').replace(/\[&hellip;\]/g, '…').replace(/&[a-z]+;/g, ' ').trim().substring(0, 130),
+        link: p.link,
+        type: 'post',
+        date: p.date ? new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '',
+      }));
+    } catch(e) { return []; }
+  }
+
+  async function updateResults(results, query) {
     results.innerHTML = '';
 
     if (!query || query.trim().length < 2) {
@@ -496,19 +532,32 @@
       return;
     }
 
-    const data = search(query);
+    // Show loading state while fetching posts
+    const loading = document.createElement('div');
+    loading.id = 'artas-search-hint';
+    loading.textContent = 'Searching…';
+    results.appendChild(loading);
 
-    if (!data || data.total === 0) {
+    // Run static search and live post search in parallel
+    const [data, posts] = await Promise.all([search(query), fetchPosts(query)]);
+
+    results.innerHTML = '';
+
+    const totalStatic = data ? data.total : 0;
+    const totalPosts  = posts ? posts.length : 0;
+
+    if (totalStatic === 0 && totalPosts === 0) {
       const empty = document.createElement('div');
       empty.id = 'artas-search-empty';
-      empty.innerHTML = `<strong>No results for "${query}"</strong><span>Try a show name, person, or network</span>`;
+      empty.innerHTML = `<strong>No results for \"${query}\"</strong><span>Try a show name, person, category, or blog topic</span>`;
       results.appendChild(empty);
       return;
     }
 
-    if (data.shows.length)  results.appendChild(renderGroup('Shows', data.shows));
-    if (data.people.length) results.appendChild(renderGroup('People', data.people));
-    if (data.pages.length)  results.appendChild(renderGroup('Pages', data.pages));
+    if (data && data.shows.length)  results.appendChild(renderGroup('Shows', data.shows));
+    if (data && data.people.length) results.appendChild(renderGroup('People', data.people));
+    if (posts && posts.length)      results.appendChild(renderGroup('Blog Posts', posts));
+    if (data && data.pages.length)  results.appendChild(renderGroup('Pages', data.pages));
   }
 
   // ─── OPEN / CLOSE ────────────────────────────────────────────────────────────
