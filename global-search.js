@@ -847,14 +847,24 @@
 /* ARTAS Winner Card System: Countdown + Auto-Reveal + Sort + Next-Reveal Banner */
 (function(){
   var ci='<span class="aw-countdown-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>';
-  function bld(diff){
+  var dayNames=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var monthNames=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function formatRevealDate(isoDate){
+    var dt=new Date(isoDate);
+    return dayNames[dt.getDay()]+', '+monthNames[dt.getMonth()]+' '+dt.getDate();
+  }
+  function bld(diff,revealDate){
     if(diff<=0)return null;
     var d=Math.floor(diff/864e5),h=Math.floor((diff%864e5)/36e5),m=Math.floor((diff%36e5)/6e4),s=Math.floor((diff%6e4)/1e3);
-    var p=ci;
+    var p='';
+    if(revealDate){p+='<div class="aw-countdown-date">'+formatRevealDate(revealDate)+' at 9:00 AM PT</div>';}
+    p+='<div class="aw-countdown-timer">';
+    p+=ci;
     if(d>0){p+='<div class="aw-countdown-unit"><span class="aw-countdown-num">'+d+'</span><span class="aw-countdown-label">day'+(d!==1?'s':'')+'</span></div><span class="aw-countdown-sep">:</span>';}
     p+='<div class="aw-countdown-unit"><span class="aw-countdown-num">'+String(h).padStart(2,'0')+'</span><span class="aw-countdown-label">hrs</span></div><span class="aw-countdown-sep">:</span>';
     p+='<div class="aw-countdown-unit"><span class="aw-countdown-num">'+String(m).padStart(2,'0')+'</span><span class="aw-countdown-label">min</span></div><span class="aw-countdown-sep">:</span>';
     p+='<div class="aw-countdown-unit"><span class="aw-countdown-num">'+String(s).padStart(2,'0')+'</span><span class="aw-countdown-label">sec</span></div>';
+    p+='</div>';
     return p;
   }
   function bldBanner(diff){
@@ -963,6 +973,16 @@
       else{c.appendChild(el);}
       c._cdEl=el;
     });
+    /* Apply teaser images to cards */
+    document.querySelectorAll('.aw-card[data-teaser-img]:not(.announced)').forEach(function(c){
+      var img=c.getAttribute('data-teaser-img');
+      if(img){
+        c.style.backgroundImage='url('+img+')';
+        c.style.backgroundSize='cover';
+        c.style.backgroundPosition='center';
+        c.style.backgroundRepeat='no-repeat';
+      }
+    });
     /* Initial sort */
     sortCards();
     function tick(){
@@ -971,7 +991,7 @@
         if(c.classList.contains('announced')){if(c._cdEl)c._cdEl.style.display='none';return;}
         var diff=c._cdT-now,el=c._cdEl;if(!el)return;
         if(diff<=0){revealCard(c);return;}
-        var h=bld(diff);if(h)el.innerHTML=h;
+        var h=bld(diff,c.getAttribute('data-reveal-date'));if(h)el.innerHTML=h;
       });
       updateBanner(now);
     }
