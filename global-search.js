@@ -111,6 +111,44 @@
     {name:"Academy of Reality Television",description:"Free membership for TV professionals",type:"page",link:"/reality-academy/"},
     {name:"About Us",description:"History of The ARTAS",type:"page",link:"/about-us/"},
     {name:"Awards Show",description:"12th Annual ARTAS",type:"page",link:"/awards-show/"},
+    // NETWORKS
+    {name:"ABC",nominations:17,wins:5,years:"2013-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"MTV",nominations:16,wins:8,years:"2013-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"NBC",nominations:14,wins:6,years:"2013-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"FOX",nominations:11,wins:5,years:"2013-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"ID",nominations:11,wins:0,years:"2020-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"TLC",nominations:8,wins:3,years:"2019-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"Hulu",nominations:7,wins:0,years:"2020-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"OWN",nominations:6,wins:1,years:"2018-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"Netflix",nominations:5,wins:1,years:"2020-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"CBS",nominations:3,wins:2,years:"2013-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"Prime Video",nominations:3,wins:0,years:"2022-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"YouTube",nominations:3,wins:1,years:"2022-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"Bravo",nominations:2,wins:3,years:"2015-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"Discovery",nominations:2,wins:7,years:"2013-2020",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"Food Network",nominations:2,wins:1,years:"2019-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"Brandon TV",nominations:2,wins:0,years:"2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"USA",nominations:2,wins:0,years:"2023-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"CW",nominations:2,wins:0,years:"2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"MAX",nominations:2,wins:0,years:"2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"Tubi",nominations:2,wins:0,years:"2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"Paramount+",nominations:1,wins:0,years:"2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"BET",nominations:1,wins:1,years:"2018-2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"CBC",nominations:1,wins:1,years:"2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"Comedy Central",nominations:1,wins:0,years:"2024",type:"network",link:"/12th-annual-nominees-list/"},
+    {name:"PBS",nominations:1,wins:1,years:"2022-2024",type:"network",link:"/12th-annual-nominees-list/"},
+
+    // PRODUCTION COMPANIES
+    {name:"A. Smith &amp; Co. Productions",network:"NBC",nominations:1,wins:1,type:"company",link:"/12th-annual-nominees-list/"},
+    {name:"495 Productions",network:"MTV",nominations:1,wins:0,type:"company",link:"/12th-annual-nominees-list/"},
+    {name:"FOX Alternative Entertainment",network:"FOX",nominations:1,wins:0,type:"company",link:"/12th-annual-nominees-list/"},
+    {name:"Fremantle",network:"Multiple",nominations:1,wins:0,type:"company",link:"/12th-annual-nominees-list/"},
+    {name:"Hot Snakes Media",network:"Multiple",nominations:1,wins:0,type:"company",link:"/12th-annual-nominees-list/"},
+    {name:"MTV Entertainment Studios",network:"MTV",nominations:1,wins:0,type:"company",link:"/12th-annual-nominees-list/"},
+    {name:"Sony Pictures Television",network:"Multiple",nominations:1,wins:0,type:"company",link:"/12th-annual-nominees-list/"},
+    {name:"Universal Television Alternative Studio",network:"NBC",nominations:1,wins:0,type:"company",link:"/12th-annual-nominees-list/"},
+    {name:"Warner Bros. Unscripted Television",network:"Multiple",nominations:1,wins:0,type:"company",link:"/12th-annual-nominees-list/"},
+
   ];
 
   // ─── STYLES ──────────────────────────────────────────────────────────────────
@@ -260,6 +298,8 @@
     .artas-badge-person { background: rgba(176,40,90,0.15);  color: #d4527a; border: 1px solid rgba(176,40,90,0.3);  }
     .artas-badge-page   { background: rgba(80,80,120,0.2);   color: #9a9abf; border: 1px solid rgba(80,80,120,0.3);  }
     .artas-badge-post   { background: rgba(80,160,120,0.2);  color: #50c090; border: 1px solid rgba(80,160,120,0.3); }
+    .artas-badge-network { background: rgba(100,140,220,0.15); color: #6490DC; border: 1px solid rgba(100,140,220,0.3); }
+    .artas-badge-company { background: rgba(180,130,200,0.15); color: #B482C8; border: 1px solid rgba(180,130,200,0.3); }
 
     .artas-result-meta {
       font-size: 0.8rem;
@@ -404,7 +444,10 @@
     const people  = scored.filter(x => x.item.type === 'person').slice(0, 6).map(x => x.item);
     const pages   = scored.filter(x => x.item.type === 'page').slice(0, 4).map(x => x.item);
 
-    return { shows, people, pages, total: shows.length + people.length + pages.length };
+    const networks = scored.filter(x => x.item.type === 'network').slice(0, 5).map(x => x.item);
+    const companies = scored.filter(x => x.item.type === 'company').slice(0, 4).map(x => x.item);
+
+    return { shows, people, networks, companies, pages, total: shows.length + people.length + networks.length + companies.length + pages.length };
   }
 
   // ─── RENDER RESULTS ──────────────────────────────────────────────────────────
@@ -413,6 +456,8 @@
     if (type === 'show')   return 'artas-badge-show';
     if (type === 'person') return 'artas-badge-person';
     if (type === 'post')   return 'artas-badge-post';
+    if (type === 'network') return 'artas-badge-network';
+    if (type === 'company') return 'artas-badge-company';
     return 'artas-badge-page';
   }
 
@@ -420,6 +465,8 @@
     if (type === 'show')   return 'Show';
     if (type === 'person') return 'Person';
     if (type === 'post')   return 'Blog';
+    if (type === 'network') return 'Network';
+    if (type === 'company') return 'Production Co.';
     return 'Page';
   }
 
@@ -468,6 +515,17 @@
       const stats = document.createElement('span');
       stats.className = 'artas-result-stats';
       stats.textContent = `${item.nominations} nominations · ${item.wins} wins`;
+      meta.appendChild(stats);
+    } else if (item.type === 'network' || item.type === 'company') {
+      if (item.network) {
+        const net = document.createElement('span');
+        net.className = 'artas-result-network';
+        net.textContent = item.network;
+        meta.appendChild(net);
+      }
+      const stats = document.createElement('span');
+      stats.className = 'artas-result-stats';
+      stats.textContent = item.nominations + ' nomination' + (item.nominations !== 1 ? 's' : '') + (item.wins ? ' \u00b7 ' + item.wins + ' win' + (item.wins !== 1 ? 's' : '') : '') + (item.years ? ' \u00b7 ' + item.years : '');
       meta.appendChild(stats);
     } else if (item.type === 'post') {
       if (item.date) {
@@ -554,10 +612,12 @@
       return;
     }
 
-    if (data && data.shows.length)  results.appendChild(renderGroup('Shows', data.shows));
-    if (data && data.people.length) results.appendChild(renderGroup('People', data.people));
-    if (posts && posts.length)      results.appendChild(renderGroup('Blog Posts', posts));
-    if (data && data.pages.length)  results.appendChild(renderGroup('Pages', data.pages));
+    if (data && data.shows.length)     results.appendChild(renderGroup('Shows', data.shows));
+    if (data && data.people.length)    results.appendChild(renderGroup('People', data.people));
+    if (data && data.networks.length)  results.appendChild(renderGroup('Networks', data.networks));
+    if (data && data.companies.length) results.appendChild(renderGroup('Production Companies', data.companies));
+    if (posts && posts.length)         results.appendChild(renderGroup('Blog Posts', posts));
+    if (data && data.pages.length)     results.appendChild(renderGroup('Pages', data.pages));
   }
 
   // ─── OPEN / CLOSE ────────────────────────────────────────────────────────────
