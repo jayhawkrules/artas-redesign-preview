@@ -973,16 +973,6 @@
       else{c.appendChild(el);}
       c._cdEl=el;
     });
-    /* Apply teaser images to cards */
-    document.querySelectorAll('.aw-card[data-teaser-img]:not(.announced)').forEach(function(c){
-      var img=c.getAttribute('data-teaser-img');
-      if(img){
-        c.style.backgroundImage='url('+img+')';
-        c.style.backgroundSize='cover';
-        c.style.backgroundPosition='center';
-        c.style.backgroundRepeat='no-repeat';
-      }
-    });
     /* Initial sort */
     sortCards();
     function tick(){
