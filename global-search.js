@@ -597,13 +597,27 @@
     btn.style.cssText = 'background:none;border:none;cursor:pointer;padding:6px 10px;color:#B0B0B8;display:inline-flex;align-items:center;justify-content:center;';
     btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>';
 
-    // On desktop: inject into the right side of the primary header bar
-    const desktopHeaderRight = document.querySelector('.ast-primary-header-bar .ast-builder-grid-row-container');
-    if (desktopHeaderRight) {
-      const wrap = document.createElement('div');
-      wrap.style.cssText = 'display:flex;align-items:center;margin-left:8px;';
+    // On desktop: inject into the right section of the header nav
+    var desktopRight = document.querySelector('.site-header-primary-section-right, .site-header-section-right');
+    if (!desktopRight) {
+      // Fallback: find the nav and inject after it
+      desktopRight = document.querySelector('.ast-builder-grid-row-has-sides .ast-flex.site-header-section-left');
+      if (desktopRight) desktopRight = desktopRight.parentElement;
+    }
+    if (desktopRight) {
+      var wrap = document.createElement('div');
+      wrap.className = 'ast-builder-layout-element ast-flex site-header-focus-item';
+      wrap.style.cssText = 'display:flex;align-items:center;';
       wrap.appendChild(btn);
-      desktopHeaderRight.appendChild(wrap);
+      desktopRight.appendChild(wrap);
+    } else {
+      // Last resort: absolute position in header
+      var headerBar = document.querySelector('.ast-primary-header-bar');
+      if (headerBar) {
+        btn.style.cssText += 'position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:100;';
+        headerBar.style.position = 'relative';
+        headerBar.appendChild(btn);
+      }
     }
 
     // On mobile: inject BEFORE the hamburger button wrapper
