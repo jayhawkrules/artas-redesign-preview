@@ -767,7 +767,7 @@
 /* ARTAS Universal Countdown Handler */
 (function(){
   var openDate = new Date('2026-04-01T00:00:00-07:00');
-  var closeDate = new Date('2026-08-07T23:59:59-07:00');
+  var closeDate = new Date('2026-08-21T23:59:59-07:00'); // 13th Annual final extension (was Aug 7)
   
   // Map of page-specific countdown element IDs
   var countdowns = [
