@@ -143,3 +143,25 @@ input.gform_button, .gform_button{
   .pw-card-show, .rr-card-show, .rr-card-note,
   .artas-home-category-name, .agw-photo-name{ font-size:12px !important; }
 }
+
+/* ---- Mobile audit, second pass (2026-08-07) ----
+   Three things the first pass missed, caught by re-measuring. */
+
+/* The About Us / FAQ pages use a THIRD button family (.aab-*) alongside
+   .artas-* and .aw-*; it kept its 2.95:1 white ink. */
+html body .aab-btn-rose:not([class*="outline"]),
+html body .aab-btn-gold:not([class*="outline"]){
+  color:#0C0B0A !important; text-shadow:none !important;
+}
+
+/* The footer colour fix landed on the wrapper, but the inner
+   p.footer_menu re-declares the muted grey, so the copyright line and footer
+   nav were still rendering at 3.82:1. */
+html body .site-below-footer-wrap p, html body .site-primary-footer-wrap p,
+html body .site-below-footer-wrap .footer_menu,
+html body .site-primary-footer-wrap .footer_menu{ color:#9A9AA6 !important; }
+
+/* Footer nav links were 16px tall and category pills 21px; pad both to 44. */
+.footer_menu a{ display:inline-block !important; padding:14px 8px !important; }
+.cat-links a{ min-height:44px !important; display:inline-flex !important;
+  align-items:center !important; }
