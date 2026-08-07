@@ -165,3 +165,7 @@ html body .site-primary-footer-wrap .footer_menu{ color:#9A9AA6 !important; }
 .footer_menu a{ display:inline-block !important; padding:14px 8px !important; }
 .cat-links a{ min-height:44px !important; display:inline-flex !important;
   align-items:center !important; }
+/* The copyright line lives in .ast-builder-html-element, not a <p>, so the
+   footer paragraph rule above missed it — still 3.82:1 on four pages. */
+html body .site-below-footer-wrap .ast-builder-html-element,
+html body .site-primary-footer-wrap .ast-builder-html-element{ color:#9A9AA6 !important; }
