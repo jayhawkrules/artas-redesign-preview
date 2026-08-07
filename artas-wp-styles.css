@@ -58,3 +58,8 @@ button.menu-toggle,.ast-mobile-menu-buttons .menu-toggle{min-width:44px!importan
    .artas-hamburger-icon injected alongside it isn't covered by that rule, so both
    showed at once. Hide it while expanded and let Astra's close icon stand alone. */
 .menu-toggle[aria-expanded="true"] .artas-hamburger-icon{display:none!important}
+/* The blanket "badges are white text" rule above also catches .asw-fee-badge,
+   which sits on a solid gold (--gold) chip — white on gold is ~2.2:1 and
+   effectively unreadable. Gold chips need dark ink, same fix already applied to
+   .aw-card-winner-badge. */
+.artas-submit-wrap .asw-fee-badge,.asw-fee-badge{color:#08080A!important;text-shadow:none!important}
