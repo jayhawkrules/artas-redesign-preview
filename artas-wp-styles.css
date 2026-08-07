@@ -54,3 +54,7 @@ button.menu-toggle span.ahfb-svg-iconset,
 .menu-toggle span.mobile-menu-toggle-icon,
 .menu-toggle span.ahfb-svg-iconset{background-color:transparent!important}
 button.menu-toggle,.ast-mobile-menu-buttons .menu-toggle{min-width:44px!important;min-height:44px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}
+/* When the mobile menu is open Astra swaps its own ☰ for ✕, but the custom
+   .artas-hamburger-icon injected alongside it isn't covered by that rule, so both
+   showed at once. Hide it while expanded and let Astra's close icon stand alone. */
+.menu-toggle[aria-expanded="true"] .artas-hamburger-icon{display:none!important}
