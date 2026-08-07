@@ -104,11 +104,15 @@ html body .asw-fee-badge{
 /* 3 — Gravity Forms ran edge to edge on phones: the first/last name row had a
    10px gutter but email, subject, message and submit all started at x=0 and
    spanned the full 390px viewport, touching both bezels. */
+/* This install renders Gravity Forms WITHOUT the usual .gform_wrapper div — the
+   markup is a bare `form#gform_2` — so wrapper-based selectors never match.
+   Target the form element itself. */
 @media (max-width:782px){
-  .gform_wrapper{ padding-left:16px !important; padding-right:16px !important; }
-  .gform_wrapper .gform_button{
-    min-height:44px !important; padding:12px 28px !important; width:auto !important;
-  }
+  form[id^="gform_"]{ padding-left:16px !important; padding-right:16px !important; }
+}
+form[id^="gform_"] .gform_button,
+input.gform_button, .gform_button{
+  min-height:44px !important; padding:12px 28px !important; width:auto !important;
 }
 
 /* 4 — Tap targets. WCAG 2.5.8 and the Apple HIG both want 44x44; the footer
