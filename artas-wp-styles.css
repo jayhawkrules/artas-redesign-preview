@@ -73,9 +73,21 @@ button.menu-toggle,.ast-mobile-menu-buttons .menu-toggle{min-width:44px!importan
    same fills measures ~8.9:1 and ~6.7:1. This is the same correction already
    applied to .asw-fee-badge and .aw-card-winner-badge — the earlier blanket
    "badges are white text" rule was wrong for every light-filled chip. */
-.artas-btn.artas-btn-gold, .artas-btn.artas-btn-rose,
-a.artas-btn-gold, a.artas-btn-rose,
-.ast-taxonomy-container.cat-links a{
+/* The stylesheet already carries a family of "force white ink" rules for these
+   fills, several at higher specificity than a plain class selector (e.g.
+   `.blog article .cat-links a` and `.artas-submit-wrap a[class*="btn-gold"]`),
+   so the override is prefixed with `html body` to outrank all of them.
+   `:not([class*="outline"])` is essential: the loose `a[class*="gold"]` family
+   also matches .artas-btn-outline / .asw-btn-outline-gold, which are
+   transparent-backgrounded with light text — darkening those would make them
+   invisible on the dark ground. */
+html body .artas-btn-gold:not([class*="outline"]),
+html body .artas-btn-rose:not([class*="outline"]),
+html body .aw-btn-gold:not([class*="outline"]),
+html body .aw-btn-rose:not([class*="outline"]),
+html body .asw-btn-gold:not([class*="outline"]),
+html body .cat-links a:not([class*="outline"]),
+html body .asw-fee-badge{
   color:#0C0B0A !important; text-shadow:none !important;
 }
 
