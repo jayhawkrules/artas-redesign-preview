@@ -40,3 +40,17 @@ button.menu-toggle,button.menu-toggle.ast-mobile-menu-trigger-minimal,button.men
 .pw-year-header .pw-year-label{font-family:'Playfair Display',Georgia,serif !important;font-size:2rem !important;font-weight:800 !important;color:#F2F2F2 !important;letter-spacing:0.02em !important}@media(max-width:768px){.pw-year-header .pw-year-label{font-size:1.5rem !important}}
 
 .aw-card.announced .aw-card-winner-badge,.aw-card-winner-badge{color:#FFFFFF !important;text-shadow:none !important}.aw-countdown-date{font-family:'Inter',-apple-system,sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C1897A;margin-bottom:6px}.aw-countdown-timer{display:flex;align-items:center;gap:6px}.aw-countdown{display:flex;flex-direction:column;margin-top:0.5rem}
+
+/* ---- Mobile menu trigger fix (2026-08-07) ----
+   Astra renders this header's hamburger as an <svg> wrapped in <span> elements
+   (.mobile-menu-toggle-icon > .ahfb-svg-iconset > svg). The broad
+   `.menu-toggle span{background-color:#C1897A}` rules above were written for
+   Astra's CSS-bar hamburger, where the bars themselves ARE the spans — here they
+   paint the SVG's wrappers solid, so the icon disappears into a filled block.
+   Reset only the SVG wrappers; bare-span bars keep their colour if Astra ever
+   falls back to them. Also bring the trigger up to a 44x44 tap target. */
+button.menu-toggle span.mobile-menu-toggle-icon,
+button.menu-toggle span.ahfb-svg-iconset,
+.menu-toggle span.mobile-menu-toggle-icon,
+.menu-toggle span.ahfb-svg-iconset{background-color:transparent!important}
+button.menu-toggle,.ast-mobile-menu-buttons .menu-toggle{min-width:44px!important;min-height:44px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}
