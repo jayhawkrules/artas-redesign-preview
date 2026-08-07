@@ -63,3 +63,67 @@ button.menu-toggle,.ast-mobile-menu-buttons .menu-toggle{min-width:44px!importan
    effectively unreadable. Gold chips need dark ink, same fix already applied to
    .aw-card-winner-badge. */
 .artas-submit-wrap .asw-fee-badge,.asw-fee-badge{color:#08080A!important;text-shadow:none!important}
+
+/* ==================== Mobile UI audit fixes (2026-08-07) ====================
+   Measured at 390x844 / DPR 3 with an iOS 17 Safari UA across all 16 public
+   pages. Each block notes the measurement that justified it. */
+
+/* 1 — Contrast on the two brand fills. White ink measures 2.20:1 on gold
+   (#D4A853) and 2.95:1 on rose (#C1897A); AA needs 4.5:1. Near-black on the
+   same fills measures ~8.9:1 and ~6.7:1. This is the same correction already
+   applied to .asw-fee-badge and .aw-card-winner-badge — the earlier blanket
+   "badges are white text" rule was wrong for every light-filled chip. */
+.artas-btn.artas-btn-gold, .artas-btn.artas-btn-rose,
+a.artas-btn-gold, a.artas-btn-rose,
+.ast-taxonomy-container.cat-links a{
+  color:#0C0B0A !important; text-shadow:none !important;
+}
+
+/* 2 — iOS Safari zooms the whole page when a focused field's text is under
+   16px, and does not zoom back out; the user is left scrolled sideways
+   mid-form. Contact form fields were 13.7px, the Past Winners search 12px. */
+@media (max-width:782px){
+  input:not([type=checkbox]):not([type=radio]),
+  select, textarea,
+  .gform_wrapper input, .gform_wrapper select, .gform_wrapper textarea,
+  input.pw-search{ font-size:16px !important; }
+}
+
+/* 3 — Gravity Forms ran edge to edge on phones: the first/last name row had a
+   10px gutter but email, subject, message and submit all started at x=0 and
+   spanned the full 390px viewport, touching both bezels. */
+@media (max-width:782px){
+  .gform_wrapper{ padding-left:16px !important; padding-right:16px !important; }
+  .gform_wrapper .gform_button{
+    min-height:44px !important; padding:12px 28px !important; width:auto !important;
+  }
+}
+
+/* 4 — Tap targets. WCAG 2.5.8 and the Apple HIG both want 44x44; the footer
+   social anchors rendered at 18x18 and the header search button at 40x36.
+   Pad the hit area and leave the glyph its size. */
+.wp-block-social-link-anchor{
+  display:inline-flex !important; align-items:center; justify-content:center;
+  min-width:44px !important; min-height:44px !important;
+}
+.artas-home-social-pill, .social-pill{ min-height:44px !important; }
+.ast-search-menu-icon .slide-search, .astra-search-icon,
+.ast-header-break-point .site-header-focus-item > button{
+  min-width:44px !important; min-height:44px !important;
+}
+
+/* 5 — Muted grey #6E6E78 measures 3.64:1 on the footer surface and 3.82:1 on
+   the page ground. #9A9AA6 clears 4.5:1 on both (6.6:1 / 6.9:1) and keeps the
+   recessive feel. */
+.site-primary-footer-wrap, .site-below-footer-wrap, .entry-meta{
+  color:#9A9AA6 !important;
+}
+
+/* 6 — Micro-labels. The caps-with-tracking treatment is deliberate and stays,
+   but 8.2px is roughly half the body size. Floor the smallest tier on phones
+   only; desktop keeps the finer setting. */
+@media (max-width:782px){
+  .pw-card-cat, .aw-card-category{ font-size:11px !important; }
+  .pw-card-show, .rr-card-show, .rr-card-note,
+  .artas-home-category-name, .agw-photo-name{ font-size:12px !important; }
+}
