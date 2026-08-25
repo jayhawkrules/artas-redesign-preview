@@ -766,8 +766,24 @@
 
 /* ARTAS Universal Countdown Handler */
 (function(){
-  var openDate = new Date('2026-04-01T00:00:00-07:00');
-  var closeDate = new Date('2026-08-21T23:59:59-07:00'); // 13th Annual final extension (was Aug 7)
+  /* 13th Annual season phases, in order. The countdown always targets the next
+     milestone that has not yet passed, so the site stays alive all season long
+     instead of freezing at 0 the moment submissions close. */
+  var SEASON = [
+    { at: new Date('2026-04-01T00:00:00-07:00'), label: 'Until Submissions Open' },
+    { at: new Date('2026-08-21T23:59:59-07:00'), label: 'Until Submissions Close' },
+    { at: new Date('2026-10-12T00:00:00-07:00'), label: 'Until Academy Voting Opens' },
+    { at: new Date('2026-11-13T23:59:59-08:00'), label: 'Until Academy Voting Closes' },
+    { at: new Date('2026-12-09T00:00:00-08:00'), label: 'Until Nominees Announced' },
+    { at: new Date('2027-02-12T23:59:59-08:00'), label: 'Until Public Voting Closes' }
+  ];
+
+  function nextMilestone(now) {
+    for (var i = 0; i < SEASON.length; i++) {
+      if (now < SEASON[i].at) return SEASON[i];
+    }
+    return null;
+  }
   
   // Map of page-specific countdown element IDs
   var countdowns = [
@@ -790,31 +806,20 @@
       
       if (!dEl) return; // This countdown isn't on this page
       
-      var target, labelText;
-      if (now < openDate) {
-        target = openDate;
-        labelText = 'Until Submissions Open';
-      } else if (now < closeDate) {
-        target = closeDate;
-        labelText = 'Until Submissions Close';
-      } else {
+      var phase = nextMilestone(now);
+      if (!phase) {
         dEl.textContent = '0';
         hEl.textContent = '0';
         mEl.textContent = '0';
         sEl.textContent = '0';
         if (cd.label) {
-          var lEl = document.getElementById(cd.label);
-          if (lEl) lEl.textContent = 'Submissions Closed';
-        }
-        // Replace countdown with "Now Open" message if before close
-        if (cd.wrapper && now >= openDate && now < closeDate) {
-          var wrapper = document.getElementById(cd.wrapper);
-          if (wrapper) {
-            wrapper.innerHTML = '<div style="text-align:center;padding:30px;"><span style="font-family:Playfair Display,serif;font-size:2rem;font-weight:700;color:#D4A853;">Submissions Now Open!</span><p style="color:#B0B0B8;margin-top:10px;">Submit your show for the 13th Annual ARTAS</p></div>';
-          }
+          var lEnd = document.getElementById(cd.label);
+          if (lEnd) lEnd.textContent = 'Season Complete';
         }
         return;
       }
+      var target = phase.at;
+      var labelText = phase.label;
       
       var diff = target - now;
       dEl.textContent = Math.floor(diff / 864e5);
@@ -835,8 +840,9 @@
     if (numbers.length === 0) return;
     
     var now = new Date();
-    var target = now < openDate ? openDate : closeDate;
-    var diff = target - now;
+    var genPhase = nextMilestone(now);
+    if (!genPhase) { numbers.forEach(function(el) { el.textContent = '0'; }); return; }
+    var diff = genPhase.at - now;
     
     if (diff <= 0) {
       numbers.forEach(function(el) { el.textContent = '0'; });
