@@ -172,10 +172,12 @@ html body .site-primary-footer-wrap .ast-builder-html-element{ color:#9A9AA6 !im
 
 /* WCAG 1.4.1: inline text links must not be distinguishable by colour alone.
    Scoped to bare links inside paragraphs/list items so the button families
-   (.artas-btn / .asw-btn / .aab-* / .social-pill) keep their own styling. */
+   (.artas-btn / .asw-btn / .aab-* / .social-pill) keep their own styling.
+   !important is required: a blanket `a{text-decoration:none !important}` rule
+   earlier in this file beats any amount of selector specificity. */
 .artas-home-wrap p a:not([class]),.artas-home-wrap li a:not([class]),
 .artas-submit-wrap p a:not([class]),.artas-submit-wrap li a:not([class]),
 .artas-academy-wrap p a:not([class]),.artas-academy-wrap li a:not([class]),
 .artas-show-wrap p a:not([class]),.artas-show-wrap li a:not([class]),
 .artas-faq-wrap p a:not([class]),.artas-buzz-wrap p a:not([class]){
-text-decoration:underline;text-underline-offset:0.18em;text-decoration-thickness:1px}
+text-decoration:underline !important;text-underline-offset:0.18em;text-decoration-thickness:1px}
