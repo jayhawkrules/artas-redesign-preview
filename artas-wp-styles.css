@@ -278,3 +278,4 @@ details.asp-edition summary .asp-h3{margin:0 !important;font-family:Inter,sans-s
 details.asp-edition[open] .asp-edition-meta::after{content:" –"}
 details.asp-edition .asp-list{border:0;border-top:1px solid var(--border);border-radius:0 0 14px 14px}
 @media (max-width:600px){ul.asp-stats{grid-template-columns:repeat(3,1fr);gap:8px}ul.asp-stats li{padding:.8rem .7rem;text-align:center}.asp-stat-num{font-size:1.6rem}.asp-stat-label{font-size:.6rem;letter-spacing:.08em}}
+@media (min-width:601px){.asp-hero .hero-divider{margin-left:0 !important;margin-right:auto !important}.asp-hero .page-hero-subtitle{margin-left:0 !important;padding-left:0 !important;max-width:560px}}
