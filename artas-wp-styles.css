@@ -269,3 +269,12 @@ ul.asp-franchise a:hover{color:var(--gold) !important}
 ul.asp-links{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.6rem 1.5rem}
 ul.asp-links li{margin:0}
 @media (max-width:600px){.asp-hero{justify-content:center}.asp-hero .page-hero-content{text-align:center}.asp-logo{width:140px;height:140px}.asp-logo--type span{font-size:2.6rem}.asp-list li{flex-wrap:wrap;gap:.35rem .8rem}.asp-waitlist{padding:1.25rem}}
+details.asp-edition{margin-top:.75rem;border:1px solid var(--border);border-radius:14px;background:var(--bg-surface)}
+details.asp-edition summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1.1rem}
+details.asp-edition summary::-webkit-details-marker{display:none}
+details.asp-edition summary .asp-h3{margin:0 !important;font-family:Inter,sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.asp-edition-meta{font-size:.8rem;color:var(--text-muted)}
+.asp-edition-meta::after{content:" +";color:var(--gold)}
+details.asp-edition[open] .asp-edition-meta::after{content:" –"}
+details.asp-edition .asp-list{border:0;border-top:1px solid var(--border);border-radius:0 0 14px 14px}
+@media (max-width:600px){ul.asp-stats{grid-template-columns:repeat(3,1fr);gap:8px}ul.asp-stats li{padding:.8rem .7rem;text-align:center}.asp-stat-num{font-size:1.6rem}.asp-stat-label{font-size:.6rem;letter-spacing:.08em}}
