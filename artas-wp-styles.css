@@ -200,3 +200,72 @@ html body .site-primary-footer-wrap .ast-builder-html-element{ color:#9A9AA6 !im
 .artas-show-wrap p a:not([class]),.artas-show-wrap li a:not([class]),
 .artas-faq-wrap p a:not([class]),.artas-buzz-wrap p a:not([class]){
 text-decoration:underline !important;text-underline-offset:0.18em;text-decoration-thickness:1px}
+
+/* ===== ARTAS show pages (/shows/<slug>/) — artas-shows.php, 2026-09-22 ===== */
+.asp-wrap{max-width:860px;margin:0 auto;padding:0 20px 4rem}
+.asp-hero{display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
+.asp-hero .page-hero-content{flex:1 1 320px;text-align:left}
+.asp-logo{flex:0 0 auto;width:180px;height:180px;border-radius:20px;background:var(--bg-card);border:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.asp-logo img{width:100%;height:100%;object-fit:contain;padding:14px;box-sizing:border-box}
+.asp-logo--type{background:radial-gradient(circle at 30% 20%,rgba(212,168,83,.22),transparent 60%),var(--bg-card)}
+.asp-logo--type span{font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:3.4rem;letter-spacing:.04em;color:var(--gold)}
+p.asp-answer{font-size:1.12rem !important;line-height:1.7 !important;color:var(--text-primary) !important;border-left:3px solid var(--gold);padding:.25rem 0 .25rem 1.1rem;margin:2rem 0 1.5rem}
+p.asp-answer strong{color:var(--gold-light) !important;font-weight:600 !important}
+ul.asp-stats{list-style:none;margin:0 0 2.5rem;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+ul.asp-stats li{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;margin:0}
+.asp-stat-num{display:block;font-family:'Playfair Display',Georgia,serif;font-size:2.2rem;font-weight:800;color:var(--gold);line-height:1.1}
+.asp-stat-label{display:block;font-family:Inter,sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
+h2.asp-h2{font-size:clamp(1.5rem,3vw,2rem) !important;margin:2.75rem 0 1rem !important}
+h3.asp-h3{font-family:Inter,sans-serif !important;font-size:.78rem !important;font-weight:600 !important;letter-spacing:.14em;text-transform:uppercase;color:var(--gold) !important;margin:1.75rem 0 .6rem !important}
+ol.asp-list,ul.asp-list{list-style:none;margin:0;padding:0;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.asp-list li{display:flex;align-items:center;gap:1rem;padding:.85rem 1.1rem;margin:0;border-top:1px solid var(--border);background:var(--bg-surface)}
+.asp-list li:first-child{border-top:0}
+.asp-year{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:1.15rem;color:var(--gold);min-width:3.2rem}
+.asp-what{flex:1;color:var(--text-primary);font-size:.98rem}
+.asp-what strong{color:var(--text-primary) !important;font-weight:600 !important}
+.asp-note{color:var(--text-secondary);font-size:.88rem}
+.asp-note::before{content:"· "}
+.asp-ed{display:block;font-size:.78rem;color:var(--text-muted);margin-top:2px}
+.asp-badge{flex:0 0 auto;font-family:Inter,sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .6rem;border-radius:999px;border:1px solid var(--border-light);color:var(--text-muted)}
+.asp-badge--win{border-color:var(--gold-dim);color:var(--gold);background:rgba(212,168,83,.08)}
+.asp-badge--live{border-color:var(--rose-dim);color:var(--rose-light);background:var(--rose-glow)}
+p.asp-more{margin:.8rem 0 0 !important;text-align:right}
+p.asp-more a,.asp-cta-row a:not(.asp-btn){font-size:.8rem !important;letter-spacing:.08em;text-transform:uppercase;color:var(--gold) !important}
+.asp-current{margin-top:2.5rem;padding:1.5rem;border-radius:16px;border:1px dashed var(--gold-dim);background:rgba(212,168,83,.04)}
+.asp-current h2.asp-h2{margin-top:0 !important}
+.asp-waitlist{margin:2.5rem 0;padding:1.75rem;border-radius:18px;background:var(--bg-card);border:1px solid var(--border-light)}
+.asp-waitlist h2.asp-h2{margin-top:0 !important}
+p.asp-waitlist-lede{margin:0 0 1.25rem !important}
+.asp-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.asp-field span{display:block;font-size:.78rem;letter-spacing:.06em;color:var(--text-secondary);margin-bottom:.35rem}
+.asp-field em{color:var(--text-muted);font-style:normal}
+.asp-field input{width:100%;box-sizing:border-box;padding:.8rem .9rem !important;border-radius:10px !important;border:1px solid var(--border-light) !important;background:var(--bg-primary) !important;color:var(--text-primary) !important;font-size:1rem !important}
+.asp-field input:focus{outline:none;border-color:var(--gold-dim) !important;box-shadow:0 0 0 3px rgba(212,168,83,.15)}
+label.asp-consent{display:flex;gap:.6rem;align-items:flex-start;margin:1rem 0 0;font-size:.76rem !important;line-height:1.55 !important;color:var(--text-muted) !important;cursor:pointer}
+label.asp-consent input{margin-top:.2rem;flex-shrink:0;accent-color:var(--gold)}
+label.asp-consent a{color:var(--gold) !important}
+.asp-hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;opacity:0}
+.asp-btn,a.asp-btn{display:inline-block;margin-top:1.25rem;padding:.9rem 1.6rem;border:0;border-radius:10px;background:var(--gold);color:#0D0D12 !important;font-family:Inter,sans-serif;font-weight:600;font-size:.95rem;letter-spacing:.02em;cursor:pointer;transition:background .2s}
+.asp-btn:hover,a.asp-btn:hover{background:var(--gold-light);color:#0D0D12 !important}
+.asp-btn:disabled{opacity:.6;cursor:wait}
+p.asp-status{margin:.9rem 0 0 !important;font-size:.9rem !important;min-height:1.2em}
+p.asp-status--ok{color:#8FD19E !important}
+p.asp-status--warn{color:var(--gold-light) !important}
+p.asp-status--error{color:#F08A8A !important}
+ul.asp-franchise{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+ul.asp-franchise li{margin:0;padding:1rem 1.1rem;border-radius:14px;background:var(--bg-surface);border:1px solid var(--border)}
+ul.asp-franchise a,.asp-franchise-name{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:1.05rem;color:var(--text-primary) !important}
+ul.asp-franchise a:hover{color:var(--gold) !important}
+.asp-franchise-meta{display:block;margin-top:.3rem;font-size:.8rem;color:var(--text-muted)}
+.asp-faq details{border-top:1px solid var(--border);padding:.2rem 0}
+.asp-faq details:last-child{border-bottom:1px solid var(--border)}
+.asp-faq summary{cursor:pointer;list-style:none;padding:.95rem 2rem .95rem 0;position:relative;font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:1.05rem;color:var(--text-primary)}
+.asp-faq summary::-webkit-details-marker{display:none}
+.asp-faq summary::after{content:"+";position:absolute;right:.2rem;top:.8rem;color:var(--gold);font-size:1.3rem}
+.asp-faq details[open] summary::after{content:"–"}
+.asp-faq details p{margin:0 0 1rem !important}
+.asp-about p{font-size:1rem !important;line-height:1.75 !important}
+.asp-about a,.asp-links a{color:var(--gold) !important}
+ul.asp-links{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.6rem 1.5rem}
+ul.asp-links li{margin:0}
+@media (max-width:600px){.asp-hero{justify-content:center}.asp-hero .page-hero-content{text-align:center}.asp-logo{width:140px;height:140px}.asp-logo--type span{font-size:2.6rem}.asp-list li{flex-wrap:wrap;gap:.35rem .8rem}.asp-waitlist{padding:1.25rem}}
