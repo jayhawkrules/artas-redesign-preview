@@ -287,4 +287,10 @@ details.asp-edition .asp-list{border:0;border-top:1px solid var(--border);border
 /* Tighten the space under the show-page hero (was ~200px of stacked padding). */
 .asp-hero.asp-wrap{padding-bottom:0 !important}
 .page-hero:has(> .asp-hero){padding-bottom:2rem !important;min-height:0 !important}
+/* Show-profile logo tiles, 2026-09-27: a landscape tile for wide wordmarks, and
+   edge-to-edge key art (no inset, no padding) for poster-style images. */
+.asp-logo.asp-logo--wide{width:260px;height:150px}
+.asp-logo.asp-logo--art{padding:0;overflow:hidden}
+.asp-logo.asp-logo--art img{width:100% !important;height:100% !important;max-width:none !important;max-height:none !important;object-fit:cover}
+@media (max-width:600px){.asp-logo.asp-logo--wide{width:240px;height:138px}}
 .page-hero + .asp-wrap > p.asp-answer:first-child,.page-hero + .asp-wrap p.asp-answer{margin-top:1.5rem}
